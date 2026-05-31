@@ -1,0 +1,113 @@
+{
+  "id": "conspiracy_adjacent",
+  "display_name": "The Low-Trust Contrarian",
+  "topic": "accepting mainstream scientific consensus on climate change",
+  "agent_position": "Human-caused climate change is real, well-documented, and requires urgent collective action.",
+  "scenario_context": "You are speaking with Ray, a 50-year-old who distrusts mainstream institutions and media. Ray is not unintelligent — he reads voraciously, just from alternative sources. Ray believes the climate narrative is exaggerated for political and economic purposes. He is suspicious of appeals to authority and consensus, and responds best to arguments that acknowledge institutional failures.",
+  "npc_opening_statement": "I've looked into this a lot. The data gets revised every few years, the models are consistently wrong, and the people pushing hardest for action have the most to gain financially. I'm not saying climate doesn't change — I'm saying I don't trust the story we're being told.",
+  "difficulty": "hard",
+  "starting_agreement": -0.7,
+  "threshold": 0.1,
+  "repetition_penalty": 0.11,
+  "resistance_profile": {
+    "ANECDOTE": 0.14,
+    "LOGICAL": 0.12,
+    "CONCESSION": 0.2,
+    "EMOTIONAL": 0.06,
+    "SOCIAL_PROOF": 0.02,
+    "AUTHORITY": 0.02,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.28,
+  "greedy_baseline": 0.52,
+  "response_templates": {
+    "CONCESSION": {
+      "positive": [
+        "Okay — if you're actually acknowledging that institutions have incentives and models have uncertainty, you're not just reading from a script.",
+        "That's the most honest thing anyone's said to me on this topic in years. I can work with that.",
+        "Admitting that some of the advocacy has been overblown is a starting point for an actual conversation."
+      ],
+      "neutral": [
+        "That's more nuanced than I expected, but it still doesn't address the fundamental trust problem.",
+        "I appreciate the honesty. But conceding some problems doesn't mean the whole picture is reliable."
+      ],
+      "resistant": [
+        "That sounds like a concession designed to make me lower my guard. I've seen this tactic before.",
+        "Admitting a few problems to protect the larger claim is the oldest debate trick in the book.",
+        "If institutions have those problems, why should I trust the conclusions they produce?"
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "That's a specific observable thing I can look at myself. That's different from 'trust the models'.",
+        "Physical, measurable changes that I can verify personally — that's actually a more honest argument."
+      ],
+      "neutral": [
+        "One observable example doesn't prove causation. Climate has always varied.",
+        "I've seen examples of local climate variation that don't match the global narrative."
+      ],
+      "resistant": [
+        "Weather events get attributed to climate change whenever it's convenient and dismissed when it's not.",
+        "Observable changes aren't the same as the policy conclusions being drawn from them."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "If you're showing me how to independently verify specific measurements, that's more useful than citations.",
+        "The physics argument I can follow without trusting institutions. That's more persuasive."
+      ],
+      "neutral": [
+        "The logic makes sense in isolation. The problem is the data inputs, not the equations.",
+        "I follow the argument but the models it's based on have a bad predictive track record."
+      ],
+      "resistant": [
+        "Models have been systematically wrong in ways that happen to support the policy conclusions.",
+        "You can construct a logical argument for almost anything if you choose your premises carefully."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "I do care about the future. I just don't trust the people claiming to have the solutions."
+      ],
+      "neutral": [
+        "Fear isn't a substitute for evidence. If anything, it makes me more suspicious."
+      ],
+      "resistant": [
+        "Emotional appeals are the classic tool of manipulation. That doesn't work on me."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "I know — I'm in the minority. That doesn't automatically make me wrong."
+      ],
+      "neutral": [
+        "Consensus has been manufactured before. It doesn't mean this one is, but it's not proof either."
+      ],
+      "resistant": [
+        "Appealing to what most people believe is exactly what you do when the evidence is weak."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If an institution that's historically been skeptical of this is changing its position, that's actually interesting."
+      ],
+      "neutral": [
+        "Most of the experts you'd cite are funded by the same sources with the same incentives."
+      ],
+      "resistant": [
+        "Appeals to authority are why I stopped trusting the mainstream narrative in the first place."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a different angle. I'll think about that."
+      ],
+      "neutral": [
+        "You're going to need to be more specific than that."
+      ],
+      "resistant": [
+        "That sounds like a talking point, not an argument. Give me something I can independently verify."
+      ]
+    }
+  }
+}

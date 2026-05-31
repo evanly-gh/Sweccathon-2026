@@ -1,0 +1,118 @@
+{
+  "id": "skeptical_patient",
+  "display_name": "The Skeptical Patient",
+  "topic": "taking a prescribed statin medication for high cholesterol",
+  "agent_position": "You should follow your doctor's recommendation and start the prescribed statin medication.",
+  "scenario_context": "You are speaking with Linda, a 52-year-old who has researched statins extensively online and is worried about side effects, particularly muscle pain and cognitive decline. Linda trusts her doctor but has read conflicting information and is not convinced the benefits outweigh the risks for someone at her risk level.",
+  "npc_opening_statement": "My doctor says I should take it but I've read a lot about muscle pain and memory problems. My cholesterol isn't that high — I'm borderline. I'd rather try diet and exercise first. Why is the medication necessary at this stage?",
+  "difficulty": "easy",
+  "starting_agreement": -0.3,
+  "threshold": 0.3,
+  "repetition_penalty": 0.08,
+  "resistance_profile": {
+    "LOGICAL": 0.2,
+    "ANECDOTE": 0.18,
+    "AUTHORITY": 0.16,
+    "CONCESSION": 0.14,
+    "EMOTIONAL": 0.1,
+    "SOCIAL_PROOF": 0.08,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 1.87,
+  "response_templates": {
+    "LOGICAL": {
+      "positive": [
+        "The absolute risk reduction numbers are actually more meaningful to me than the relative ones the ads use. That's helpful.",
+        "If the NNT is that low for my specific risk profile, the calculation looks different than I thought.",
+        "Okay — the cardiovascular event prevention data is stronger than I realized for borderline cases."
+      ],
+      "neutral": [
+        "The population statistics are useful but I'd want to know how they apply to someone my age and health profile.",
+        "I've seen the same studies interpreted very differently by different doctors."
+      ],
+      "resistant": [
+        "The studies show benefits but they also show side effects that get downplayed.",
+        "Population averages don't tell me what will happen to me specifically."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "Hearing that someone who had similar concerns took it and had no side effects while seeing real improvement — that's useful.",
+        "If a close example of someone like me benefited without the problems I'm worried about, I feel better about trying it."
+      ],
+      "neutral": [
+        "One person's experience is hard to generalize. People respond differently.",
+        "I've also heard from people who had real problems with statins."
+      ],
+      "resistant": [
+        "For every person who had no side effects, someone else had debilitating muscle pain.",
+        "Anecdotes cut both ways — mine are from people who stopped because of problems."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If my cardiologist specifically reviewed my numbers and still recommends it, that's more targeted than general guidelines.",
+        "When the cardiology society's guidelines specifically address borderline cases like mine, that's meaningful."
+      ],
+      "neutral": [
+        "My doctor recommended it but hasn't fully addressed my concerns about the specific side effects I read about.",
+        "Professional guidelines are often conservative and don't account for individual variation."
+      ],
+      "resistant": [
+        "Doctors don't always have time to read everything patients bring in from their own research.",
+        "Guidelines can lag behind newer research on side effects."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I appreciate that you're acknowledging the side effects are real and not just my imagination.",
+        "If you're genuinely saying diet and exercise should come first and medication is a second step, that's a reasonable approach."
+      ],
+      "neutral": [
+        "Fair that there are real trade-offs. The question is where I fall on the risk curve.",
+        "Acknowledging the risks is helpful — now tell me what my individual risk level actually means for me."
+      ],
+      "resistant": [
+        "Admitting there are side effects doesn't help me decide whether to take the risk.",
+        "I know there are trade-offs. I need help weighing them for my situation."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "When you put it in terms of being around for my kids long-term — yes, that does change how I weigh the trade-offs.",
+        "The framing of 'what am I actually risking by waiting' is more useful than 'the drug is safe'."
+      ],
+      "neutral": [
+        "Of course I want to be healthy. The question is which path gets me there with fewer downsides.",
+        "I'm making this decision because I care about my health, not despite it."
+      ],
+      "resistant": [
+        "Don't use my family as a rhetorical device to pressure me into taking medication.",
+        "Fear-based arguments about worst-case scenarios aren't helpful. I need facts."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If most patients at my risk level who tried it saw improvement without major side effects, that shifts the picture."
+      ],
+      "neutral": [
+        "What percentage had side effects significant enough to stop? That matters too."
+      ],
+      "resistant": [
+        "Most patients being prescribed it doesn't mean it's right for my situation."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a useful way to think about it."
+      ],
+      "neutral": [
+        "Can you be more specific about how this applies to my borderline case?"
+      ],
+      "resistant": [
+        "You're not addressing the side effect concern directly. That's my main worry."
+      ]
+    }
+  }
+}

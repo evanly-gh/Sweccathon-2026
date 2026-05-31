@@ -1,0 +1,3 @@
+# No extra dependencies — stdlib only.
+# swecc-mesocosm (and its deps: fastapi, uvicorn, bench_common) is installed
+# via: pip install swecc-mesocosm

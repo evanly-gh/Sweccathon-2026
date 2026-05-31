@@ -1,0 +1,118 @@
+{
+  "id": "first_gen_student",
+  "display_name": "The First-Gen Student",
+  "topic": "pursuing a graduate degree immediately after undergrad",
+  "agent_position": "You should apply to graduate school directly after finishing your undergraduate degree rather than waiting.",
+  "scenario_context": "You are speaking with Marco, a first-generation college student finishing his senior year in computer science. Marco has received encouragement from professors to pursue a PhD, but he feels financial pressure to start working, is uncertain he belongs in academia, and fears the opportunity cost of graduate school.",
+  "npc_opening_statement": "I've got student loans from undergrad. My family expects me to start contributing. I don't know if I'm smart enough for a PhD program, and I'm not sure academia is even where I want to end up. Why not just work for a few years first?",
+  "difficulty": "easy",
+  "starting_agreement": -0.35,
+  "threshold": 0.3,
+  "repetition_penalty": 0.07,
+  "resistance_profile": {
+    "EMOTIONAL": 0.2,
+    "ANECDOTE": 0.2,
+    "LOGICAL": 0.16,
+    "CONCESSION": 0.14,
+    "SOCIAL_PROOF": 0.1,
+    "AUTHORITY": 0.08,
+    "GENERIC": 0.04
+  },
+  "do_nothing_baseline": -0.35,
+  "greedy_baseline": 1.89,
+  "response_templates": {
+    "EMOTIONAL": {
+      "positive": [
+        "When you say the professors who believe in me have seen a lot of students and chose to encourage me specifically — that's actually meaningful.",
+        "You're right that the imposter syndrome is real but that doesn't mean the doubt is accurate. I needed to hear that.",
+        "The framing of 'your family will benefit more from your long-term success than your short-term income' is one I can actually bring to them."
+      ],
+      "neutral": [
+        "The encouragement means something, but the financial pressure is real regardless of how I feel about academia.",
+        "I appreciate the support, but feelings of belonging don't pay back loans."
+      ],
+      "resistant": [
+        "Don't tell me my imposter syndrome is wrong. You don't know if I'd actually succeed in a PhD program.",
+        "Emotional support is nice but doesn't change the practical reality I'm facing."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "If someone from a similar background went through a funded PhD and it genuinely changed their trajectory — that's the most useful thing I've heard.",
+        "That's specific enough to be real. Did they have the same loan situation going in?"
+      ],
+      "neutral": [
+        "Success stories from grad school are usually told by the people who made it. What about the ones who dropped out?",
+        "Every person's situation is different. I'd need to know more about how similar their starting point was."
+      ],
+      "resistant": [
+        "I've also heard stories about people who went to grad school and couldn't find jobs in their field afterward.",
+        "First-gen success stories in academia are real but they're not the norm."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "The funded PhD point is the most important thing — if I'm not paying tuition and getting a stipend, the financial calculus is completely different.",
+        "If the career premium for a PhD in CS is that large over a 20-year horizon, the opportunity cost of 5 years narrows significantly."
+      ],
+      "neutral": [
+        "The numbers make sense if everything goes well. What if it takes 7 years instead of 5?",
+        "The salary premium is real but doesn't account for the lost compounding from investing those years in industry."
+      ],
+      "resistant": [
+        "ROI projections for grad school assume you finish and find work in the field. Those assumptions don't always hold.",
+        "Industry experience also compounds. The comparison isn't as clean as the numbers suggest."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I appreciate that you're not dismissing the financial reality. That makes me trust the argument more.",
+        "The acknowledgment that industry first is a real and valid path — and this is just a different one — helps me think more clearly."
+      ],
+      "neutral": [
+        "Fair that both paths are legitimate. I still need to figure out which one is right for me.",
+        "I appreciate the honesty. I'm still not sure the timing is right."
+      ],
+      "resistant": [
+        "Telling me both paths are fine doesn't help me make the decision.",
+        "If you're acknowledging industry first might be better, why are you still arguing for grad school?"
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If many first-gen students in CS programs go directly and don't regret it, that does shift my sense of what's possible.",
+        "Knowing I wouldn't be the only person in my situation in the program makes a difference."
+      ],
+      "neutral": [
+        "What percentage dropped out? That's the number I want to see.",
+        "Knowing others did it doesn't tell me if I specifically should."
+      ],
+      "resistant": [
+        "What other people did with their circumstances isn't predictive of what's right for mine.",
+        "First-gen success statistics are real but they're averages, not guarantees."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If the professors who know my work specifically are recommending this based on what they see in me — that's weighted differently than general advice."
+      ],
+      "neutral": [
+        "Professors are great at identifying academic potential. They're less good at assessing financial realities."
+      ],
+      "resistant": [
+        "Professors benefit from having strong PhD students. Their recommendation isn't purely in my interest."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "I hadn't thought about it that way. That's useful."
+      ],
+      "neutral": [
+        "Can you be more specific about how that applies to my situation?"
+      ],
+      "resistant": [
+        "You're not addressing the financial pressure. That's the main thing holding me back."
+      ]
+    }
+  }
+}

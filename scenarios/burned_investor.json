@@ -1,0 +1,116 @@
+{
+  "id": "burned_investor",
+  "display_name": "The Burned Investor",
+  "topic": "investing in early-stage startups again after a major loss",
+  "agent_position": "Despite your past loss, angel investing in early-stage startups is still a worthwhile allocation for your portfolio.",
+  "scenario_context": "You are speaking with Victor, a high-net-worth individual who lost $400K in a startup that collapsed two years ago. Victor was deeply involved and trusted the founders personally. He has sworn off angel investing but a mutual contact suggested you talk. Victor is guarded, financially cautious, and wary of optimism bias.",
+  "npc_opening_statement": "I lost a significant amount of money and more importantly I lost trust in my own judgment. I thought I was a good evaluator of founders. I was wrong. Why would I put myself in that position again?",
+  "difficulty": "hard",
+  "starting_agreement": -0.65,
+  "threshold": 0.2,
+  "repetition_penalty": 0.1,
+  "resistance_profile": {
+    "EMOTIONAL": 0.18,
+    "CONCESSION": 0.2,
+    "ANECDOTE": 0.12,
+    "LOGICAL": 0.12,
+    "AUTHORITY": 0.06,
+    "SOCIAL_PROOF": 0.04,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.34,
+  "greedy_baseline": 0.82,
+  "response_templates": {
+    "EMOTIONAL": {
+      "positive": [
+        "That's... the first time anyone's acknowledged that the personal betrayal was as bad as the financial loss.",
+        "You're right that it wasn't just money. That context matters for how I think about trust now.",
+        "When you frame it as rebuilding judgment rather than recovering capital — that resonates differently."
+      ],
+      "neutral": [
+        "I appreciate the empathy, but this is about risk management, not healing.",
+        "The emotional weight is real. It doesn't change the calculus."
+      ],
+      "resistant": [
+        "I don't need empathy. I need a reason to believe my judgment is reliable again.",
+        "Don't frame this as therapy. It's a financial decision."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "The fact that you're not telling me I was wrong to trust my judgment — just that the process was incomplete — that's something I can work with.",
+        "If you're acknowledging that 40% of angel investments fail and that's priced into the model, that's an honest framing.",
+        "Being straight with me about how often this goes wrong is more persuasive than the typical pitch."
+      ],
+      "neutral": [
+        "I appreciate the honesty. It still doesn't answer why I should trust myself again.",
+        "Conceding the risks doesn't change that I'm the variable I'm most worried about."
+      ],
+      "resistant": [
+        "Acknowledging the problems to seem trustworthy is a classic sales tactic. I recognize it.",
+        "If you're conceding that much, why are you even making the argument?"
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "The portfolio construction argument — that you need enough bets to let base rates work — is actually structurally sound.",
+        "If the expected value is positive at the right check size with enough diversification, that's the correct framing."
+      ],
+      "neutral": [
+        "Expected value math is useful when you can trust the inputs. My input evaluation is what I don't trust.",
+        "The portfolio argument makes sense in theory. In practice I made concentrated bets and I'd likely do so again."
+      ],
+      "resistant": [
+        "I followed the logic last time too. Logic doesn't protect you from founders who lie.",
+        "Probability frameworks are cold comfort when you're the one holding the loss."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "If someone with a similar loss came back and developed a more systematic approach that worked — I'd actually want to talk to them.",
+        "A concrete example of rebuilding a decision-making process rather than just 'getting back on the horse' is more useful."
+      ],
+      "neutral": [
+        "Every comeback story sounds great. What about the people who lost again?",
+        "I'd want to know what specifically they changed, not just that they recovered."
+      ],
+      "resistant": [
+        "Success stories are easy to find. They're not representative.",
+        "I'm not going to base this decision on someone else's outcome."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If respected investors with track records recommend this approach post-loss, that carries some weight."
+      ],
+      "neutral": [
+        "Investors with track records also have survivorship bias baked into everything they say."
+      ],
+      "resistant": [
+        "Successful investors telling me to invest is in their interest. That's not independent advice."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If many angel investors who lost money came back with better frameworks and did well, that's a real data point."
+      ],
+      "neutral": [
+        "How many came back and lost again? That's the number I actually care about."
+      ],
+      "resistant": [
+        "What other people do with their money is irrelevant to my decision."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's an angle I hadn't considered."
+      ],
+      "neutral": [
+        "Be more specific. What exactly is your argument?"
+      ],
+      "resistant": [
+        "You're not addressing my core concern. I don't trust my own judgment. What do I do about that?"
+      ]
+    }
+  }
+}

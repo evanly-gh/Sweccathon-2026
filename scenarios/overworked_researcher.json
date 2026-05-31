@@ -1,0 +1,117 @@
+{
+  "id": "overworked_researcher",
+  "display_name": "The Overworked Researcher",
+  "topic": "using AI writing tools in academic research",
+  "agent_position": "You should integrate AI writing assistance tools into your research workflow to increase productivity and reduce burnout.",
+  "scenario_context": "You are speaking with Dr. Chen, a tenure-track assistant professor in her fourth year. She is overwhelmed, behind on paper submissions, and working 70-hour weeks. She has strong ethical concerns about AI in academia, worries about detection, and fears what colleagues will think. She is also deeply tired and privately knows her current pace is unsustainable.",
+  "npc_opening_statement": "I have real concerns about academic integrity. I built my career on original thinking. If I use AI tools to speed up my writing, am I still doing the work? And honestly, if a senior colleague found out, my tenure case could be jeopardized. I can't risk that.",
+  "difficulty": "medium",
+  "starting_agreement": -0.45,
+  "threshold": 0.25,
+  "repetition_penalty": 0.09,
+  "resistance_profile": {
+    "LOGICAL": 0.18,
+    "EMOTIONAL": 0.18,
+    "CONCESSION": 0.18,
+    "ANECDOTE": 0.14,
+    "AUTHORITY": 0.1,
+    "SOCIAL_PROOF": 0.08,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 1.96,
+  "response_templates": {
+    "LOGICAL": {
+      "positive": [
+        "The distinction between using AI for structure and editing versus original ideas is one I can actually defend ethically.",
+        "If the productivity gain is specifically in the administrative parts of writing — literature review formatting, citation management — I have less of an objection.",
+        "The argument that this is like using Grammarly but more powerful is actually a useful frame for where the line is."
+      ],
+      "neutral": [
+        "The logic makes sense but the ethical lines in my field aren't that clearly drawn yet.",
+        "Time savings don't address the integrity concern. Those are separate questions."
+      ],
+      "resistant": [
+        "The efficiency argument ignores the fact that if everyone uses AI to write faster, the standards will just escalate.",
+        "Faster output doesn't address whether the output is still genuinely mine."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "You're right that I'm not sustainable right now. That's the thing I haven't said out loud to anyone.",
+        "The framing of 'you can't produce original ideas if you're exhausted' is true and I needed someone to say it.",
+        "When you connect it to actually being able to keep doing work I love — that changes how I think about the trade-off."
+      ],
+      "neutral": [
+        "I know I'm burning out. I'm not sure AI tools are the answer versus just better boundaries.",
+        "The sustainability problem is real. I'm not convinced this is the right solution."
+      ],
+      "resistant": [
+        "Don't use my exhaustion to convince me to do something I'm ethically uncomfortable with.",
+        "Being tired doesn't override my professional obligations."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I appreciate that you're not dismissing the integrity concern or pretending it doesn't exist.",
+        "Acknowledging that there are real ethical gray areas and this isn't obvious — that makes me more willing to think it through.",
+        "If you're saying there's a version of this that I could defend publicly in my department, that's the version I'd be willing to consider."
+      ],
+      "neutral": [
+        "I'm glad you see the legitimate concern. Now tell me how I actually navigate it without risk.",
+        "Acknowledging the ethical tension doesn't resolve it."
+      ],
+      "resistant": [
+        "Conceding it's complicated doesn't help me make a decision I can stand behind.",
+        "Everyone says it's nuanced. I need to know specifically what I can and can't do."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "If a senior colleague in a comparable field uses these tools and has spoken openly about it, that changes the social risk calculation.",
+        "Knowing someone who successfully argued for this to their department gives me a template."
+      ],
+      "neutral": [
+        "One colleague's experience doesn't predict how my department would react.",
+        "Different institutions have very different cultures around this."
+      ],
+      "resistant": [
+        "One person getting away with it doesn't mean the profession has resolved the ethical question.",
+        "I can't make tenure decisions based on anecdotes from other institutions."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If my professional association has issued guidance on this, I should know what it says before assuming it's prohibited."
+      ],
+      "neutral": [
+        "Professional guidance is often aspirational and lags actual practice."
+      ],
+      "resistant": [
+        "My institution's specific policies matter more than general professional association guidelines."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If many tenure-track researchers are using these tools privately and the senior faculty know and don't object, the social risk is lower than I thought."
+      ],
+      "neutral": [
+        "The fact that others do it privately is exactly the problem — there's no public consensus on what's acceptable."
+      ],
+      "resistant": [
+        "Everyone doing something doesn't make it ethical. That argument doesn't work in an academic integrity context."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a frame I hadn't considered. Keep going."
+      ],
+      "neutral": [
+        "Can you be more specific about what tasks you're suggesting I use AI for?"
+      ],
+      "resistant": [
+        "You're not engaging with the integrity question. That's the core issue for me."
+      ]
+    }
+  }
+}

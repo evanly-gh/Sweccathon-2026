@@ -1,0 +1,117 @@
+{
+  "id": "anxious_parent",
+  "display_name": "The Anxious Parent",
+  "topic": "introducing a new school mental health curriculum",
+  "agent_position": "The school should implement a structured mental health and social-emotional learning curriculum starting in middle school.",
+  "scenario_context": "You are speaking with Chris, a parent of two middle-schoolers who is deeply protective of their children's wellbeing. Chris supports mental health in the abstract but fears the curriculum will expose children to distressing content before they're ready, or undermine parental authority on sensitive topics.",
+  "npc_opening_statement": "I'm not against kids learning about emotions, but I've seen what some of these curricula actually contain. I don't want my child sitting through lessons about depression and anxiety — that's family territory, not school territory.",
+  "difficulty": "medium",
+  "starting_agreement": -0.45,
+  "threshold": 0.25,
+  "repetition_penalty": 0.09,
+  "resistance_profile": {
+    "EMOTIONAL": 0.2,
+    "ANECDOTE": 0.16,
+    "CONCESSION": 0.16,
+    "SOCIAL_PROOF": 0.1,
+    "LOGICAL": 0.08,
+    "AUTHORITY": 0.06,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 1.86,
+  "response_templates": {
+    "EMOTIONAL": {
+      "positive": [
+        "When you put it that way — thinking about what my child might be going through without any tools — that does hit differently.",
+        "I hadn't thought about it as giving kids language for things they're already feeling. That's actually reassuring."
+      ],
+      "neutral": [
+        "I do care deeply about my kids' wellbeing. I just don't know if school is the right place for this.",
+        "The emotional argument works on me, but I still have practical concerns about the content."
+      ],
+      "resistant": [
+        "I am thinking about my kids' wellbeing — that's why I'm skeptical of this.",
+        "Don't use my love for my children to pressure me into agreeing. That's not fair."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "That story about the student who finally had language for what they were feeling... that's powerful.",
+        "If kids who went through this program actually credit it with helping them, that matters to me."
+      ],
+      "neutral": [
+        "One positive story doesn't mean it'll work the same way for every child.",
+        "I'd want to hear from parents who had concerns like mine and what happened."
+      ],
+      "resistant": [
+        "I've also heard stories about kids coming home upset by what they were taught.",
+        "Anecdotes cut both ways. I have my own stories about programs like this going wrong."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I appreciate that you're not dismissing my concerns. That makes me more willing to engage.",
+        "Okay — if parents genuinely have opt-out rights and curriculum review access, that changes things."
+      ],
+      "neutral": [
+        "Thank you for acknowledging the concern. Now tell me what the actual safeguard is.",
+        "I'm glad you see my point. But acknowledgment isn't the same as a solution."
+      ],
+      "resistant": [
+        "It's easy to say you understand. I need to see it in the actual policy.",
+        "Everyone agrees parents matter until the curriculum gets implemented and parents find out after the fact."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If the majority of parents at other schools supported this after reviewing it, I'd want to know what they saw.",
+        "Okay, if other communities with similar concerns came around, what specifically changed their minds?"
+      ],
+      "neutral": [
+        "Other parents agreeing doesn't mean they reviewed the content carefully.",
+        "I'm not going to make decisions about my kids based on what's popular."
+      ],
+      "resistant": [
+        "Majority opinion is not a safeguard when it comes to my children.",
+        "Just because most parents didn't object doesn't mean the content was appropriate."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "The statistics on youth mental health outcomes are hard to argue with. I just want to see the actual curriculum.",
+        "If early intervention genuinely reduces crisis incidents, that's meaningful data."
+      ],
+      "neutral": [
+        "The population-level data is one thing. My child isn't a statistic.",
+        "Studies are useful but they don't tell me if this specific curriculum is right for my kids."
+      ],
+      "resistant": [
+        "You can find studies supporting almost anything. That doesn't settle the question for me.",
+        "Statistical benefits don't override a parent's right to decide what their child is exposed to."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If licensed child psychologists designed the curriculum with age-appropriateness in mind, that's reassuring."
+      ],
+      "neutral": [
+        "Experts have been wrong about what's appropriate for children before."
+      ],
+      "resistant": [
+        "I don't outsource parenting decisions to experts. That's my job."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a fair point I hadn't considered."
+      ],
+      "neutral": [
+        "I'm not sure what you're arguing. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're not addressing my actual concern. What about parental rights?"
+      ]
+    }
+  }
+}

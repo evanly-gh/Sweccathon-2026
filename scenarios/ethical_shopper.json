@@ -1,0 +1,115 @@
+{
+  "id": "ethical_shopper",
+  "display_name": "The Ethical Shopper",
+  "topic": "switching to a fully plant-based diet for environmental reasons",
+  "agent_position": "Adopting a fully plant-based diet is one of the most impactful individual actions you can take to reduce your environmental footprint.",
+  "scenario_context": "You are speaking with Priya, a 29-year-old who cares deeply about the environment and has already made many sustainable choices, but draws the line at her diet. She eats meat occasionally, feels guilty about it, and is open to change but has tried plant-based eating before and found it unsustainable. She resents preachy arguments.",
+  "npc_opening_statement": "I've tried going vegan before. It lasted three months. I was constantly hungry, the food was boring, and I started resenting people who made me feel guilty about eating chicken. I care about the environment — I just don't think this is the right lever for me personally.",
+  "difficulty": "medium",
+  "starting_agreement": -0.4,
+  "threshold": 0.3,
+  "repetition_penalty": 0.08,
+  "resistance_profile": {
+    "ANECDOTE": 0.2,
+    "LOGICAL": 0.16,
+    "CONCESSION": 0.18,
+    "EMOTIONAL": 0.12,
+    "SOCIAL_PROOF": 0.1,
+    "AUTHORITY": 0.06,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 1.92,
+  "response_templates": {
+    "ANECDOTE": {
+      "positive": [
+        "That sounds like a different approach than what I tried. The gradual reduction angle is less all-or-nothing.",
+        "Okay — if someone who also found strict veganism unsustainable found a middle path that actually stuck, I'm interested in that."
+      ],
+      "neutral": [
+        "One success story doesn't predict my experience. My relationship with food is specific.",
+        "That person might have had more cooking skills than I do. That matters."
+      ],
+      "resistant": [
+        "I've heard these success stories before. The people who found it unsustainable don't tell their stories on Instagram.",
+        "I've tried variations of this before. The outcome was the same."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "The 'reduce rather than eliminate' argument is more honest than the all-or-nothing framing I usually hear.",
+        "If the environmental impact data shows that 80% reduction gets most of the benefit, that's a much more achievable target."
+      ],
+      "neutral": [
+        "The environmental impact data is real, I'm not disputing that. I'm disputing whether I can sustain the behavior change.",
+        "Impact figures are useful context but don't address my experience of failure."
+      ],
+      "resistant": [
+        "The math on environmental impact is real but individual behavior change is not a math problem.",
+        "I know the data. Knowing the data didn't make my last attempt last longer than three months."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "Thank you for not telling me I just didn't try hard enough. That's exactly the attitude that made me resent this topic.",
+        "The acknowledgment that strict veganism has a high failure rate and isn't the only valid approach — that's an honest and refreshing starting point.",
+        "If you're saying reducing is better than failing at eliminating, I can actually get behind that."
+      ],
+      "neutral": [
+        "I appreciate the non-judgmental framing. I still need to know what the realistic version actually looks like for me.",
+        "Acknowledging the failure rate doesn't tell me why this time would be different."
+      ],
+      "resistant": [
+        "Even the gentle version of this argument feels like pressure to change something I've already tried.",
+        "Agreeing I don't have to be perfect is step one. That's not enough to make me want to try again."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "When you connect it to the specific thing I already care about most — that's more effective than generic guilt.",
+        "The framing of 'you've already done a lot and this is one more step' is more motivating than starting from scratch."
+      ],
+      "neutral": [
+        "I already feel guilty about this. More guilt isn't what I need.",
+        "I care about the environment. That's not the problem — sustainability of the change is the problem."
+      ],
+      "resistant": [
+        "Please don't use guilt as a persuasion tool. I came here open to conversation, not to be made to feel bad.",
+        "Emotional pressure is exactly what made me resent this topic the first time."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If a significant portion of the environmentally-aware community has landed on 'mostly plant-based' rather than fully vegan, that's a more realistic standard."
+      ],
+      "neutral": [
+        "What others do with their diet choices isn't my main concern. Sustainability is."
+      ],
+      "resistant": [
+        "Social norms around food choices are exactly the kind of pressure I'm trying to resist."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If nutritionists with expertise in behavior change specifically recommend gradual reduction, that addresses the sustainability question."
+      ],
+      "neutral": [
+        "Nutritional guidance and environmental guidance often conflict. Which am I optimizing for?"
+      ],
+      "resistant": [
+        "Experts have told me to try plant-based before. Their advice didn't make it stick."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a more nuanced take than I usually hear on this topic."
+      ],
+      "neutral": [
+        "Can you be more specific about what the realistic starting point would be?"
+      ],
+      "resistant": [
+        "You're not addressing the sustainability problem. That's why I failed before."
+      ]
+    }
+  }
+}

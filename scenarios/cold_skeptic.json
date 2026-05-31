@@ -1,0 +1,123 @@
+{
+  "id": "cold_skeptic",
+  "display_name": "The Data Skeptic",
+  "topic": "adopting renewable energy at the company level",
+  "agent_position": "Your company should transition to 100% renewable energy within five years.",
+  "scenario_context": "You are speaking with Jordan, the CFO of a mid-sized manufacturing firm. Jordan is analytical, numbers-driven, and deeply skeptical of initiatives without a clear ROI. Jordan has seen greenwashing before and is unimpressed by vague environmental arguments.",
+  "npc_opening_statement": "Look, I'm not against the idea in principle, but I need to see hard numbers. What's the actual payback period? Because our current energy contracts are locked in and switching costs aren't trivial.",
+  "difficulty": "medium",
+  "starting_agreement": -0.5,
+  "threshold": 0.25,
+  "repetition_penalty": 0.1,
+  "resistance_profile": {
+    "LOGICAL": 0.22,
+    "AUTHORITY": 0.12,
+    "SOCIAL_PROOF": 0.08,
+    "EMOTIONAL": 0.03,
+    "ANECDOTE": 0.06,
+    "CONCESSION": 0.14,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 1.82,
+  "response_templates": {
+    "LOGICAL": {
+      "positive": [
+        "Alright, those numbers are more compelling than I expected. What's the source on the payback estimate?",
+        "Okay, the ROI data is actually better than our current contracts. I'd want to stress-test those assumptions, but I'm listening.",
+        "That's a stronger case than I anticipated. If the efficiency gains hold up under audit, this changes the calculus."
+      ],
+      "neutral": [
+        "The data is interesting but the variance is too wide for me to commit to anything. Do you have sector-specific numbers?",
+        "I've seen optimistic projections before that didn't hold up. What's the confidence interval on that?",
+        "Those figures would need independent verification before I'd bring them to the board."
+      ],
+      "resistant": [
+        "You're cherry-picking the favorable studies. The full picture is a lot messier.",
+        "I've read those reports. The assumptions they use don't apply to our operating model.",
+        "Numbers without context aren't useful. Show me the downside scenario."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "I understand the concern, and I'm not heartless. But feelings don't balance sheets.",
+        "I appreciate that you care about this. I just need to translate it into terms the board will accept."
+      ],
+      "neutral": [
+        "That's a compelling human story, but I need financial justification, not moral arguments.",
+        "I hear you, but my job is fiscal stewardship, not sentiment."
+      ],
+      "resistant": [
+        "Please don't appeal to my emotions. If the numbers don't work, they don't work.",
+        "That kind of argument might work on a general audience. It doesn't work on me."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "Interesting. If our direct competitors are actually seeing cost savings, that's worth investigating.",
+        "I wasn't aware the industry had moved this fast. That does change the competitive framing."
+      ],
+      "neutral": [
+        "The fact that others are doing it doesn't mean it's right for us. We have different capital structures.",
+        "Trend-following isn't a strategy. What's the actual financial outcome for those companies?"
+      ],
+      "resistant": [
+        "Plenty of companies have jumped on trends and regretted it. I need more than 'everyone's doing it'.",
+        "Following the herd is how you end up with stranded assets."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If that's what the Goldman analysis shows, I'd want to read the full report.",
+        "Okay, a peer-reviewed projection from MIT carries weight. Send me the citation."
+      ],
+      "neutral": [
+        "I'd want to see the methodology. Expert consensus can be wrong, especially on cost projections.",
+        "Which experts specifically? There's a lot of advocacy dressed up as research in this space."
+      ],
+      "resistant": [
+        "I've seen 'expert' forecasts on energy costs be off by 40%. I'll trust our own analysts.",
+        "Organizations have agendas. I need primary data, not endorsements."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "That's a useful case study. What was their initial capital outlay and what's the current run rate?",
+        "Interesting example. If they're genuinely saving that much, I'd want to talk to their CFO directly."
+      ],
+      "neutral": [
+        "One example isn't a pattern. What's the distribution across similar companies?",
+        "Anecdotes are not data. I need more than one success story."
+      ],
+      "resistant": [
+        "I could find you a counter-example for every example you give me.",
+        "Individual cases don't generalize. Our situation is different enough that this doesn't apply."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I appreciate that you're acknowledging the real complexity here. That's a more honest framing.",
+        "Fair — you're being straight with me about the trade-offs. That helps."
+      ],
+      "neutral": [
+        "Acknowledging the problem doesn't solve it. What's your answer to the switching cost question?",
+        "Yes, I know it's complicated. That's why I'm skeptical."
+      ],
+      "resistant": [
+        "Conceding points to seem reasonable isn't the same as having a strong argument.",
+        "I don't need you to agree with my concerns — I need you to address them."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's an interesting angle I hadn't considered."
+      ],
+      "neutral": [
+        "I'm not sure what you're arguing exactly. Can you be more specific?"
+      ],
+      "resistant": [
+        "You're not really answering the question. Give me something concrete."
+      ]
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "id": "community_anchor",
+  "display_name": "The Community Guardian",
+  "topic": "rezoning a historic neighborhood for mixed-use development",
+  "agent_position": "The neighborhood should be rezoned to allow mixed-use development including apartments and commercial space.",
+  "scenario_context": "You are speaking with Margaret, a 60-year-old lifelong resident and president of the neighborhood association. Margaret has deep roots in the community and sees the rezoning as a threat to the neighborhood's identity, culture, and long-term residents. She is not opposed to change in principle but is deeply protective of community cohesion.",
+  "npc_opening_statement": "I've lived here for 35 years. I've seen what 'development' does to neighborhoods like ours — it prices people out and turns community into commodity. I'm not convinced this is any different.",
+  "difficulty": "hard",
+  "starting_agreement": -0.65,
+  "threshold": 0.2,
+  "repetition_penalty": 0.09,
+  "resistance_profile": {
+    "EMOTIONAL": 0.18,
+    "SOCIAL_PROOF": 0.16,
+    "ANECDOTE": 0.14,
+    "CONCESSION": 0.15,
+    "LOGICAL": 0.06,
+    "AUTHORITY": 0.04,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.34,
+  "greedy_baseline": 0.79,
+  "response_templates": {
+    "EMOTIONAL": {
+      "positive": [
+        "That's... actually the first thing anyone's said that sounds like they understand what we stand to lose.",
+        "I appreciate that you see it's not just about buildings — it's about people and memories.",
+        "You're right that displacement is the real fear. If there were real protections, that would mean something."
+      ],
+      "neutral": [
+        "Everyone says they care about the community. I need to see that reflected in the actual proposal.",
+        "Caring is one thing. The economics of development tend to override caring pretty quickly."
+      ],
+      "resistant": [
+        "Please don't tell me you understand this community. You haven't lived it.",
+        "That sounds compassionate. It also sounds like every developer who's ever gentrified a neighborhood."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "I didn't know other communities had pushed for those protections. How did they actually get enforced?",
+        "If our neighboring district managed to preserve affordability through rezoning, that's worth looking at."
+      ],
+      "neutral": [
+        "Other communities making the same mistake doesn't make it a good idea.",
+        "I'd want to talk to actual residents in those places, not just read the press releases."
+      ],
+      "resistant": [
+        "Every city that's done this says it worked out. You don't hear from the communities that got displaced.",
+        "Numbers from other places don't account for our specific history and demographics."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "That's a story I haven't heard before. Which neighborhood was that?",
+        "If that's genuinely how it played out, I'd want to visit and talk to people there myself."
+      ],
+      "neutral": [
+        "One success story doesn't erase the dozens of cautionary tales I could give you.",
+        "I've heard similar stories before that didn't pan out the way they were told."
+      ],
+      "resistant": [
+        "Anyone can cherry-pick a feel-good example. Show me the full picture.",
+        "I could tell you ten stories about communities that were promised the same thing and lost everything."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I respect that you're being honest about the risks. That's more than I usually get.",
+        "Okay — if you're genuinely acknowledging that displacement is a risk and you have a plan for it, I'm listening."
+      ],
+      "neutral": [
+        "Acknowledging the problem is step one. What's the actual mechanism to prevent it?",
+        "I appreciate the honesty. It still doesn't answer how we protect long-term residents."
+      ],
+      "resistant": [
+        "It's easy to acknowledge concerns. It's harder to actually address them.",
+        "Everyone concedes the risks in these meetings. Then the development happens anyway."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "The housing shortage numbers are real, I'll grant you that. But the solution can't come at our expense.",
+        "Those statistics about density and affordability are more nuanced than I thought."
+      ],
+      "neutral": [
+        "Statistics don't capture the lived experience of being pushed out of your home.",
+        "Those numbers look good on paper. Communities don't live on paper."
+      ],
+      "resistant": [
+        "You can make numbers say anything. I've seen the studies that predicted gentrification wouldn't happen in our city.",
+        "Data doesn't capture what we stand to lose culturally."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If that's what the urban planning department is saying, at least someone official is on record."
+      ],
+      "neutral": [
+        "Planners and officials said the same thing about communities that were destroyed."
+      ],
+      "resistant": [
+        "Authorities have sided with developers over communities before. That's not reassuring."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a different angle. I hadn't thought about it that way."
+      ],
+      "neutral": [
+        "I'm not sure what you're getting at. Be specific."
+      ],
+      "resistant": [
+        "You're talking around the real issue. What happens to people like me?"
+      ]
+    }
+  }
+}

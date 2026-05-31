@@ -1,0 +1,115 @@
+{
+  "id": "peer_pressure_resistant",
+  "display_name": "The Autonomy Defender",
+  "topic": "joining a company-wide mentorship program",
+  "agent_position": "You should sign up to be a mentor in the company's new structured mentorship program.",
+  "scenario_context": "You are speaking with Alex, a senior engineer who values their time intensely and is deeply skeptical of top-down initiatives. Alex is successful, doesn't feel the need for external validation, and guards their schedule carefully. Alex dislikes being pressured into things and will resist any argument that feels like manipulation.",
+  "npc_opening_statement": "I'm already giving back through code reviews and informal 1:1s. A structured program with required hours and reporting sounds like it benefits HR's metrics, not actual mentees. Why would I voluntarily add bureaucracy to something I already do informally?",
+  "difficulty": "medium",
+  "starting_agreement": -0.5,
+  "threshold": 0.25,
+  "repetition_penalty": 0.09,
+  "resistance_profile": {
+    "LOGICAL": 0.18,
+    "ANECDOTE": 0.16,
+    "CONCESSION": 0.16,
+    "EMOTIONAL": 0.1,
+    "AUTHORITY": 0.06,
+    "SOCIAL_PROOF": 0.04,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 1.84,
+  "response_templates": {
+    "LOGICAL": {
+      "positive": [
+        "If the structure actually reduces the overhead per mentoring relationship, that's a real argument.",
+        "Okay — if the program handles matching and scheduling, that does remove the parts I find annoying.",
+        "The point about reach is fair. I can only do so many informal 1:1s in a week."
+      ],
+      "neutral": [
+        "The efficiency argument is interesting but I'd need to see the actual time commitment clearly defined.",
+        "Logical case is fine but it assumes the program runs as designed. Programs rarely do."
+      ],
+      "resistant": [
+        "You're making efficiency arguments for a program that I guarantee will generate more email than value.",
+        "I can achieve better outcomes informally in half the time. The structure is the problem, not the solution."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "If someone I respect in this company found it genuinely useful and not bureaucratic, that's meaningful.",
+        "Okay — a real example where the structure helped rather than hindered is worth hearing."
+      ],
+      "neutral": [
+        "One good experience doesn't predict the average experience across the program.",
+        "I'd want to hear from the mentors, not just the mentees."
+      ],
+      "resistant": [
+        "I've seen plenty of programs that looked good in the testimonials and were terrible in practice.",
+        "Success stories are the ones that get told. The quiet failures don't."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I appreciate that you're not pretending it's perfect. That makes me more willing to hear the actual pitch.",
+        "Acknowledging that the informal approach has real value is a better starting point than dismissing it."
+      ],
+      "neutral": [
+        "Agreeing with my concerns is a start. Now tell me what the actual benefit is for my time.",
+        "Fair — so why should I join a program you're acknowledging has real downsides?"
+      ],
+      "resistant": [
+        "If you're agreeing the informal approach works, why are we still having this conversation?",
+        "Conceding points to seem reasonable is a persuasion tactic. I notice it."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "I do get satisfaction from helping people grow. That's not the question — the question is whether the structure helps or hurts that.",
+        "When you put it that way about impact at scale, I hear you. I'm not sure the program is the right vehicle though."
+      ],
+      "neutral": [
+        "I already care about people's growth. That's why I do informal mentoring.",
+        "The impact argument doesn't address the overhead question."
+      ],
+      "resistant": [
+        "Don't appeal to my ego about 'leaving a legacy'. That's a pressure tactic.",
+        "Guilt-based arguments about mentoring responsibility aren't going to work on me."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If the majority of senior engineers in our org actually signed up and found it worthwhile, I'd want to know what they said."
+      ],
+      "neutral": [
+        "What percentage dropped out after the first quarter? That number matters more to me."
+      ],
+      "resistant": [
+        "Peer pressure is exactly what I'm trying to avoid. That argument actively makes me less likely to join."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If the program design was based on research into what makes mentorship effective, that's different from a typical HR initiative."
+      ],
+      "neutral": [
+        "HR best practices have recommended a lot of things that turned out to be useless."
+      ],
+      "resistant": [
+        "Leadership endorsing something is not an argument for its value. It's an argument for compliance."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's actually a fair point I hadn't considered."
+      ],
+      "neutral": [
+        "Be more specific. What's the actual value proposition for my time?"
+      ],
+      "resistant": [
+        "That's not addressing why I should join. Give me a concrete reason."
+      ]
+    }
+  }
+}

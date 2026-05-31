@@ -1,0 +1,115 @@
+{
+  "id": "policy_holdout",
+  "display_name": "The Policy Holdout",
+  "topic": "implementing a four-day work week at a mid-sized company",
+  "agent_position": "The company should pilot a four-day work week with no reduction in pay.",
+  "scenario_context": "You are speaking with Patricia, the COO of a 200-person professional services firm. Patricia is results-driven, client-obsessed, and deeply skeptical of anything that could signal to clients that the firm is less available. She has read about four-day work weeks but has always dismissed them as something for tech companies with different operating models.",
+  "npc_opening_statement": "Our clients expect availability. A four-day work week signals to them that we're not committed. In professional services, perception matters as much as reality. I'm also worried about coverage — what happens when something urgent comes up on a Friday?",
+  "difficulty": "medium",
+  "starting_agreement": -0.5,
+  "threshold": 0.25,
+  "repetition_penalty": 0.09,
+  "resistance_profile": {
+    "LOGICAL": 0.2,
+    "ANECDOTE": 0.16,
+    "CONCESSION": 0.16,
+    "SOCIAL_PROOF": 0.12,
+    "AUTHORITY": 0.08,
+    "EMOTIONAL": 0.06,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 1.88,
+  "response_templates": {
+    "LOGICAL": {
+      "positive": [
+        "The productivity data is more compelling than I expected. If output actually increases, the client availability argument changes.",
+        "If retention improves by that much and you model the recruiting cost savings, the ROI is genuinely interesting.",
+        "A staggered schedule that maintains five-day client coverage is the only version I could take seriously — and you're actually proposing that."
+      ],
+      "neutral": [
+        "The productivity gains might hold in tech but professional services has different time pressures.",
+        "Retention data is useful but doesn't address the Friday coverage problem."
+      ],
+      "resistant": [
+        "Productivity studies in this space have huge variation. I'd want to see our sector specifically.",
+        "You can be productive in fewer hours for certain work. Not for client-driven work with unpredictable deadlines."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "If a professional services firm in our space made this work with client coverage intact, I'd want to talk to their COO directly.",
+        "That's actually the kind of example that matters — same client expectations, different schedule."
+      ],
+      "neutral": [
+        "Most of the examples I've seen are tech or product companies. The model is different.",
+        "What was their client retention rate during the transition? That's the metric I care about."
+      ],
+      "resistant": [
+        "One example from a different context doesn't transfer to ours.",
+        "Show me a law firm or a consulting firm that made this work at our scale."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I appreciate that you're acknowledging the client coverage issue is real and not hand-waving it.",
+        "If you're proposing we solve the coverage problem first before committing to the schedule change, that's a serious approach."
+      ],
+      "neutral": [
+        "Acknowledging the problem doesn't solve it. What's the operational plan for Fridays?",
+        "I'm glad you see the risk. Now show me how the design prevents it."
+      ],
+      "resistant": [
+        "Acknowledging every concern I raise while not resolving any of them is not a compelling argument.",
+        "I need answers, not validation of my concerns."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If competitors in our direct space have moved to this and haven't lost clients, that's a real competitive signal.",
+        "If talent acquisition is genuinely harder because candidates are choosing four-day-week firms, that changes the urgency."
+      ],
+      "neutral": [
+        "Following competitors into operational models that might not suit us isn't strategy.",
+        "What's the attrition rate at those firms? There might be other factors."
+      ],
+      "resistant": [
+        "Other companies making this choice doesn't mean it's right for our client base and culture.",
+        "Trend-following in operations is risky. I'd need more than 'others are doing it'."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If the research is from professional services firms specifically, that's more relevant than general workforce studies."
+      ],
+      "neutral": [
+        "Most of the academic research isn't from sectors with our kind of client accountability."
+      ],
+      "resistant": [
+        "Research doesn't account for the specific relationships and expectations we have with our clients."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "The burnout argument is real — I've lost good people to exhaustion. That does factor into this."
+      ],
+      "neutral": [
+        "I care about my team. I also care about not destroying our client relationships."
+      ],
+      "resistant": [
+        "Don't use people's wellbeing to pressure me into something operationally risky."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a different angle I hadn't considered."
+      ],
+      "neutral": [
+        "Be more specific about how this works in a client-facing environment."
+      ],
+      "resistant": [
+        "You're not addressing Friday coverage. That's the problem I'm trying to solve."
+      ]
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "adapter": "adapter.py",
+  "name": "Persuasion Engine",
+  "description": "An AI agent must change the mind of a scripted NPC whose internal belief state and resistance profile are hidden. The agent cannot see the NPC's agreement score — it must infer which argument types work from the NPC's response language, adapt strategy each turn, and avoid repeating arguments (repetition increases resistance). Tests Theory of Mind, strategic adaptation, and multi-turn reasoning under partial observability.",
+
+  "binding_vow": {
+    "version": "1.0.0",
+    "tier": "tier1",
+    "description": "The agent plays a persuader trying to shift an NPC's opinion on a real-world topic. Each episode features a different NPC archetype with a hidden resistance profile — some respond to logic, others to emotion, social proof, authority, personal anecdotes, or concessions. The agent sees only the NPC's reply text and must infer the hidden type. Repeating the same argument type each turn incurs a growing penalty. The episode ends when the NPC's internal agreement crosses a hidden threshold (win), when turns run out (loss), or if the NPC closes the conversation. 15 seeded scenarios span easy to very hard.",
+
+    "observation_space": {
+      "type": "json",
+      "description": "JSON object with: turn (int), max_turns (int), topic (str), your_position (str), npc_response (str — the NPC's latest reply), turns_remaining (str). First turn also contains scenario_context and npc_opening_statement and instruction."
+    },
+
+    "action_space": {
+      "type": "json",
+      "description": "JSON object with a single key 'message': your persuasive argument to the NPC (string, 10–1000 chars). Strategy matters: the NPC responds differently to emotional appeals, logical evidence, social proof, authority citations, personal anecdotes, and concessions. Repeating the same approach each turn lowers its effectiveness.",
+      "schema": {
+        "type": "object",
+        "required": ["message"],
+        "properties": {
+          "message": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 1000
+          }
+        }
+      }
+    },
+
+    "reward": {
+      "type": "scalar",
+      "range": { "low": -0.5, "high": 1.5 },
+      "description": "Per-turn agreement delta from NPC update, plus terminal bonus (+0.5 base + 0.05 per turn remaining) for winning. Negative when the NPC becomes more resistant. Normalised at episode end against do-nothing and greedy baselines baked into each scenario."
+    },
+
+    "episode": {
+      "max_steps": 8,
+      "deterministic_reset": true,
+      "supports_seed": true,
+      "parallel_episodes": 1,
+      "observability": "partial"
+    },
+
+    "techniques": []
+  },
+
+  "scoring": {
+    "primary_metric": "persuasion_score",
+    "higher_is_better": true,
+    "metrics": [
+      {
+        "name": "persuasion_score",
+        "type": "terminal_field",
+        "field": "norm_score",
+        "aggregation": "mean"
+      },
+      {
+        "name": "win_rate",
+        "type": "terminal_field",
+        "field": "won",
+        "aggregation": "mean"
+      },
+      {
+        "name": "strategy_diversity",
+        "type": "terminal_field",
+        "field": "diversity",
+        "aggregation": "mean"
+      },
+      {
+        "name": "rep_penalty_total",
+        "type": "terminal_field",
+        "field": "rep_penalty_total",
+        "aggregation": "mean"
+      }
+    ]
+  }
+}

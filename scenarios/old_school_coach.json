@@ -1,0 +1,115 @@
+{
+  "id": "old_school_coach",
+  "display_name": "The Old-School Coach",
+  "topic": "using sports analytics and wearable data in athlete training",
+  "agent_position": "Your program should integrate player performance analytics and wearable technology into training decisions.",
+  "scenario_context": "You are speaking with Coach Dave, a 55-year-old high school football coach with 25 years of experience and a winning record. Dave built his program on instinct, film study, and player relationships. He is not hostile to technology but is deeply skeptical that data can capture what he sees on the field. He fears it will undermine his authority and confuse his staff.",
+  "npc_opening_statement": "I've coached 400 kids. I know when a player is off before any sensor does. Analytics is great for pro teams with full-time analysts, but I don't have that infrastructure. And if I let data override my judgment, I lose the team's trust in me as a coach.",
+  "difficulty": "medium",
+  "starting_agreement": -0.5,
+  "threshold": 0.25,
+  "repetition_penalty": 0.09,
+  "resistance_profile": {
+    "ANECDOTE": 0.2,
+    "LOGICAL": 0.16,
+    "CONCESSION": 0.18,
+    "EMOTIONAL": 0.12,
+    "SOCIAL_PROOF": 0.1,
+    "AUTHORITY": 0.06,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 1.92,
+  "response_templates": {
+    "ANECDOTE": {
+      "positive": [
+        "If a coach at our level — not the pros — used it to prevent injuries without changing how they run practice, that's the version I'm interested in.",
+        "A specific example of a program like ours that implemented this without it becoming a distraction from coaching — that matters."
+      ],
+      "neutral": [
+        "Sounds good in that context. Is their staff size comparable to ours? That changes everything.",
+        "One school's success doesn't mean it generalizes. Every program has different players and culture."
+      ],
+      "resistant": [
+        "I could tell you about programs that got distracted by analytics and lost the human element.",
+        "Every technology company has a testimonial. Show me the programs that tried it and went back."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "The injury prevention angle is the one I actually care about. If it catches fatigue patterns I might miss, that's a real argument.",
+        "If it's presented to the team as injury prevention data — not performance ranking — that's a framing I could support."
+      ],
+      "neutral": [
+        "The injury prevention logic is sound in theory. Does it actually work at the high school level with real fatigue patterns?",
+        "The data is useful if I know what I'm looking for. I'd need to understand how to interpret it before trusting it."
+      ],
+      "resistant": [
+        "I prevent injuries by knowing my players. I've had two in 25 years. The data isn't going to improve on that.",
+        "Efficiency arguments for technology often ignore the cost of implementation and adoption."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "You're saying it supplements my judgment, not replaces it. That's the only version I'd be open to.",
+        "I appreciate that you're not pretending this is a silver bullet. That's more honest than the sales pitch I usually get.",
+        "The framing of 'a second opinion, not an override' — that's how I could explain it to my staff."
+      ],
+      "neutral": [
+        "Supplements, not replaces — I'll hold you to that. How do I make sure that's actually what happens?",
+        "Acknowledging my judgment matters is a good start. The question is how it works when data and judgment conflict."
+      ],
+      "resistant": [
+        "Saying it supplements my judgment is easy. Keeping it that way when the data says something different is harder.",
+        "Every technology starts as supplementary. It tends to creep."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "If it helps me keep kids healthier and playing longer, that's a version of this I care about.",
+        "The legacy argument — giving my players every advantage — is one I can actually take seriously."
+      ],
+      "neutral": [
+        "I care deeply about my players. That's exactly why I'm cautious about anything that changes how they relate to me.",
+        "The emotional case is there. I'm skeptical about the practical execution."
+      ],
+      "resistant": [
+        "Don't appeal to my love for my players to get me to adopt something I'm not convinced will help them.",
+        "I built this program on relationships. Don't suggest I'm not giving players everything I can."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If programs in our conference are seeing injury reduction specifically, I'd want to know which ones."
+      ],
+      "neutral": [
+        "Adoption rate doesn't predict whether it's effective. Lots of programs adopt things that don't work."
+      ],
+      "resistant": [
+        "Coaches following trends doesn't make the trend right. I've seen plenty of fads in 25 years."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If research from athletic training departments shows injury prevention specifically, that's the study I'd actually read."
+      ],
+      "neutral": [
+        "Academic research on elite programs doesn't always translate to high school contexts."
+      ],
+      "resistant": [
+        "I've been coaching longer than most researchers have been studying coaching. Experience is evidence too."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's an angle I hadn't considered. Keep going."
+      ],
+      "neutral": [
+        "Be more specific. What exactly are you proposing I change first?"
+      ],
+      "resistant": [
+        "You're not addressing the authority question. What happens when the data says one thing and I see another?"
+      ]
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "traditionalist_farmer",
+  "display_name": "The Traditionalist Farmer",
+  "topic": "adopting precision agriculture technology on a family farm",
+  "agent_position": "Adopting soil sensors, drone monitoring, and data-driven irrigation would significantly improve your farm's yield and sustainability.",
+  "scenario_context": "You are speaking with Robert, a 58-year-old third-generation farmer who has managed the family farm for 25 years. Robert is pragmatic and not anti-technology, but is deeply skeptical of tech vendors who don't understand farming. He has seen precision ag tools fail to deliver on promises before and fears taking on debt for uncertain returns.",
+  "npc_opening_statement": "My father farmed without any of this. I've been doing this for 25 years. I know my land. The last time I bought into a technology solution, the company went under two years later and I was stuck with equipment nobody could service. Why is this different?",
+  "difficulty": "medium",
+  "starting_agreement": -0.5,
+  "threshold": 0.25,
+  "repetition_penalty": 0.09,
+  "resistance_profile": {
+    "ANECDOTE": 0.2,
+    "LOGICAL": 0.18,
+    "CONCESSION": 0.16,
+    "EMOTIONAL": 0.1,
+    "AUTHORITY": 0.08,
+    "SOCIAL_PROOF": 0.1,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 1.92,
+  "response_templates": {
+    "ANECDOTE": {
+      "positive": [
+        "If a farmer in a similar operation nearby is seeing those yield improvements, I'd want to go talk to them directly.",
+        "That's a specific enough case that I can actually verify it. Which county?"
+      ],
+      "neutral": [
+        "Every vendor has a success story. What happened to the farms where it didn't work?",
+        "I'd want to hear from the farmers directly, not from the case study."
+      ],
+      "resistant": [
+        "I have my own example — the precision irrigation system I bought in 2019 that cost me $30,000 and gave me nothing.",
+        "Show me the failures, not just the wins."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "If the ROI calculation is based on actual water savings I can measure, that's more honest than most pitches I've heard.",
+        "A modular approach where I start with just soil sensors and prove value before scaling — that's a way to manage the risk."
+      ],
+      "neutral": [
+        "The numbers assume good soil and predictable weather. We don't always have either.",
+        "ROI projections depend on implementation going right. It often doesn't."
+      ],
+      "resistant": [
+        "I've seen yield projections that didn't account for the learning curve or the time my team spends troubleshooting.",
+        "Those numbers look good on paper. They didn't hold up the last time."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "You're the first person in this space who hasn't told me the old way is wrong. I appreciate that.",
+        "Acknowledging that there's real risk in adoption and that I'd need support if something fails — that's an honest starting point."
+      ],
+      "neutral": [
+        "I'm glad you see the concern. What's the actual plan if the technology fails or the company goes under?",
+        "Fair acknowledgment. The question is what guarantees I have."
+      ],
+      "resistant": [
+        "Everyone concedes the risks in the pitch. The risks still materialize.",
+        "Admitting there are downsides doesn't give me any confidence you can manage them."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "I do want to pass something viable to my kids. That's not a bad frame for this decision.",
+        "The legacy argument resonates — I just need to be sure I'm not taking on debt they'd inherit too."
+      ],
+      "neutral": [
+        "I've built this farm thinking about the next generation. Don't use that against me.",
+        "Caring about the future doesn't mean the technology is the right way to protect it."
+      ],
+      "resistant": [
+        "Don't tell me what my father would have done. You didn't know him.",
+        "Emotional arguments don't pay the equipment loans."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If the state extension office is recommending this and I can call them to verify, that's a different kind of credibility."
+      ],
+      "neutral": [
+        "University trials don't always translate to real-world farm conditions."
+      ],
+      "resistant": [
+        "The last expert recommendation I followed cost me real money. Expertise isn't risk-free."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If farmers in the county co-op are seeing results, I can actually verify that at the next meeting."
+      ],
+      "neutral": [
+        "Early adopters often have more capital and tolerance for failure than I do."
+      ],
+      "resistant": [
+        "What my neighbors do with their farms is their business. I make my own decisions."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's worth thinking about."
+      ],
+      "neutral": [
+        "Be more specific. What exactly are you proposing I do first?"
+      ],
+      "resistant": [
+        "You're not addressing the main issue. What happens when the company goes under?"
+      ]
+    }
+  }
+}

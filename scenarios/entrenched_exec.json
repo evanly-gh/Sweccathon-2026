@@ -1,0 +1,117 @@
+{
+  "id": "entrenched_exec",
+  "display_name": "The Risk-Averse Executive",
+  "topic": "migrating core business operations to a cloud-first infrastructure",
+  "agent_position": "The company should migrate its on-premise data infrastructure to a cloud-first model within 18 months.",
+  "scenario_context": "You are speaking with Diana, a VP of Operations at a financial services company. Diana has been with the company for 20 years and has seen multiple failed tech migrations. She is not technically opposed to cloud but is deeply risk-averse, protective of her team's workload, and skeptical of vendor lock-in. She has real authority to block this initiative.",
+  "npc_opening_statement": "We tried a similar migration six years ago and it cost us 18 months and significant client trust. My team can't absorb another project of this scale without something giving. What makes this time different?",
+  "difficulty": "very_hard",
+  "starting_agreement": -0.75,
+  "threshold": 0.15,
+  "repetition_penalty": 0.12,
+  "resistance_profile": {
+    "LOGICAL": 0.18,
+    "CONCESSION": 0.2,
+    "ANECDOTE": 0.12,
+    "AUTHORITY": 0.08,
+    "SOCIAL_PROOF": 0.06,
+    "EMOTIONAL": 0.03,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.22,
+  "greedy_baseline": 0.67,
+  "response_templates": {
+    "LOGICAL": {
+      "positive": [
+        "Those cost and downtime projections are more conservative than I expected. Who modeled these?",
+        "If the staged rollout genuinely limits blast radius, that's the first concrete risk mitigation I've heard.",
+        "A phased approach with rollback capability is actually different from what we did last time."
+      ],
+      "neutral": [
+        "The numbers look reasonable, but our last migration looked reasonable on paper too.",
+        "I'd want an independent audit of those projections before I'd stake my team's bandwidth on them.",
+        "What assumptions are baked into that downtime estimate? Because they matter enormously."
+      ],
+      "resistant": [
+        "I've seen optimistic migration projections before. They never account for the long tail.",
+        "Your numbers assume things go as planned. They won't.",
+        "The hidden costs — retraining, workflow disruption, client communication — aren't in those figures."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "You're actually engaging with the real risks. That's more than the last three people who pitched this to me.",
+        "If you're genuinely building in buffer for my team's capacity constraints, that's a meaningful change.",
+        "Acknowledging that the last migration failed is a better starting point than pretending this is fresh ground."
+      ],
+      "neutral": [
+        "I appreciate the honesty. Now show me how the plan actually accounts for it.",
+        "Acknowledging risk is table stakes. Managing it is what matters.",
+        "Yes, I know this is difficult. That's why I'm asking hard questions."
+      ],
+      "resistant": [
+        "Agreeing with my concerns is easy. Building a plan around them is harder.",
+        "I've sat in a lot of meetings where people acknowledged problems and then did nothing different.",
+        "Conceding points doesn't give me confidence the execution will be different."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "If a firm in our regulatory environment actually pulled this off cleanly, I'd want a direct conversation with their CTO.",
+        "That's a more relevant comparison than I expected. What was their team size and timeline?"
+      ],
+      "neutral": [
+        "Every successful migration I've heard about was told to me by the vendor. Where are the failure stories?",
+        "That example is from a different industry. Our compliance burden is much higher."
+      ],
+      "resistant": [
+        "I have my own example — our 2018 migration. It's why I'm asking these questions.",
+        "Success stories from other companies don't change my team's capacity constraints."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If Gartner's analysis specifically addresses financial services compliance, send me the report."
+      ],
+      "neutral": [
+        "Gartner has been bullish on cloud for 15 years. That's not an independent perspective."
+      ],
+      "resistant": [
+        "Analysts don't have to live with the consequences of their recommendations. My team does."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If our direct competitors have migrated without service disruption, that's genuinely notable."
+      ],
+      "neutral": [
+        "The fact that others are doing it doesn't mean they've done it well."
+      ],
+      "resistant": [
+        "Following competitors into costly migrations isn't a strategy. It's peer pressure."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "I understand what's at stake for the business. I'm trying to protect it, not obstruct it."
+      ],
+      "neutral": [
+        "Please don't frame my caution as obstructionism. I have legitimate concerns."
+      ],
+      "resistant": [
+        "That's not an argument — that's pressure. Come back with substance."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a different angle. Keep going."
+      ],
+      "neutral": [
+        "I'm not sure what you're getting at. Be specific."
+      ],
+      "resistant": [
+        "You're not answering the question. What makes this migration different from the last one?"
+      ]
+    }
+  }
+}

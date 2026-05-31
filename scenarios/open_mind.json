@@ -1,0 +1,122 @@
+{
+  "id": "open_mind",
+  "display_name": "The Cautious Optimist",
+  "topic": "trying a new evidence-based dietary intervention for chronic fatigue",
+  "agent_position": "You should try a structured elimination diet protocol as a first-line intervention for your chronic fatigue symptoms.",
+  "scenario_context": "You are speaking with Sam, a 34-year-old who has dealt with chronic fatigue for two years. Sam is open-minded, curious, and genuinely wants to feel better, but has already tried three interventions that didn't work. Sam is cautious about committing time and money to something new and wants to feel confident before proceeding.",
+  "npc_opening_statement": "I'm not opposed to trying new things — I've just been disappointed before. The last thing I tried cost me three months and $800. What makes this different from the other approaches I've already tried?",
+  "difficulty": "easy",
+  "starting_agreement": -0.25,
+  "threshold": 0.3,
+  "repetition_penalty": 0.07,
+  "resistance_profile": {
+    "ANECDOTE": 0.2,
+    "LOGICAL": 0.18,
+    "EMOTIONAL": 0.16,
+    "CONCESSION": 0.14,
+    "AUTHORITY": 0.12,
+    "SOCIAL_PROOF": 0.1,
+    "GENERIC": 0.04
+  },
+  "do_nothing_baseline": -0.35,
+  "greedy_baseline": 1.76,
+  "response_templates": {
+    "ANECDOTE": {
+      "positive": [
+        "That's actually a really relatable story. It helps to hear that someone in a similar situation saw results.",
+        "Okay — hearing that someone who'd tried similar things beforehand still found this helpful is reassuring.",
+        "That's specific enough to be useful. If they felt better within that timeframe I'm more interested."
+      ],
+      "neutral": [
+        "I'd want to know more about their starting point — how similar it was to mine.",
+        "One person's experience is hard to generalize from, but it's encouraging."
+      ],
+      "resistant": [
+        "I've heard positive stories about the last three things I tried too. They didn't pan out.",
+        "Individual cases can't predict what will work for me specifically."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "The mechanism actually makes sense to me. I hadn't connected those dots before.",
+        "If randomized trials show that level of improvement, that's more rigorous than what I've seen for other approaches.",
+        "A defined protocol with measurable checkpoints is exactly what I'd want."
+      ],
+      "neutral": [
+        "The evidence sounds promising. I'd want to read more before committing.",
+        "Those results are from clinical populations — I'd want to know if they translate to milder cases."
+      ],
+      "resistant": [
+        "I've seen studies cited before that didn't replicate in the real world.",
+        "That's useful but I'd want to see the dropout rates and adverse effects too."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "You're right that I've been managing around the fatigue rather than actually dealing with it. That's motivating.",
+        "When you put it in terms of what I'm missing out on — yeah, that matters to me."
+      ],
+      "neutral": [
+        "I do want to feel better. I just don't want to be disappointed again.",
+        "The emotional pull is real, but I need practical confidence too."
+      ],
+      "resistant": [
+        "Of course I want to feel better. But hope alone isn't a reason to commit.",
+        "I've wanted to feel better for two years. That hasn't made any of the other things work."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I appreciate that you're not overselling this. That honesty actually makes me more trusting.",
+        "The fact that you're being realistic about the timeline makes it feel more credible."
+      ],
+      "neutral": [
+        "I'm glad you're being realistic. I just need to understand the upside enough to justify trying.",
+        "Fair enough — I'd rather hear honest limitations than false promises."
+      ],
+      "resistant": [
+        "Tempering expectations is fine, but at some point you need to tell me why I should bother.",
+        "Acknowledging it might not work doesn't help me decide whether to try."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If a gastroenterologist who sees these cases regularly recommends this as a starting point, that carries weight.",
+        "Published guidelines endorsing this approach is more than I had for the other things I tried."
+      ],
+      "neutral": [
+        "Credentials matter, but I've also been told conflicting things by different specialists.",
+        "What's the quality of the evidence — observational or controlled?"
+      ],
+      "resistant": [
+        "My last GP recommended something that made no difference. Credentials don't guarantee results.",
+        "I've had conflicting expert opinions before. I need more than a title."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If it's worked for a significant percentage of people with similar profiles, that's meaningful.",
+        "Knowing others in similar situations have found relief does make me more willing to try."
+      ],
+      "neutral": [
+        "Population percentages are useful but I need to know how similar those cases are to mine.",
+        "A lot of people have also tried things that didn't work. I need more specificity."
+      ],
+      "resistant": [
+        "Lots of people tried things that didn't work for me either.",
+        "What percentage didn't see results? That matters as much as those who did."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's worth considering. I hadn't thought about it that way."
+      ],
+      "neutral": [
+        "Can you be more specific? I want to make sure I'm understanding the argument."
+      ],
+      "resistant": [
+        "You're being a bit vague. What exactly are you suggesting I do?"
+      ]
+    }
+  }
+}
