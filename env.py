@@ -21,7 +21,7 @@ from env_core.argument_detector import detect
 from env_core.npc import NPC
 from env_core.scenarios import get_scenario
 
-_MAX_TURNS = 8
+_MAX_TURNS = 20
 
 
 class PersuasionEnv(BaseEnv):

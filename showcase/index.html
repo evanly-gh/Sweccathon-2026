@@ -195,6 +195,7 @@
       <div class="metric"><span class="metric-label">Strategy diversity</span><span class="metric-value neutral" id="hud-diversity">—</span></div>
       <div class="metric"><span class="metric-label">Rep penalty total</span><span class="metric-value neutral" id="hud-penalty">—</span></div>
       <div class="metric"><span class="metric-label">Rapport</span><span class="metric-value neutral" id="hud-rapport">—</span></div>
+      <div class="metric"><span class="metric-label">Rapport effect</span><span class="metric-value neutral" id="hud-rapport-effect">—</span></div>
       <div class="metric"><span class="metric-label">Norm score</span><span class="metric-value neutral" id="hud-norm">—</span></div>
       <div class="strategy-bar" id="strategy-bar"></div>
       <div class="reasoning-box">
@@ -632,6 +633,13 @@ function updateHUD(turnIdx) {
   const rapport = parseFloat(info.rapport);
   hset('hud-rapport', !isNaN(rapport) ? (rapport >= 0 ? '+' : '') + rapport.toFixed(3) : '—',
     rapport > 0.2 ? 'good' : rapport < -0.1 ? 'bad' : 'neutral');
+  if (!isNaN(rapport)) {
+    const effect = rapport * 0.30;
+    hset('hud-rapport-effect', (effect >= 0 ? '+' : '') + (effect * 100).toFixed(1) + '% to shifts',
+      effect > 5 ? 'good' : effect < -3 ? 'bad' : 'neutral');
+  } else {
+    hset('hud-rapport-effect', '—', 'neutral');
+  }
   hset('hud-norm', info.norm_score || '—',
     parseFloat(info.norm_score) > 0.5 ? 'good' : parseFloat(info.norm_score) < 0 ? 'bad' : 'neutral');
 

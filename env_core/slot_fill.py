@@ -65,12 +65,24 @@ def extract_topic_phrase(message: str) -> str:
         if len(phrase) > 5:
             return phrase
 
-    # Extract content words, skip filler, pick strongest cluster
+    # Extract content words, skip filler
     words = re.findall(r"[a-zA-Z'-]+", text.lower())
-    content_words = [w for w in words if w not in _STOP_WORDS and len(w) > 3]
+    # Additional filter: skip adjectives/adverbs that don't stand alone well
+    _WEAK_WORDS = {
+        "concrete", "specific", "significant", "important", "crucial",
+        "similar", "comparable", "relevant", "effective", "successful",
+        "practical", "genuine", "actual", "various", "multiple",
+        "certain", "complete", "entire", "possible", "available",
+        "additional", "alternative", "appropriate", "valuable",
+        "advantage", "disadvantage", "importance", "mature",
+    }
+    content_words = [
+        w for w in words
+        if w not in _STOP_WORDS and w not in _WEAK_WORDS and len(w) > 3
+    ]
 
-    if not content_words:
-        return "that"
+    if len(content_words) < 2:
+        return "this"
 
     # Return 2 content words — enough for specificity, short enough for templates
     return " ".join(content_words[:2])

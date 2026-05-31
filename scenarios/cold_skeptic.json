@@ -21,8 +21,8 @@
     "CONCESSION": 0.14,
     "GENERIC": 0.02
   },
-  "do_nothing_baseline": -0.4,
-  "greedy_baseline": 1.8988,
+  "do_nothing_baseline": -0.46,
+  "greedy_baseline": 2.5178,
   "response_templates": {
     "ANECDOTE": {
       "positive": [

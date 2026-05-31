@@ -36,8 +36,8 @@ from env_core.slot_fill import fill_slots
 _RAPPORT_CAP = 0.8
 
 # Base rates for rapport change from delta
-_RAPPORT_POS_BASE = 0.08       # how much a positive delta adds to rapport
-_RAPPORT_NEG_BASE = 0.15       # how much a negative delta subtracts (asymmetric)
+_RAPPORT_POS_BASE = 0.25       # reach rapport ~0.3-0.5 in 4-5 good turns
+_RAPPORT_NEG_BASE = 0.50       # crash to ~-0.3 in 2-3 bad turns (2:1 asymmetry)
 
 # Streak multipliers
 _POS_STREAK_MULT = 1.1         # each consecutive positive → 10% more rapport gain
