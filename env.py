@@ -134,14 +134,14 @@ class PersuasionEnv(BaseEnv):
         )
 
     def _extract_message(self, action: Any) -> str:
-        if isinstance(action, dict):
-            return str(action.get("message", ""))
         if isinstance(action, str):
             try:
-                parsed = json.loads(action)
-                if isinstance(parsed, dict):
-                    return str(parsed.get("message", action))
+                action = json.loads(action)
             except (json.JSONDecodeError, ValueError):
-                pass
-            return action
+                return action
+        if isinstance(action, dict):
+            # Handle platform envelope: {"action": {"message": "..."}}
+            if "action" in action and isinstance(action["action"], dict):
+                action = action["action"]
+            return str(action.get("message", ""))
         return str(action)
