@@ -2,5 +2,5 @@ __pycache__/
 *.pyc
 *.pyo
 .env
-showcase/data/replay.json
-showcase/data/replay.js
+# replay data is committed so GitHub Pages can serve it
+# showcase/data/replay.json
