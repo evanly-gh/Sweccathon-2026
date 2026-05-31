@@ -143,6 +143,10 @@
   </header>
 
   <aside class="sidebar-left">
+    <div id="run-selector-wrap" class="ep-rail" style="display:none">
+      <div class="bar-label">Select Run</div>
+      <select id="run-selector" class="speed-select" style="width:100%;margin-bottom:8px;padding:6px 8px"></select>
+    </div>
     <div class="ep-rail">
       <div class="ep-label">Episodes</div>
       <div class="ep-grid" id="ep-grid"></div>
@@ -213,6 +217,18 @@
 <script>
 let REPLAY = null;
 let runMeta = {};
+let manifest = [];
+
+function loadManifest() {
+  return fetch('data/manifest.json')
+    .then(r => { if (!r.ok) throw new Error('no manifest'); return r.json(); })
+    .catch(() => []);
+}
+
+function loadReplayFile(filename) {
+  return fetch('data/' + filename)
+    .then(r => { if (!r.ok) throw new Error('not found'); return r.json(); });
+}
 
 function loadReplay() {
   if (window.REPLAY) return Promise.resolve(window.REPLAY);
@@ -242,7 +258,31 @@ let playing = false;
 let playTimer = null;
 
 // ── Init ──
-loadReplay().then(data => {
+loadManifest().then(m => {
+  manifest = m;
+  if (manifest.length > 0) {
+    // Build run selector
+    const wrap = document.getElementById('run-selector-wrap');
+    const sel = document.getElementById('run-selector');
+    wrap.style.display = '';
+    manifest.forEach((entry, i) => {
+      const opt = document.createElement('option');
+      opt.value = entry.filename;
+      const sc = entry.scores?.persuasion_score;
+      opt.textContent = entry.label + (sc !== undefined ? ` (${sc.toFixed(3)})` : '');
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', () => {
+      loadReplayFile(sel.value).then(data => initFromData(data));
+    });
+    // Load the first run
+    return loadReplayFile(manifest[0].filename);
+  }
+  // No manifest — fall back to replay.json
+  return loadReplay();
+}).then(data => initFromData(data));
+
+function initFromData(data) {
   REPLAY = data;
 
   // Store run metadata
@@ -340,9 +380,7 @@ loadReplay().then(data => {
   buildEpRail();
   buildDevSection();
   selectEpisode(0);
-}).catch(err => {
-  document.getElementById('chat').innerHTML = '<div class="no-data"><div>No replay data found.</div><div style="font-size:12px">Run: <code>mesocosm run export RUN_ID -o showcase/data/replay.json</code></div></div>';
-});
+}
 
 function buildDevSection() {
   const el = document.getElementById('dev-section');

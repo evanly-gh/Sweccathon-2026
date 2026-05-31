@@ -1,0 +1,15 @@
+[
+  {
+    "run_id": "069f0002-be82-4a37-915a-0948c227d1cd",
+    "label": "openai/gpt-4o (10 ep)",
+    "model": "openai/gpt-4o",
+    "filename": "run_069f0002.json",
+    "episodes": 10,
+    "scores": {
+      "win_rate": 0.7777777777777778,
+      "persuasion_score": 1.0600222222222222,
+      "rep_penalty_total": 0.68,
+      "strategy_diversity": 3.6666666666666665
+    }
+  }
+]
