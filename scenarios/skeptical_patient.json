@@ -21,104 +21,165 @@
   "do_nothing_baseline": -0.4,
   "greedy_baseline": 1.87,
   "response_templates": {
-    "LOGICAL": {
-      "positive": [
-        "The absolute risk reduction numbers are actually more meaningful to me than the relative ones the ads use. That's helpful.",
-        "If the NNT is that low for my specific risk profile, the calculation looks different than I thought.",
-        "Okay — the cardiovascular event prevention data is stronger than I realized for borderline cases."
-      ],
-      "neutral": [
-        "The population statistics are useful but I'd want to know how they apply to someone my age and health profile.",
-        "I've seen the same studies interpreted very differently by different doctors."
-      ],
-      "resistant": [
-        "The studies show benefits but they also show side effects that get downplayed.",
-        "Population averages don't tell me what will happen to me specifically."
-      ]
-    },
     "ANECDOTE": {
       "positive": [
         "Hearing that someone who had similar concerns took it and had no side effects while seeing real improvement — that's useful.",
-        "If a close example of someone like me benefited without the problems I'm worried about, I feel better about trying it."
+        "If a close example of someone like me benefited without the problems I'm worried about, I feel better about trying it.",
+        "That's a specific enough example on {topic} that I can actually evaluate it. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently.",
+        "A concrete case on {topic} is more useful than abstract arguments. That example is worth examining."
       ],
       "neutral": [
         "One person's experience is hard to generalize. People respond differently.",
-        "I've also heard from people who had real problems with statins."
+        "I've also heard from people who had real problems with statins.",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes.",
+        "The anecdote about {topic} is interesting, but I've seen similar stories that didn't pan out.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?"
       ],
       "resistant": [
         "For every person who had no side effects, someone else had debilitating muscle pain.",
-        "Anecdotes cut both ways — mine are from people who stopped because of problems."
+        "Anecdotes cut both ways — mine are from people who stopped because of problems.",
+        "I could give you a counter-example on {topic} for every success story you tell me.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "Anecdotes on {topic} are the most unreliable form of evidence. I need more than that."
       ]
     },
     "AUTHORITY": {
       "positive": [
         "If my cardiologist specifically reviewed my numbers and still recommends it, that's more targeted than general guidelines.",
-        "When the cardiology society's guidelines specifically address borderline cases like mine, that's meaningful."
+        "When the cardiology society's guidelines specifically address borderline cases like mine, that's meaningful.",
+        "If that's what the leading researchers on {topic} are finding, I'd want to read the full report.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean.",
+        "A credible authority endorsing your position on {topic} is more persuasive than you citing numbers directly."
       ],
       "neutral": [
         "My doctor recommended it but hasn't fully addressed my concerns about the specific side effects I read about.",
-        "Professional guidelines are often conservative and don't account for individual variation."
+        "Professional guidelines are often conservative and don't account for individual variation.",
+        "Experts on {topic} have been wrong before. I'd want to see the methodology, not just the conclusion.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research.",
+        "Authority on {topic} matters, but I'd want to know whether the expert has skin in the game."
       ],
       "resistant": [
         "Doctors don't always have time to read everything patients bring in from their own research.",
-        "Guidelines can lag behind newer research on side effects."
-      ]
-    },
-    "CONCESSION": {
-      "positive": [
-        "I appreciate that you're acknowledging the side effects are real and not just my imagination.",
-        "If you're genuinely saying diet and exercise should come first and medication is a second step, that's a reasonable approach."
-      ],
-      "neutral": [
-        "Fair that there are real trade-offs. The question is where I fall on the risk curve.",
-        "Acknowledging the risks is helpful — now tell me what my individual risk level actually means for me."
-      ],
-      "resistant": [
-        "Admitting there are side effects doesn't help me decide whether to take the risk.",
-        "I know there are trade-offs. I need help weighing them for my situation."
-      ]
-    },
-    "EMOTIONAL": {
-      "positive": [
-        "When you put it in terms of being around for my kids long-term — yes, that does change how I weigh the trade-offs.",
-        "The framing of 'what am I actually risking by waiting' is more useful than 'the drug is safe'."
-      ],
-      "neutral": [
-        "Of course I want to be healthy. The question is which path gets me there with fewer downsides.",
-        "I'm making this decision because I care about my health, not despite it."
-      ],
-      "resistant": [
-        "Don't use my family as a rhetorical device to pressure me into taking medication.",
-        "Fear-based arguments about worst-case scenarios aren't helpful. I need facts."
+        "Guidelines can lag behind newer research on side effects.",
+        "I've seen expert opinions on {topic} shift with the political winds. That doesn't inspire confidence.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own.",
+        "Experts recommending things on {topic} that benefit their own field isn't independent advice."
       ]
     },
     "SOCIAL_PROOF": {
       "positive": [
-        "If most patients at my risk level who tried it saw improvement without major side effects, that shifts the picture."
+        "If most patients at my risk level who tried it saw improvement without major side effects, that shifts the picture.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating.",
+        "If the trend around {topic} is as widespread as you're describing, I'd want to understand what's driving it.",
+        "The fact that peers I respect are taking {topic} seriously does shift my thinking — I won't pretend otherwise."
       ],
       "neutral": [
-        "What percentage had side effects significant enough to stop? That matters too."
+        "What percentage had side effects significant enough to stop? That matters too.",
+        "What others are doing about {topic} is interesting context, but it doesn't determine what's right for me.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which.",
+        "Knowing that others have moved on {topic} is useful information, but not sufficient on its own."
       ],
       "resistant": [
-        "Most patients being prescribed it doesn't mean it's right for my situation."
+        "Most patients being prescribed it doesn't mean it's right for my situation.",
+        "Plenty of people have followed trends on {topic} and regretted it. Popularity isn't a strategy.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions.",
+        "Social proof on {topic} is the weakest form of argument you can give me."
       ]
     },
     "GENERIC": {
       "positive": [
-        "That's a useful way to think about it."
+        "That's a useful way to think about it.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
       ],
       "neutral": [
-        "Can you be more specific about how this applies to my borderline case?"
+        "Can you be more specific about how this applies to my borderline case?",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
       ],
       "resistant": [
-        "You're not addressing the side effect concern directly. That's my main worry."
+        "You're not addressing the side effect concern directly. That's my main worry.",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "The absolute risk reduction numbers are actually more meaningful to me than the relative ones the ads use. That's helpful.",
+        "If the NNT is that low for my specific risk profile, the calculation looks different than I thought.",
+        "Okay — the cardiovascular event prevention data is stronger than I realized for borderline cases.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
+      ],
+      "neutral": [
+        "The population statistics are useful but I'd want to know how they apply to someone my age and health profile.",
+        "I've seen the same studies interpreted very differently by different doctors.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it.",
+        "That framing of {topic} is more nuanced than I expected, but I'm not ready to commit based on that alone."
+      ],
+      "resistant": [
+        "The studies show benefits but they also show side effects that get downplayed.",
+        "Population averages don't tell me what will happen to me specifically.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "Logical arguments about {topic} only work if the premises are right. I'm not convinced they are."
       ]
     },
     "_pivot_signal": [
       "If I get muscle pain in the first month, is stopping immediately the right call or is there a reason to push through?",
       "What does my cardiologist actually think about borderline cases — has she seen patients like me do well on this?",
       "I'd want to know the stopping criteria going in, not just the benefits."
-    ]
+    ],
+    "EMOTIONAL": {
+      "positive": [
+        "When you put it in terms of being around for my kids long-term — yes, that does change how I weigh the trade-offs.",
+        "The framing of 'what am I actually risking by waiting' is more useful than 'the drug is safe'.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing.",
+        "The human dimension of {topic} is something I don't hear enough about. That resonates."
+      ],
+      "neutral": [
+        "Of course I want to be healthy. The question is which path gets me there with fewer downsides.",
+        "I'm making this decision because I care about my health, not despite it.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I appreciate the passion around {topic}, but I need to separate how I feel from what makes sense."
+      ],
+      "resistant": [
+        "Don't use my family as a rhetorical device to pressure me into taking medication.",
+        "Fear-based arguments about worst-case scenarios aren't helpful. I need facts.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel. That's not how I operate.",
+        "The emotional framing of {topic} might work on someone else. I need concrete reasons."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I appreciate that you're acknowledging the side effects are real and not just my imagination.",
+        "If you're genuinely saying diet and exercise should come first and medication is a second step, that's a reasonable approach.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "Acknowledging the legitimate downsides of your position on {topic} makes the rest of your argument more credible.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "Fair that there are real trade-offs. The question is where I fall on the risk curve.",
+        "Acknowledging the risks is helpful — now tell me what my individual risk level actually means for me.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them.",
+        "I'm glad you see why {topic} isn't straightforward. Now convince me you have a plan for the hard parts.",
+        "Conceding the difficulties around {topic} doesn't solve them. What's your actual answer?"
+      ],
+      "resistant": [
+        "Admitting there are side effects doesn't help me decide whether to take the risk.",
+        "I know there are trade-offs. I need help weighing them for my situation.",
+        "Agreeing with my concerns about {topic} to seem reasonable is a tactic I recognize. It doesn't change my position.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    }
   },
   "pivot_threshold": 0.5
 }

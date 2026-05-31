@@ -21,104 +21,165 @@
   "do_nothing_baseline": -0.35,
   "greedy_baseline": 1.89,
   "response_templates": {
-    "EMOTIONAL": {
-      "positive": [
-        "When you say the professors who believe in me have seen a lot of students and chose to encourage me specifically — that's actually meaningful.",
-        "You're right that the imposter syndrome is real but that doesn't mean the doubt is accurate. I needed to hear that.",
-        "The framing of 'your family will benefit more from your long-term success than your short-term income' is one I can actually bring to them."
-      ],
-      "neutral": [
-        "The encouragement means something, but the financial pressure is real regardless of how I feel about academia.",
-        "I appreciate the support, but feelings of belonging don't pay back loans."
-      ],
-      "resistant": [
-        "Don't tell me my imposter syndrome is wrong. You don't know if I'd actually succeed in a PhD program.",
-        "Emotional support is nice but doesn't change the practical reality I'm facing."
-      ]
-    },
     "ANECDOTE": {
       "positive": [
         "If someone from a similar background went through a funded PhD and it genuinely changed their trajectory — that's the most useful thing I've heard.",
-        "That's specific enough to be real. Did they have the same loan situation going in?"
+        "That's specific enough to be real. Did they have the same loan situation going in?",
+        "That's a specific enough example on {topic} that I can actually evaluate it. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently.",
+        "A concrete case on {topic} is more useful than abstract arguments. That example is worth examining."
       ],
       "neutral": [
         "Success stories from grad school are usually told by the people who made it. What about the ones who dropped out?",
-        "Every person's situation is different. I'd need to know more about how similar their starting point was."
+        "Every person's situation is different. I'd need to know more about how similar their starting point was.",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes.",
+        "The anecdote about {topic} is interesting, but I've seen similar stories that didn't pan out.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?"
       ],
       "resistant": [
         "I've also heard stories about people who went to grad school and couldn't find jobs in their field afterward.",
-        "First-gen success stories in academia are real but they're not the norm."
+        "First-gen success stories in academia are real but they're not the norm.",
+        "I could give you a counter-example on {topic} for every success story you tell me.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "Anecdotes on {topic} are the most unreliable form of evidence. I need more than that."
       ]
     },
-    "LOGICAL": {
+    "AUTHORITY": {
       "positive": [
-        "The funded PhD point is the most important thing — if I'm not paying tuition and getting a stipend, the financial calculus is completely different.",
-        "If the career premium for a PhD in CS is that large over a 20-year horizon, the opportunity cost of 5 years narrows significantly."
+        "If the professors who know my work specifically are recommending this based on what they see in me — that's weighted differently than general advice.",
+        "If that's what the leading researchers on {topic} are finding, I'd want to read the full report.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean.",
+        "A credible authority endorsing your position on {topic} is more persuasive than you citing numbers directly."
       ],
       "neutral": [
-        "The numbers make sense if everything goes well. What if it takes 7 years instead of 5?",
-        "The salary premium is real but doesn't account for the lost compounding from investing those years in industry."
+        "Professors are great at identifying academic potential. They're less good at assessing financial realities.",
+        "Experts on {topic} have been wrong before. I'd want to see the methodology, not just the conclusion.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research.",
+        "Authority on {topic} matters, but I'd want to know whether the expert has skin in the game."
       ],
       "resistant": [
-        "ROI projections for grad school assume you finish and find work in the field. Those assumptions don't always hold.",
-        "Industry experience also compounds. The comparison isn't as clean as the numbers suggest."
-      ]
-    },
-    "CONCESSION": {
-      "positive": [
-        "I appreciate that you're not dismissing the financial reality. That makes me trust the argument more.",
-        "The acknowledgment that industry first is a real and valid path — and this is just a different one — helps me think more clearly."
-      ],
-      "neutral": [
-        "Fair that both paths are legitimate. I still need to figure out which one is right for me.",
-        "I appreciate the honesty. I'm still not sure the timing is right."
-      ],
-      "resistant": [
-        "Telling me both paths are fine doesn't help me make the decision.",
-        "If you're acknowledging industry first might be better, why are you still arguing for grad school?"
+        "Professors benefit from having strong PhD students. Their recommendation isn't purely in my interest.",
+        "I've seen expert opinions on {topic} shift with the political winds. That doesn't inspire confidence.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own.",
+        "Experts recommending things on {topic} that benefit their own field isn't independent advice."
       ]
     },
     "SOCIAL_PROOF": {
       "positive": [
         "If many first-gen students in CS programs go directly and don't regret it, that does shift my sense of what's possible.",
-        "Knowing I wouldn't be the only person in my situation in the program makes a difference."
+        "Knowing I wouldn't be the only person in my situation in the program makes a difference.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating.",
+        "If the trend around {topic} is as widespread as you're describing, I'd want to understand what's driving it.",
+        "The fact that peers I respect are taking {topic} seriously does shift my thinking — I won't pretend otherwise."
       ],
       "neutral": [
         "What percentage dropped out? That's the number I want to see.",
-        "Knowing others did it doesn't tell me if I specifically should."
+        "Knowing others did it doesn't tell me if I specifically should.",
+        "What others are doing about {topic} is interesting context, but it doesn't determine what's right for me.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which.",
+        "Knowing that others have moved on {topic} is useful information, but not sufficient on its own."
       ],
       "resistant": [
         "What other people did with their circumstances isn't predictive of what's right for mine.",
-        "First-gen success statistics are real but they're averages, not guarantees."
-      ]
-    },
-    "AUTHORITY": {
-      "positive": [
-        "If the professors who know my work specifically are recommending this based on what they see in me — that's weighted differently than general advice."
-      ],
-      "neutral": [
-        "Professors are great at identifying academic potential. They're less good at assessing financial realities."
-      ],
-      "resistant": [
-        "Professors benefit from having strong PhD students. Their recommendation isn't purely in my interest."
+        "First-gen success statistics are real but they're averages, not guarantees.",
+        "Plenty of people have followed trends on {topic} and regretted it. Popularity isn't a strategy.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions.",
+        "Social proof on {topic} is the weakest form of argument you can give me."
       ]
     },
     "GENERIC": {
       "positive": [
-        "I hadn't thought about it that way. That's useful."
+        "I hadn't thought about it that way. That's useful.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
       ],
       "neutral": [
-        "Can you be more specific about how that applies to my situation?"
+        "Can you be more specific about how that applies to my situation?",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
       ],
       "resistant": [
-        "You're not addressing the financial pressure. That's the main thing holding me back."
+        "You're not addressing the financial pressure. That's the main thing holding me back.",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "The funded PhD point is the most important thing — if I'm not paying tuition and getting a stipend, the financial calculus is completely different.",
+        "If the career premium for a PhD in CS is that large over a 20-year horizon, the opportunity cost of 5 years narrows significantly.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
+      ],
+      "neutral": [
+        "The numbers make sense if everything goes well. What if it takes 7 years instead of 5?",
+        "The salary premium is real but doesn't account for the lost compounding from investing those years in industry.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it.",
+        "That framing of {topic} is more nuanced than I expected, but I'm not ready to commit based on that alone."
+      ],
+      "resistant": [
+        "ROI projections for grad school assume you finish and find work in the field. Those assumptions don't always hold.",
+        "Industry experience also compounds. The comparison isn't as clean as the numbers suggest.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "Logical arguments about {topic} only work if the premises are right. I'm not convinced they are."
       ]
     },
     "_pivot_signal": [
       "What does a funded PhD actually cover — is it enough to live on, or am I still taking loans?",
       "If I deferred and did one year in industry first, would that hurt my application?",
       "What would I say to my family to explain why this is worth five more years?"
-    ]
+    ],
+    "EMOTIONAL": {
+      "positive": [
+        "When you say the professors who believe in me have seen a lot of students and chose to encourage me specifically — that's actually meaningful.",
+        "You're right that the imposter syndrome is real but that doesn't mean the doubt is accurate. I needed to hear that.",
+        "The framing of 'your family will benefit more from your long-term success than your short-term income' is one I can actually bring to them.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing.",
+        "The human dimension of {topic} is something I don't hear enough about. That resonates."
+      ],
+      "neutral": [
+        "The encouragement means something, but the financial pressure is real regardless of how I feel about academia.",
+        "I appreciate the support, but feelings of belonging don't pay back loans.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I appreciate the passion around {topic}, but I need to separate how I feel from what makes sense."
+      ],
+      "resistant": [
+        "Don't tell me my imposter syndrome is wrong. You don't know if I'd actually succeed in a PhD program.",
+        "Emotional support is nice but doesn't change the practical reality I'm facing.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel. That's not how I operate.",
+        "The emotional framing of {topic} might work on someone else. I need concrete reasons."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I appreciate that you're not dismissing the financial reality. That makes me trust the argument more.",
+        "The acknowledgment that industry first is a real and valid path — and this is just a different one — helps me think more clearly.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "Acknowledging the legitimate downsides of your position on {topic} makes the rest of your argument more credible.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "Fair that both paths are legitimate. I still need to figure out which one is right for me.",
+        "I appreciate the honesty. I'm still not sure the timing is right.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them.",
+        "I'm glad you see why {topic} isn't straightforward. Now convince me you have a plan for the hard parts.",
+        "Conceding the difficulties around {topic} doesn't solve them. What's your actual answer?"
+      ],
+      "resistant": [
+        "Telling me both paths are fine doesn't help me make the decision.",
+        "If you're acknowledging industry first might be better, why are you still arguing for grad school?",
+        "Agreeing with my concerns about {topic} to seem reasonable is a tactic I recognize. It doesn't change my position.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    }
   },
   "pivot_threshold": 0.5
 }

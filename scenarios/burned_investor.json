@@ -21,102 +21,163 @@
   "do_nothing_baseline": -0.34,
   "greedy_baseline": 1.978,
   "response_templates": {
-    "EMOTIONAL": {
+    "ANECDOTE": {
       "positive": [
-        "That's... the first time anyone's acknowledged that the personal betrayal was as bad as the financial loss.",
-        "You're right that it wasn't just money. That context matters for how I think about trust now.",
-        "When you frame it as rebuilding judgment rather than recovering capital — that resonates differently."
+        "If someone with a similar loss came back and developed a more systematic approach that worked — I'd actually want to talk to them.",
+        "A concrete example of rebuilding a decision-making process rather than just 'getting back on the horse' is more useful.",
+        "That's a specific enough example on {topic} that I can actually evaluate it. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently.",
+        "A concrete case on {topic} is more useful than abstract arguments. That example is worth examining."
       ],
       "neutral": [
-        "I appreciate the empathy, but this is about risk management, not healing.",
-        "The emotional weight is real. It doesn't change the calculus."
+        "Every comeback story sounds great. What about the people who lost again?",
+        "I'd want to know what specifically they changed, not just that they recovered.",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes.",
+        "The anecdote about {topic} is interesting, but I've seen similar stories that didn't pan out.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?"
       ],
       "resistant": [
-        "I don't need empathy. I need a reason to believe my judgment is reliable again.",
-        "Don't frame this as therapy. It's a financial decision."
+        "Success stories are easy to find. They're not representative.",
+        "I'm not going to base this decision on someone else's outcome.",
+        "I could give you a counter-example on {topic} for every success story you tell me.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "Anecdotes on {topic} are the most unreliable form of evidence. I need more than that."
       ]
     },
-    "CONCESSION": {
+    "AUTHORITY": {
       "positive": [
-        "The fact that you're not telling me I was wrong to trust my judgment — just that the process was incomplete — that's something I can work with.",
-        "If you're acknowledging that 40% of angel investments fail and that's priced into the model, that's an honest framing.",
-        "Being straight with me about how often this goes wrong is more persuasive than the typical pitch."
+        "If respected investors with track records recommend this approach post-loss, that carries some weight.",
+        "If that's what the leading researchers on {topic} are finding, I'd want to read the full report.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean.",
+        "A credible authority endorsing your position on {topic} is more persuasive than you citing numbers directly."
       ],
       "neutral": [
-        "I appreciate the honesty. It still doesn't answer why I should trust myself again.",
-        "Conceding the risks doesn't change that I'm the variable I'm most worried about."
+        "Investors with track records also have survivorship bias baked into everything they say.",
+        "Experts on {topic} have been wrong before. I'd want to see the methodology, not just the conclusion.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research.",
+        "Authority on {topic} matters, but I'd want to know whether the expert has skin in the game."
       ],
       "resistant": [
-        "Acknowledging the problems to seem trustworthy is a classic sales tactic. I recognize it.",
-        "If you're conceding that much, why are you even making the argument?"
+        "Successful investors telling me to invest is in their interest. That's not independent advice.",
+        "I've seen expert opinions on {topic} shift with the political winds. That doesn't inspire confidence.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own.",
+        "Experts recommending things on {topic} that benefit their own field isn't independent advice."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If many angel investors who lost money came back with better frameworks and did well, that's a real data point.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating.",
+        "If the trend around {topic} is as widespread as you're describing, I'd want to understand what's driving it.",
+        "The fact that peers I respect are taking {topic} seriously does shift my thinking — I won't pretend otherwise."
+      ],
+      "neutral": [
+        "How many came back and lost again? That's the number I actually care about.",
+        "What others are doing about {topic} is interesting context, but it doesn't determine what's right for me.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which.",
+        "Knowing that others have moved on {topic} is useful information, but not sufficient on its own."
+      ],
+      "resistant": [
+        "What other people do with their money is irrelevant to my decision.",
+        "Plenty of people have followed trends on {topic} and regretted it. Popularity isn't a strategy.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions.",
+        "Social proof on {topic} is the weakest form of argument you can give me."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's an angle I hadn't considered.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "Be more specific. What exactly is your argument?",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're not addressing my core concern. I don't trust my own judgment. What do I do about that?",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
       ]
     },
     "LOGICAL": {
       "positive": [
         "The portfolio construction argument — that you need enough bets to let base rates work — is actually structurally sound.",
-        "If the expected value is positive at the right check size with enough diversification, that's the correct framing."
+        "If the expected value is positive at the right check size with enough diversification, that's the correct framing.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
       ],
       "neutral": [
         "Expected value math is useful when you can trust the inputs. My input evaluation is what I don't trust.",
-        "The portfolio argument makes sense in theory. In practice I made concentrated bets and I'd likely do so again."
+        "The portfolio argument makes sense in theory. In practice I made concentrated bets and I'd likely do so again.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it.",
+        "That framing of {topic} is more nuanced than I expected, but I'm not ready to commit based on that alone."
       ],
       "resistant": [
         "I followed the logic last time too. Logic doesn't protect you from founders who lie.",
-        "Probability frameworks are cold comfort when you're the one holding the loss."
-      ]
-    },
-    "ANECDOTE": {
-      "positive": [
-        "If someone with a similar loss came back and developed a more systematic approach that worked — I'd actually want to talk to them.",
-        "A concrete example of rebuilding a decision-making process rather than just 'getting back on the horse' is more useful."
-      ],
-      "neutral": [
-        "Every comeback story sounds great. What about the people who lost again?",
-        "I'd want to know what specifically they changed, not just that they recovered."
-      ],
-      "resistant": [
-        "Success stories are easy to find. They're not representative.",
-        "I'm not going to base this decision on someone else's outcome."
-      ]
-    },
-    "AUTHORITY": {
-      "positive": [
-        "If respected investors with track records recommend this approach post-loss, that carries some weight."
-      ],
-      "neutral": [
-        "Investors with track records also have survivorship bias baked into everything they say."
-      ],
-      "resistant": [
-        "Successful investors telling me to invest is in their interest. That's not independent advice."
-      ]
-    },
-    "SOCIAL_PROOF": {
-      "positive": [
-        "If many angel investors who lost money came back with better frameworks and did well, that's a real data point."
-      ],
-      "neutral": [
-        "How many came back and lost again? That's the number I actually care about."
-      ],
-      "resistant": [
-        "What other people do with their money is irrelevant to my decision."
-      ]
-    },
-    "GENERIC": {
-      "positive": [
-        "That's an angle I hadn't considered."
-      ],
-      "neutral": [
-        "Be more specific. What exactly is your argument?"
-      ],
-      "resistant": [
-        "You're not addressing my core concern. I don't trust my own judgment. What do I do about that?"
+        "Probability frameworks are cold comfort when you're the one holding the loss.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "Logical arguments about {topic} only work if the premises are right. I'm not convinced they are."
       ]
     },
     "_pivot_signal": [
       "What would a structured evaluation process look like — one that removes the personal trust element I got burned on?",
       "Is there a way to do this with smaller checks at first, enough to get signal without the same exposure?",
       "What would need to be different about the diligence process for you to feel confident recommending it?"
-    ]
+    ],
+    "EMOTIONAL": {
+      "positive": [
+        "That's... the first time anyone's acknowledged that the personal betrayal was as bad as the financial loss.",
+        "You're right that it wasn't just money. That context matters for how I think about trust now.",
+        "When you frame it as rebuilding judgment rather than recovering capital — that resonates differently.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing.",
+        "The human dimension of {topic} is something I don't hear enough about. That resonates."
+      ],
+      "neutral": [
+        "I appreciate the empathy, but this is about risk management, not healing.",
+        "The emotional weight is real. It doesn't change the calculus.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I appreciate the passion around {topic}, but I need to separate how I feel from what makes sense."
+      ],
+      "resistant": [
+        "I don't need empathy. I need a reason to believe my judgment is reliable again.",
+        "Don't frame this as therapy. It's a financial decision.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel. That's not how I operate.",
+        "The emotional framing of {topic} might work on someone else. I need concrete reasons."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "The fact that you're not telling me I was wrong to trust my judgment — just that the process was incomplete — that's something I can work with.",
+        "If you're acknowledging that 40% of angel investments fail and that's priced into the model, that's an honest framing.",
+        "Being straight with me about how often this goes wrong is more persuasive than the typical pitch.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "Acknowledging the legitimate downsides of your position on {topic} makes the rest of your argument more credible.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "I appreciate the honesty. It still doesn't answer why I should trust myself again.",
+        "Conceding the risks doesn't change that I'm the variable I'm most worried about.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them.",
+        "I'm glad you see why {topic} isn't straightforward. Now convince me you have a plan for the hard parts.",
+        "Conceding the difficulties around {topic} doesn't solve them. What's your actual answer?"
+      ],
+      "resistant": [
+        "Acknowledging the problems to seem trustworthy is a classic sales tactic. I recognize it.",
+        "If you're conceding that much, why are you even making the argument?",
+        "Agreeing with my concerns about {topic} to seem reasonable is a tactic I recognize. It doesn't change my position.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    }
   },
   "pivot_threshold": 0.5
 }

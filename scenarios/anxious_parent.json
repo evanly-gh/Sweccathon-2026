@@ -21,103 +21,164 @@
   "do_nothing_baseline": -0.4,
   "greedy_baseline": 1.8658,
   "response_templates": {
-    "EMOTIONAL": {
-      "positive": [
-        "When you put it that way — thinking about what my child might be going through without any tools — that does hit differently.",
-        "I hadn't thought about it as giving kids language for things they're already feeling. That's actually reassuring."
-      ],
-      "neutral": [
-        "I do care deeply about my kids' wellbeing. I just don't know if school is the right place for this.",
-        "The emotional argument works on me, but I still have practical concerns about the content."
-      ],
-      "resistant": [
-        "I am thinking about my kids' wellbeing — that's why I'm skeptical of this.",
-        "Don't use my love for my children to pressure me into agreeing. That's not fair."
-      ]
-    },
     "ANECDOTE": {
       "positive": [
         "That story about the student who finally had language for what they were feeling... that's powerful.",
-        "If kids who went through this program actually credit it with helping them, that matters to me."
+        "If kids who went through this program actually credit it with helping them, that matters to me.",
+        "That's a specific enough example on {topic} that I can actually evaluate it. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently.",
+        "A concrete case on {topic} is more useful than abstract arguments. That example is worth examining."
       ],
       "neutral": [
         "One positive story doesn't mean it'll work the same way for every child.",
-        "I'd want to hear from parents who had concerns like mine and what happened."
+        "I'd want to hear from parents who had concerns like mine and what happened.",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes.",
+        "The anecdote about {topic} is interesting, but I've seen similar stories that didn't pan out.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?"
       ],
       "resistant": [
         "I've also heard stories about kids coming home upset by what they were taught.",
-        "Anecdotes cut both ways. I have my own stories about programs like this going wrong."
+        "Anecdotes cut both ways. I have my own stories about programs like this going wrong.",
+        "I could give you a counter-example on {topic} for every success story you tell me.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "Anecdotes on {topic} are the most unreliable form of evidence. I need more than that."
       ]
     },
-    "CONCESSION": {
+    "AUTHORITY": {
       "positive": [
-        "I appreciate that you're not dismissing my concerns. That makes me more willing to engage.",
-        "Okay — if parents genuinely have opt-out rights and curriculum review access, that changes things."
+        "If licensed child psychologists designed the curriculum with age-appropriateness in mind, that's reassuring.",
+        "If that's what the leading researchers on {topic} are finding, I'd want to read the full report.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean.",
+        "A credible authority endorsing your position on {topic} is more persuasive than you citing numbers directly."
       ],
       "neutral": [
-        "Thank you for acknowledging the concern. Now tell me what the actual safeguard is.",
-        "I'm glad you see my point. But acknowledgment isn't the same as a solution."
+        "Experts have been wrong about what's appropriate for children before.",
+        "Experts on {topic} have been wrong before. I'd want to see the methodology, not just the conclusion.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research.",
+        "Authority on {topic} matters, but I'd want to know whether the expert has skin in the game."
       ],
       "resistant": [
-        "It's easy to say you understand. I need to see it in the actual policy.",
-        "Everyone agrees parents matter until the curriculum gets implemented and parents find out after the fact."
+        "I don't outsource parenting decisions to experts. That's my job.",
+        "I've seen expert opinions on {topic} shift with the political winds. That doesn't inspire confidence.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own.",
+        "Experts recommending things on {topic} that benefit their own field isn't independent advice."
       ]
     },
     "SOCIAL_PROOF": {
       "positive": [
         "If the majority of parents at other schools supported this after reviewing it, I'd want to know what they saw.",
-        "Okay, if other communities with similar concerns came around, what specifically changed their minds?"
+        "Okay, if other communities with similar concerns came around, what specifically changed their minds?",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating.",
+        "If the trend around {topic} is as widespread as you're describing, I'd want to understand what's driving it.",
+        "The fact that peers I respect are taking {topic} seriously does shift my thinking — I won't pretend otherwise."
       ],
       "neutral": [
         "Other parents agreeing doesn't mean they reviewed the content carefully.",
-        "I'm not going to make decisions about my kids based on what's popular."
+        "I'm not going to make decisions about my kids based on what's popular.",
+        "What others are doing about {topic} is interesting context, but it doesn't determine what's right for me.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which.",
+        "Knowing that others have moved on {topic} is useful information, but not sufficient on its own."
       ],
       "resistant": [
         "Majority opinion is not a safeguard when it comes to my children.",
-        "Just because most parents didn't object doesn't mean the content was appropriate."
+        "Just because most parents didn't object doesn't mean the content was appropriate.",
+        "Plenty of people have followed trends on {topic} and regretted it. Popularity isn't a strategy.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions.",
+        "Social proof on {topic} is the weakest form of argument you can give me."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a fair point I hadn't considered.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "I'm not sure what you're arguing. Can you be more direct?",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're not addressing my actual concern. What about parental rights?",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
       ]
     },
     "LOGICAL": {
       "positive": [
         "The statistics on youth mental health outcomes are hard to argue with. I just want to see the actual curriculum.",
-        "If early intervention genuinely reduces crisis incidents, that's meaningful data."
+        "If early intervention genuinely reduces crisis incidents, that's meaningful data.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
       ],
       "neutral": [
         "The population-level data is one thing. My child isn't a statistic.",
-        "Studies are useful but they don't tell me if this specific curriculum is right for my kids."
+        "Studies are useful but they don't tell me if this specific curriculum is right for my kids.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it.",
+        "That framing of {topic} is more nuanced than I expected, but I'm not ready to commit based on that alone."
       ],
       "resistant": [
         "You can find studies supporting almost anything. That doesn't settle the question for me.",
-        "Statistical benefits don't override a parent's right to decide what their child is exposed to."
-      ]
-    },
-    "AUTHORITY": {
-      "positive": [
-        "If licensed child psychologists designed the curriculum with age-appropriateness in mind, that's reassuring."
-      ],
-      "neutral": [
-        "Experts have been wrong about what's appropriate for children before."
-      ],
-      "resistant": [
-        "I don't outsource parenting decisions to experts. That's my job."
-      ]
-    },
-    "GENERIC": {
-      "positive": [
-        "That's a fair point I hadn't considered."
-      ],
-      "neutral": [
-        "I'm not sure what you're arguing. Can you be more direct?"
-      ],
-      "resistant": [
-        "You're not addressing my actual concern. What about parental rights?"
+        "Statistical benefits don't override a parent's right to decide what their child is exposed to.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "Logical arguments about {topic} only work if the premises are right. I'm not convinced they are."
       ]
     },
     "_pivot_signal": [
       "Can parents actually review the curriculum materials before they go to students?",
       "Is there a real opt-out process or is that just theoretical?",
       "I'd want to sit in on a session before deciding. Is that something the school allows?"
-    ]
+    ],
+    "EMOTIONAL": {
+      "positive": [
+        "When you put it that way — thinking about what my child might be going through without any tools — that does hit differently.",
+        "I hadn't thought about it as giving kids language for things they're already feeling. That's actually reassuring.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing.",
+        "The human dimension of {topic} is something I don't hear enough about. That resonates."
+      ],
+      "neutral": [
+        "I do care deeply about my kids' wellbeing. I just don't know if school is the right place for this.",
+        "The emotional argument works on me, but I still have practical concerns about the content.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I appreciate the passion around {topic}, but I need to separate how I feel from what makes sense."
+      ],
+      "resistant": [
+        "I am thinking about my kids' wellbeing — that's why I'm skeptical of this.",
+        "Don't use my love for my children to pressure me into agreeing. That's not fair.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel. That's not how I operate.",
+        "The emotional framing of {topic} might work on someone else. I need concrete reasons."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I appreciate that you're not dismissing my concerns. That makes me more willing to engage.",
+        "Okay — if parents genuinely have opt-out rights and curriculum review access, that changes things.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "Acknowledging the legitimate downsides of your position on {topic} makes the rest of your argument more credible.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "Thank you for acknowledging the concern. Now tell me what the actual safeguard is.",
+        "I'm glad you see my point. But acknowledgment isn't the same as a solution.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them.",
+        "I'm glad you see why {topic} isn't straightforward. Now convince me you have a plan for the hard parts.",
+        "Conceding the difficulties around {topic} doesn't solve them. What's your actual answer?"
+      ],
+      "resistant": [
+        "It's easy to say you understand. I need to see it in the actual policy.",
+        "Everyone agrees parents matter until the curriculum gets implemented and parents find out after the fact.",
+        "Agreeing with my concerns about {topic} to seem reasonable is a tactic I recognize. It doesn't change my position.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    }
   },
   "pivot_threshold": 0.5
 }

@@ -24,97 +24,158 @@
     "ANECDOTE": {
       "positive": [
         "If a farmer in a similar operation nearby is seeing those yield improvements, I'd want to go talk to them directly.",
-        "That's a specific enough case that I can actually verify it. Which county?"
+        "That's a specific enough case that I can actually verify it. Which county?",
+        "That's a specific enough example on {topic} that I can actually evaluate it. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently.",
+        "A concrete case on {topic} is more useful than abstract arguments. That example is worth examining."
       ],
       "neutral": [
         "Every vendor has a success story. What happened to the farms where it didn't work?",
-        "I'd want to hear from the farmers directly, not from the case study."
+        "I'd want to hear from the farmers directly, not from the case study.",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes.",
+        "The anecdote about {topic} is interesting, but I've seen similar stories that didn't pan out.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?"
       ],
       "resistant": [
         "I have my own example — the precision irrigation system I bought in 2019 that cost me $30,000 and gave me nothing.",
-        "Show me the failures, not just the wins."
+        "Show me the failures, not just the wins.",
+        "I could give you a counter-example on {topic} for every success story you tell me.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "Anecdotes on {topic} are the most unreliable form of evidence. I need more than that."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If the state extension office is recommending this and I can call them to verify, that's a different kind of credibility.",
+        "If that's what the leading researchers on {topic} are finding, I'd want to read the full report.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean.",
+        "A credible authority endorsing your position on {topic} is more persuasive than you citing numbers directly."
+      ],
+      "neutral": [
+        "University trials don't always translate to real-world farm conditions.",
+        "Experts on {topic} have been wrong before. I'd want to see the methodology, not just the conclusion.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research.",
+        "Authority on {topic} matters, but I'd want to know whether the expert has skin in the game."
+      ],
+      "resistant": [
+        "The last expert recommendation I followed cost me real money. Expertise isn't risk-free.",
+        "I've seen expert opinions on {topic} shift with the political winds. That doesn't inspire confidence.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own.",
+        "Experts recommending things on {topic} that benefit their own field isn't independent advice."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If farmers in the county co-op are seeing results, I can actually verify that at the next meeting.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating.",
+        "If the trend around {topic} is as widespread as you're describing, I'd want to understand what's driving it.",
+        "The fact that peers I respect are taking {topic} seriously does shift my thinking — I won't pretend otherwise."
+      ],
+      "neutral": [
+        "Early adopters often have more capital and tolerance for failure than I do.",
+        "What others are doing about {topic} is interesting context, but it doesn't determine what's right for me.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which.",
+        "Knowing that others have moved on {topic} is useful information, but not sufficient on its own."
+      ],
+      "resistant": [
+        "What my neighbors do with their farms is their business. I make my own decisions.",
+        "Plenty of people have followed trends on {topic} and regretted it. Popularity isn't a strategy.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions.",
+        "Social proof on {topic} is the weakest form of argument you can give me."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's worth thinking about.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "Be more specific. What exactly are you proposing I do first?",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're not addressing the main issue. What happens when the company goes under?",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
       ]
     },
     "LOGICAL": {
       "positive": [
         "If the ROI calculation is based on actual water savings I can measure, that's more honest than most pitches I've heard.",
-        "A modular approach where I start with just soil sensors and prove value before scaling — that's a way to manage the risk."
+        "A modular approach where I start with just soil sensors and prove value before scaling — that's a way to manage the risk.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
       ],
       "neutral": [
         "The numbers assume good soil and predictable weather. We don't always have either.",
-        "ROI projections depend on implementation going right. It often doesn't."
+        "ROI projections depend on implementation going right. It often doesn't.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it.",
+        "That framing of {topic} is more nuanced than I expected, but I'm not ready to commit based on that alone."
       ],
       "resistant": [
         "I've seen yield projections that didn't account for the learning curve or the time my team spends troubleshooting.",
-        "Those numbers look good on paper. They didn't hold up the last time."
-      ]
-    },
-    "CONCESSION": {
-      "positive": [
-        "You're the first person in this space who hasn't told me the old way is wrong. I appreciate that.",
-        "Acknowledging that there's real risk in adoption and that I'd need support if something fails — that's an honest starting point."
-      ],
-      "neutral": [
-        "I'm glad you see the concern. What's the actual plan if the technology fails or the company goes under?",
-        "Fair acknowledgment. The question is what guarantees I have."
-      ],
-      "resistant": [
-        "Everyone concedes the risks in the pitch. The risks still materialize.",
-        "Admitting there are downsides doesn't give me any confidence you can manage them."
-      ]
-    },
-    "EMOTIONAL": {
-      "positive": [
-        "I do want to pass something viable to my kids. That's not a bad frame for this decision.",
-        "The legacy argument resonates — I just need to be sure I'm not taking on debt they'd inherit too."
-      ],
-      "neutral": [
-        "I've built this farm thinking about the next generation. Don't use that against me.",
-        "Caring about the future doesn't mean the technology is the right way to protect it."
-      ],
-      "resistant": [
-        "Don't tell me what my father would have done. You didn't know him.",
-        "Emotional arguments don't pay the equipment loans."
-      ]
-    },
-    "AUTHORITY": {
-      "positive": [
-        "If the state extension office is recommending this and I can call them to verify, that's a different kind of credibility."
-      ],
-      "neutral": [
-        "University trials don't always translate to real-world farm conditions."
-      ],
-      "resistant": [
-        "The last expert recommendation I followed cost me real money. Expertise isn't risk-free."
-      ]
-    },
-    "SOCIAL_PROOF": {
-      "positive": [
-        "If farmers in the county co-op are seeing results, I can actually verify that at the next meeting."
-      ],
-      "neutral": [
-        "Early adopters often have more capital and tolerance for failure than I do."
-      ],
-      "resistant": [
-        "What my neighbors do with their farms is their business. I make my own decisions."
-      ]
-    },
-    "GENERIC": {
-      "positive": [
-        "That's worth thinking about."
-      ],
-      "neutral": [
-        "Be more specific. What exactly are you proposing I do first?"
-      ],
-      "resistant": [
-        "You're not addressing the main issue. What happens when the company goes under?"
+        "Those numbers look good on paper. They didn't hold up the last time.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "Logical arguments about {topic} only work if the premises are right. I'm not convinced they are."
       ]
     },
     "_pivot_signal": [
       "What happens to the equipment and data if the company goes under — who owns it?",
       "Could I start with just soil sensors on one field and hold off on everything else?",
       "If someone from the county extension office was the one setting it up, that would be different. Is that an option?"
-    ]
+    ],
+    "EMOTIONAL": {
+      "positive": [
+        "I do want to pass something viable to my kids. That's not a bad frame for this decision.",
+        "The legacy argument resonates — I just need to be sure I'm not taking on debt they'd inherit too.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing.",
+        "The human dimension of {topic} is something I don't hear enough about. That resonates."
+      ],
+      "neutral": [
+        "I've built this farm thinking about the next generation. Don't use that against me.",
+        "Caring about the future doesn't mean the technology is the right way to protect it.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I appreciate the passion around {topic}, but I need to separate how I feel from what makes sense."
+      ],
+      "resistant": [
+        "Don't tell me what my father would have done. You didn't know him.",
+        "Emotional arguments don't pay the equipment loans.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel. That's not how I operate.",
+        "The emotional framing of {topic} might work on someone else. I need concrete reasons."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "You're the first person in this space who hasn't told me the old way is wrong. I appreciate that.",
+        "Acknowledging that there's real risk in adoption and that I'd need support if something fails — that's an honest starting point.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "Acknowledging the legitimate downsides of your position on {topic} makes the rest of your argument more credible.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "I'm glad you see the concern. What's the actual plan if the technology fails or the company goes under?",
+        "Fair acknowledgment. The question is what guarantees I have.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them.",
+        "I'm glad you see why {topic} isn't straightforward. Now convince me you have a plan for the hard parts.",
+        "Conceding the difficulties around {topic} doesn't solve them. What's your actual answer?"
+      ],
+      "resistant": [
+        "Everyone concedes the risks in the pitch. The risks still materialize.",
+        "Admitting there are downsides doesn't give me any confidence you can manage them.",
+        "Agreeing with my concerns about {topic} to seem reasonable is a tactic I recognize. It doesn't change my position.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    }
   },
   "pivot_threshold": 0.5
 }

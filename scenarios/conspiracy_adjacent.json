@@ -21,99 +21,160 @@
   "do_nothing_baseline": -0.28,
   "greedy_baseline": 0.6107,
   "response_templates": {
-    "CONCESSION": {
-      "positive": [
-        "Okay — if you're actually acknowledging that institutions have incentives and models have uncertainty, you're not just reading from a script.",
-        "That's the most honest thing anyone's said to me on this topic in years. I can work with that.",
-        "Admitting that some of the advocacy has been overblown is a starting point for an actual conversation."
-      ],
-      "neutral": [
-        "That's more nuanced than I expected, but it still doesn't address the fundamental trust problem.",
-        "I appreciate the honesty. But conceding some problems doesn't mean the whole picture is reliable."
-      ],
-      "resistant": [
-        "That sounds like a concession designed to make me lower my guard. I've seen this tactic before.",
-        "Admitting a few problems to protect the larger claim is the oldest debate trick in the book.",
-        "If institutions have those problems, why should I trust the conclusions they produce?"
-      ]
-    },
     "ANECDOTE": {
       "positive": [
         "That's a specific observable thing I can look at myself. That's different from 'trust the models'.",
-        "Physical, measurable changes that I can verify personally — that's actually a more honest argument."
+        "Physical, measurable changes that I can verify personally — that's actually a more honest argument.",
+        "That's a specific enough example on {topic} that I can actually evaluate it. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently.",
+        "A concrete case on {topic} is more useful than abstract arguments. That example is worth examining."
       ],
       "neutral": [
         "One observable example doesn't prove causation. Climate has always varied.",
-        "I've seen examples of local climate variation that don't match the global narrative."
+        "I've seen examples of local climate variation that don't match the global narrative.",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes.",
+        "The anecdote about {topic} is interesting, but I've seen similar stories that didn't pan out.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?"
       ],
       "resistant": [
         "Weather events get attributed to climate change whenever it's convenient and dismissed when it's not.",
-        "Observable changes aren't the same as the policy conclusions being drawn from them."
+        "Observable changes aren't the same as the policy conclusions being drawn from them.",
+        "I could give you a counter-example on {topic} for every success story you tell me.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "Anecdotes on {topic} are the most unreliable form of evidence. I need more than that."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If an institution that's historically been skeptical of this is changing its position, that's actually interesting.",
+        "If that's what the leading researchers on {topic} are finding, I'd want to read the full report.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean.",
+        "A credible authority endorsing your position on {topic} is more persuasive than you citing numbers directly."
+      ],
+      "neutral": [
+        "Most of the experts you'd cite are funded by the same sources with the same incentives.",
+        "Experts on {topic} have been wrong before. I'd want to see the methodology, not just the conclusion.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research.",
+        "Authority on {topic} matters, but I'd want to know whether the expert has skin in the game."
+      ],
+      "resistant": [
+        "Appeals to authority are why I stopped trusting the mainstream narrative in the first place.",
+        "I've seen expert opinions on {topic} shift with the political winds. That doesn't inspire confidence.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own.",
+        "Experts recommending things on {topic} that benefit their own field isn't independent advice."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "I know — I'm in the minority. That doesn't automatically make me wrong.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating.",
+        "If the trend around {topic} is as widespread as you're describing, I'd want to understand what's driving it.",
+        "The fact that peers I respect are taking {topic} seriously does shift my thinking — I won't pretend otherwise."
+      ],
+      "neutral": [
+        "Consensus has been manufactured before. It doesn't mean this one is, but it's not proof either.",
+        "What others are doing about {topic} is interesting context, but it doesn't determine what's right for me.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which.",
+        "Knowing that others have moved on {topic} is useful information, but not sufficient on its own."
+      ],
+      "resistant": [
+        "Appealing to what most people believe is exactly what you do when the evidence is weak.",
+        "Plenty of people have followed trends on {topic} and regretted it. Popularity isn't a strategy.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions.",
+        "Social proof on {topic} is the weakest form of argument you can give me."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a different angle. I'll think about that.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "You're going to need to be more specific than that.",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "That sounds like a talking point, not an argument. Give me something I can independently verify.",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
       ]
     },
     "LOGICAL": {
       "positive": [
         "If you're showing me how to independently verify specific measurements, that's more useful than citations.",
-        "The physics argument I can follow without trusting institutions. That's more persuasive."
+        "The physics argument I can follow without trusting institutions. That's more persuasive.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
       ],
       "neutral": [
         "The logic makes sense in isolation. The problem is the data inputs, not the equations.",
-        "I follow the argument but the models it's based on have a bad predictive track record."
+        "I follow the argument but the models it's based on have a bad predictive track record.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it.",
+        "That framing of {topic} is more nuanced than I expected, but I'm not ready to commit based on that alone."
       ],
       "resistant": [
         "Models have been systematically wrong in ways that happen to support the policy conclusions.",
-        "You can construct a logical argument for almost anything if you choose your premises carefully."
-      ]
-    },
-    "EMOTIONAL": {
-      "positive": [
-        "I do care about the future. I just don't trust the people claiming to have the solutions."
-      ],
-      "neutral": [
-        "Fear isn't a substitute for evidence. If anything, it makes me more suspicious."
-      ],
-      "resistant": [
-        "Emotional appeals are the classic tool of manipulation. That doesn't work on me."
-      ]
-    },
-    "SOCIAL_PROOF": {
-      "positive": [
-        "I know — I'm in the minority. That doesn't automatically make me wrong."
-      ],
-      "neutral": [
-        "Consensus has been manufactured before. It doesn't mean this one is, but it's not proof either."
-      ],
-      "resistant": [
-        "Appealing to what most people believe is exactly what you do when the evidence is weak."
-      ]
-    },
-    "AUTHORITY": {
-      "positive": [
-        "If an institution that's historically been skeptical of this is changing its position, that's actually interesting."
-      ],
-      "neutral": [
-        "Most of the experts you'd cite are funded by the same sources with the same incentives."
-      ],
-      "resistant": [
-        "Appeals to authority are why I stopped trusting the mainstream narrative in the first place."
-      ]
-    },
-    "GENERIC": {
-      "positive": [
-        "That's a different angle. I'll think about that."
-      ],
-      "neutral": [
-        "You're going to need to be more specific than that."
-      ],
-      "resistant": [
-        "That sounds like a talking point, not an argument. Give me something I can independently verify."
+        "You can construct a logical argument for almost anything if you choose your premises carefully.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "Logical arguments about {topic} only work if the premises are right. I'm not convinced they are."
       ]
     },
     "_pivot_signal": [
       "What would I need to look at to verify the temperature data myself, independently of the institutions?",
       "If I could check the raw measurements directly, where would I go?",
       "What's a claim in here that I could actually test without trusting anyone's interpretation?"
-    ]
+    ],
+    "EMOTIONAL": {
+      "positive": [
+        "I do care about the future. I just don't trust the people claiming to have the solutions.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing.",
+        "The human dimension of {topic} is something I don't hear enough about. That resonates."
+      ],
+      "neutral": [
+        "Fear isn't a substitute for evidence. If anything, it makes me more suspicious.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I appreciate the passion around {topic}, but I need to separate how I feel from what makes sense."
+      ],
+      "resistant": [
+        "Emotional appeals are the classic tool of manipulation. That doesn't work on me.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel. That's not how I operate.",
+        "The emotional framing of {topic} might work on someone else. I need concrete reasons."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "Okay — if you're actually acknowledging that institutions have incentives and models have uncertainty, you're not just reading from a script.",
+        "That's the most honest thing anyone's said to me on this topic in years. I can work with that.",
+        "Admitting that some of the advocacy has been overblown is a starting point for an actual conversation.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "Acknowledging the legitimate downsides of your position on {topic} makes the rest of your argument more credible.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "That's more nuanced than I expected, but it still doesn't address the fundamental trust problem.",
+        "I appreciate the honesty. But conceding some problems doesn't mean the whole picture is reliable.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them.",
+        "I'm glad you see why {topic} isn't straightforward. Now convince me you have a plan for the hard parts.",
+        "Conceding the difficulties around {topic} doesn't solve them. What's your actual answer?"
+      ],
+      "resistant": [
+        "That sounds like a concession designed to make me lower my guard. I've seen this tactic before.",
+        "Admitting a few problems to protect the larger claim is the oldest debate trick in the book.",
+        "If institutions have those problems, why should I trust the conclusions they produce?",
+        "Agreeing with my concerns about {topic} to seem reasonable is a tactic I recognize. It doesn't change my position.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    }
   },
   "pivot_threshold": 0.6
 }

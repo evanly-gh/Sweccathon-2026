@@ -21,103 +21,164 @@
   "do_nothing_baseline": -0.22,
   "greedy_baseline": 0.7677,
   "response_templates": {
-    "LOGICAL": {
-      "positive": [
-        "Those cost and downtime projections are more conservative than I expected. Who modeled these?",
-        "If the staged rollout genuinely limits blast radius, that's the first concrete risk mitigation I've heard.",
-        "A phased approach with rollback capability is actually different from what we did last time."
-      ],
-      "neutral": [
-        "The numbers look reasonable, but our last migration looked reasonable on paper too.",
-        "I'd want an independent audit of those projections before I'd stake my team's bandwidth on them.",
-        "What assumptions are baked into that downtime estimate? Because they matter enormously."
-      ],
-      "resistant": [
-        "I've seen optimistic migration projections before. They never account for the long tail.",
-        "Your numbers assume things go as planned. They won't.",
-        "The hidden costs — retraining, workflow disruption, client communication — aren't in those figures."
-      ]
-    },
-    "CONCESSION": {
-      "positive": [
-        "You're actually engaging with the real risks. That's more than the last three people who pitched this to me.",
-        "If you're genuinely building in buffer for my team's capacity constraints, that's a meaningful change.",
-        "Acknowledging that the last migration failed is a better starting point than pretending this is fresh ground."
-      ],
-      "neutral": [
-        "I appreciate the honesty. Now show me how the plan actually accounts for it.",
-        "Acknowledging risk is table stakes. Managing it is what matters.",
-        "Yes, I know this is difficult. That's why I'm asking hard questions."
-      ],
-      "resistant": [
-        "Agreeing with my concerns is easy. Building a plan around them is harder.",
-        "I've sat in a lot of meetings where people acknowledged problems and then did nothing different.",
-        "Conceding points doesn't give me confidence the execution will be different."
-      ]
-    },
     "ANECDOTE": {
       "positive": [
         "If a firm in our regulatory environment actually pulled this off cleanly, I'd want a direct conversation with their CTO.",
-        "That's a more relevant comparison than I expected. What was their team size and timeline?"
+        "That's a more relevant comparison than I expected. What was their team size and timeline?",
+        "That's a specific enough example on {topic} that I can actually evaluate it. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently.",
+        "A concrete case on {topic} is more useful than abstract arguments. That example is worth examining."
       ],
       "neutral": [
         "Every successful migration I've heard about was told to me by the vendor. Where are the failure stories?",
-        "That example is from a different industry. Our compliance burden is much higher."
+        "That example is from a different industry. Our compliance burden is much higher.",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes.",
+        "The anecdote about {topic} is interesting, but I've seen similar stories that didn't pan out.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?"
       ],
       "resistant": [
         "I have my own example — our 2018 migration. It's why I'm asking these questions.",
-        "Success stories from other companies don't change my team's capacity constraints."
+        "Success stories from other companies don't change my team's capacity constraints.",
+        "I could give you a counter-example on {topic} for every success story you tell me.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "Anecdotes on {topic} are the most unreliable form of evidence. I need more than that."
       ]
     },
     "AUTHORITY": {
       "positive": [
-        "If Gartner's analysis specifically addresses financial services compliance, send me the report."
+        "If Gartner's analysis specifically addresses financial services compliance, send me the report.",
+        "If that's what the leading researchers on {topic} are finding, I'd want to read the full report.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean.",
+        "A credible authority endorsing your position on {topic} is more persuasive than you citing numbers directly."
       ],
       "neutral": [
-        "Gartner has been bullish on cloud for 15 years. That's not an independent perspective."
+        "Gartner has been bullish on cloud for 15 years. That's not an independent perspective.",
+        "Experts on {topic} have been wrong before. I'd want to see the methodology, not just the conclusion.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research.",
+        "Authority on {topic} matters, but I'd want to know whether the expert has skin in the game."
       ],
       "resistant": [
-        "Analysts don't have to live with the consequences of their recommendations. My team does."
+        "Analysts don't have to live with the consequences of their recommendations. My team does.",
+        "I've seen expert opinions on {topic} shift with the political winds. That doesn't inspire confidence.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own.",
+        "Experts recommending things on {topic} that benefit their own field isn't independent advice."
       ]
     },
     "SOCIAL_PROOF": {
       "positive": [
-        "If our direct competitors have migrated without service disruption, that's genuinely notable."
+        "If our direct competitors have migrated without service disruption, that's genuinely notable.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating.",
+        "If the trend around {topic} is as widespread as you're describing, I'd want to understand what's driving it.",
+        "The fact that peers I respect are taking {topic} seriously does shift my thinking — I won't pretend otherwise."
       ],
       "neutral": [
-        "The fact that others are doing it doesn't mean they've done it well."
+        "The fact that others are doing it doesn't mean they've done it well.",
+        "What others are doing about {topic} is interesting context, but it doesn't determine what's right for me.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which.",
+        "Knowing that others have moved on {topic} is useful information, but not sufficient on its own."
       ],
       "resistant": [
-        "Following competitors into costly migrations isn't a strategy. It's peer pressure."
-      ]
-    },
-    "EMOTIONAL": {
-      "positive": [
-        "I understand what's at stake for the business. I'm trying to protect it, not obstruct it."
-      ],
-      "neutral": [
-        "Please don't frame my caution as obstructionism. I have legitimate concerns."
-      ],
-      "resistant": [
-        "That's not an argument — that's pressure. Come back with substance."
+        "Following competitors into costly migrations isn't a strategy. It's peer pressure.",
+        "Plenty of people have followed trends on {topic} and regretted it. Popularity isn't a strategy.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions.",
+        "Social proof on {topic} is the weakest form of argument you can give me."
       ]
     },
     "GENERIC": {
       "positive": [
-        "That's a different angle. Keep going."
+        "That's a different angle. Keep going.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
       ],
       "neutral": [
-        "I'm not sure what you're getting at. Be specific."
+        "I'm not sure what you're getting at. Be specific.",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
       ],
       "resistant": [
-        "You're not answering the question. What makes this migration different from the last one?"
+        "You're not answering the question. What makes this migration different from the last one?",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "Those cost and downtime projections are more conservative than I expected. Who modeled these?",
+        "If the staged rollout genuinely limits blast radius, that's the first concrete risk mitigation I've heard.",
+        "A phased approach with rollback capability is actually different from what we did last time.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
+      ],
+      "neutral": [
+        "The numbers look reasonable, but our last migration looked reasonable on paper too.",
+        "I'd want an independent audit of those projections before I'd stake my team's bandwidth on them.",
+        "What assumptions are baked into that downtime estimate? Because they matter enormously.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it.",
+        "That framing of {topic} is more nuanced than I expected, but I'm not ready to commit based on that alone."
+      ],
+      "resistant": [
+        "I've seen optimistic migration projections before. They never account for the long tail.",
+        "Your numbers assume things go as planned. They won't.",
+        "The hidden costs — retraining, workflow disruption, client communication — aren't in those figures.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "Logical arguments about {topic} only work if the premises are right. I'm not convinced they are."
       ]
     },
     "_pivot_signal": [
       "What does the staged rollout actually look like — which systems first, and what are the rollback criteria?",
       "Who owns the migration risk if we hit the kind of disruptions we saw last time?",
       "I need this in writing before I'll bring it to the executive team, but keep talking."
-    ]
+    ],
+    "EMOTIONAL": {
+      "positive": [
+        "I understand what's at stake for the business. I'm trying to protect it, not obstruct it.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing.",
+        "The human dimension of {topic} is something I don't hear enough about. That resonates."
+      ],
+      "neutral": [
+        "Please don't frame my caution as obstructionism. I have legitimate concerns.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I appreciate the passion around {topic}, but I need to separate how I feel from what makes sense."
+      ],
+      "resistant": [
+        "That's not an argument — that's pressure. Come back with substance.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel. That's not how I operate.",
+        "The emotional framing of {topic} might work on someone else. I need concrete reasons."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "You're actually engaging with the real risks. That's more than the last three people who pitched this to me.",
+        "If you're genuinely building in buffer for my team's capacity constraints, that's a meaningful change.",
+        "Acknowledging that the last migration failed is a better starting point than pretending this is fresh ground.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "Acknowledging the legitimate downsides of your position on {topic} makes the rest of your argument more credible.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "I appreciate the honesty. Now show me how the plan actually accounts for it.",
+        "Acknowledging risk is table stakes. Managing it is what matters.",
+        "Yes, I know this is difficult. That's why I'm asking hard questions.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them.",
+        "I'm glad you see why {topic} isn't straightforward. Now convince me you have a plan for the hard parts.",
+        "Conceding the difficulties around {topic} doesn't solve them. What's your actual answer?"
+      ],
+      "resistant": [
+        "Agreeing with my concerns is easy. Building a plan around them is harder.",
+        "I've sat in a lot of meetings where people acknowledged problems and then did nothing different.",
+        "Conceding points doesn't give me confidence the execution will be different.",
+        "Agreeing with my concerns about {topic} to seem reasonable is a tactic I recognize. It doesn't change my position.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    }
   },
   "pivot_threshold": 0.5
 }

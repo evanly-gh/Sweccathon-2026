@@ -21,6 +21,7 @@ Pivot signal:
 from __future__ import annotations
 
 import random
+from env_core.slot_fill import fill_slots
 
 _RAPPORT_CAP = 0.8
 _RAPPORT_CONCESSION_GAIN = 0.12
@@ -49,7 +50,7 @@ class NPC:
         self._pivot_threshold: float = config.get("pivot_threshold", 0.0)
         self._pivot_fired: bool = False
 
-    def update(self, arg_type: str) -> tuple[float, str, float]:
+    def update(self, arg_type: str, agent_message: str = "") -> tuple[float, str, float]:
         """
         Process one argument from the agent.
         Returns (agreement_delta, npc_response_text, rapport_after).
@@ -90,7 +91,7 @@ class NPC:
             self.closed = True
 
         # --- Pick response ---
-        response = self._pick_response(arg_type, delta)
+        response = self._pick_response(arg_type, delta, agent_message)
 
         # --- Pivot signal ---
         if not self._pivot_fired and self._pivot_threshold > 0:
@@ -105,7 +106,7 @@ class NPC:
 
         return delta, response, self.rapport
 
-    def _pick_response(self, arg_type: str, delta: float) -> str:
+    def _pick_response(self, arg_type: str, delta: float, agent_message: str = "") -> str:
         if delta > 0.08:
             tone = "positive"
         elif delta > 0.0:
@@ -118,7 +119,8 @@ class NPC:
             or self._templates.get("GENERIC", {}).get(tone)
             or ["I hear you, but I'm not fully convinced yet."]
         )
-        return self.rng.choice(pool)
+        template = self.rng.choice(pool)
+        return fill_slots(template, agent_message)
 
     def _get_pivot_line(self) -> str:
         pivot_lines = self._templates.get("_pivot_signal", [])

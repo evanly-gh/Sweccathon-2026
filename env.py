@@ -62,7 +62,7 @@ class PersuasionEnv(BaseEnv):
         arg_type = detect(message)
 
         # Update NPC — now returns (delta, response, rapport)
-        delta, npc_response, rapport = self._npc.update(arg_type)
+        delta, npc_response, rapport = self._npc.update(arg_type, message)
 
         # Track repetition penalty (for scoring, separate from NPC internal)
         repeats = self._arg_types_used.count(arg_type)

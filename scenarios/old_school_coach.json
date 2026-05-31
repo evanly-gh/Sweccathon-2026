@@ -24,98 +24,159 @@
     "ANECDOTE": {
       "positive": [
         "If a coach at our level — not the pros — used it to prevent injuries without changing how they run practice, that's the version I'm interested in.",
-        "A specific example of a program like ours that implemented this without it becoming a distraction from coaching — that matters."
+        "A specific example of a program like ours that implemented this without it becoming a distraction from coaching — that matters.",
+        "That's a specific enough example on {topic} that I can actually evaluate it. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently.",
+        "A concrete case on {topic} is more useful than abstract arguments. That example is worth examining."
       ],
       "neutral": [
         "Sounds good in that context. Is their staff size comparable to ours? That changes everything.",
-        "One school's success doesn't mean it generalizes. Every program has different players and culture."
+        "One school's success doesn't mean it generalizes. Every program has different players and culture.",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes.",
+        "The anecdote about {topic} is interesting, but I've seen similar stories that didn't pan out.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?"
       ],
       "resistant": [
         "I could tell you about programs that got distracted by analytics and lost the human element.",
-        "Every technology company has a testimonial. Show me the programs that tried it and went back."
+        "Every technology company has a testimonial. Show me the programs that tried it and went back.",
+        "I could give you a counter-example on {topic} for every success story you tell me.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "Anecdotes on {topic} are the most unreliable form of evidence. I need more than that."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If research from athletic training departments shows injury prevention specifically, that's the study I'd actually read.",
+        "If that's what the leading researchers on {topic} are finding, I'd want to read the full report.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean.",
+        "A credible authority endorsing your position on {topic} is more persuasive than you citing numbers directly."
+      ],
+      "neutral": [
+        "Academic research on elite programs doesn't always translate to high school contexts.",
+        "Experts on {topic} have been wrong before. I'd want to see the methodology, not just the conclusion.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research.",
+        "Authority on {topic} matters, but I'd want to know whether the expert has skin in the game."
+      ],
+      "resistant": [
+        "I've been coaching longer than most researchers have been studying coaching. Experience is evidence too.",
+        "I've seen expert opinions on {topic} shift with the political winds. That doesn't inspire confidence.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own.",
+        "Experts recommending things on {topic} that benefit their own field isn't independent advice."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If programs in our conference are seeing injury reduction specifically, I'd want to know which ones.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating.",
+        "If the trend around {topic} is as widespread as you're describing, I'd want to understand what's driving it.",
+        "The fact that peers I respect are taking {topic} seriously does shift my thinking — I won't pretend otherwise."
+      ],
+      "neutral": [
+        "Adoption rate doesn't predict whether it's effective. Lots of programs adopt things that don't work.",
+        "What others are doing about {topic} is interesting context, but it doesn't determine what's right for me.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which.",
+        "Knowing that others have moved on {topic} is useful information, but not sufficient on its own."
+      ],
+      "resistant": [
+        "Coaches following trends doesn't make the trend right. I've seen plenty of fads in 25 years.",
+        "Plenty of people have followed trends on {topic} and regretted it. Popularity isn't a strategy.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions.",
+        "Social proof on {topic} is the weakest form of argument you can give me."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's an angle I hadn't considered. Keep going.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "Be more specific. What exactly are you proposing I change first?",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're not addressing the authority question. What happens when the data says one thing and I see another?",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
       ]
     },
     "LOGICAL": {
       "positive": [
         "The injury prevention angle is the one I actually care about. If it catches fatigue patterns I might miss, that's a real argument.",
-        "If it's presented to the team as injury prevention data — not performance ranking — that's a framing I could support."
+        "If it's presented to the team as injury prevention data — not performance ranking — that's a framing I could support.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
       ],
       "neutral": [
         "The injury prevention logic is sound in theory. Does it actually work at the high school level with real fatigue patterns?",
-        "The data is useful if I know what I'm looking for. I'd need to understand how to interpret it before trusting it."
+        "The data is useful if I know what I'm looking for. I'd need to understand how to interpret it before trusting it.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it.",
+        "That framing of {topic} is more nuanced than I expected, but I'm not ready to commit based on that alone."
       ],
       "resistant": [
         "I prevent injuries by knowing my players. I've had two in 25 years. The data isn't going to improve on that.",
-        "Efficiency arguments for technology often ignore the cost of implementation and adoption."
-      ]
-    },
-    "CONCESSION": {
-      "positive": [
-        "You're saying it supplements my judgment, not replaces it. That's the only version I'd be open to.",
-        "I appreciate that you're not pretending this is a silver bullet. That's more honest than the sales pitch I usually get.",
-        "The framing of 'a second opinion, not an override' — that's how I could explain it to my staff."
-      ],
-      "neutral": [
-        "Supplements, not replaces — I'll hold you to that. How do I make sure that's actually what happens?",
-        "Acknowledging my judgment matters is a good start. The question is how it works when data and judgment conflict."
-      ],
-      "resistant": [
-        "Saying it supplements my judgment is easy. Keeping it that way when the data says something different is harder.",
-        "Every technology starts as supplementary. It tends to creep."
-      ]
-    },
-    "EMOTIONAL": {
-      "positive": [
-        "If it helps me keep kids healthier and playing longer, that's a version of this I care about.",
-        "The legacy argument — giving my players every advantage — is one I can actually take seriously."
-      ],
-      "neutral": [
-        "I care deeply about my players. That's exactly why I'm cautious about anything that changes how they relate to me.",
-        "The emotional case is there. I'm skeptical about the practical execution."
-      ],
-      "resistant": [
-        "Don't appeal to my love for my players to get me to adopt something I'm not convinced will help them.",
-        "I built this program on relationships. Don't suggest I'm not giving players everything I can."
-      ]
-    },
-    "SOCIAL_PROOF": {
-      "positive": [
-        "If programs in our conference are seeing injury reduction specifically, I'd want to know which ones."
-      ],
-      "neutral": [
-        "Adoption rate doesn't predict whether it's effective. Lots of programs adopt things that don't work."
-      ],
-      "resistant": [
-        "Coaches following trends doesn't make the trend right. I've seen plenty of fads in 25 years."
-      ]
-    },
-    "AUTHORITY": {
-      "positive": [
-        "If research from athletic training departments shows injury prevention specifically, that's the study I'd actually read."
-      ],
-      "neutral": [
-        "Academic research on elite programs doesn't always translate to high school contexts."
-      ],
-      "resistant": [
-        "I've been coaching longer than most researchers have been studying coaching. Experience is evidence too."
-      ]
-    },
-    "GENERIC": {
-      "positive": [
-        "That's an angle I hadn't considered. Keep going."
-      ],
-      "neutral": [
-        "Be more specific. What exactly are you proposing I change first?"
-      ],
-      "resistant": [
-        "You're not addressing the authority question. What happens when the data says one thing and I see another?"
+        "Efficiency arguments for technology often ignore the cost of implementation and adoption.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "Logical arguments about {topic} only work if the premises are right. I'm not convinced they are."
       ]
     },
     "_pivot_signal": [
       "What would the data actually show me about a player that I don't already see in practice?",
       "If it was framed as injury prevention only, with no performance ranking visible to players, what would that look like?",
       "Who sets it up and who explains the numbers to me — I'm not learning a new software system."
-    ]
+    ],
+    "EMOTIONAL": {
+      "positive": [
+        "If it helps me keep kids healthier and playing longer, that's a version of this I care about.",
+        "The legacy argument — giving my players every advantage — is one I can actually take seriously.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing.",
+        "The human dimension of {topic} is something I don't hear enough about. That resonates."
+      ],
+      "neutral": [
+        "I care deeply about my players. That's exactly why I'm cautious about anything that changes how they relate to me.",
+        "The emotional case is there. I'm skeptical about the practical execution.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I appreciate the passion around {topic}, but I need to separate how I feel from what makes sense."
+      ],
+      "resistant": [
+        "Don't appeal to my love for my players to get me to adopt something I'm not convinced will help them.",
+        "I built this program on relationships. Don't suggest I'm not giving players everything I can.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel. That's not how I operate.",
+        "The emotional framing of {topic} might work on someone else. I need concrete reasons."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "You're saying it supplements my judgment, not replaces it. That's the only version I'd be open to.",
+        "I appreciate that you're not pretending this is a silver bullet. That's more honest than the sales pitch I usually get.",
+        "The framing of 'a second opinion, not an override' — that's how I could explain it to my staff.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "Acknowledging the legitimate downsides of your position on {topic} makes the rest of your argument more credible.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "Supplements, not replaces — I'll hold you to that. How do I make sure that's actually what happens?",
+        "Acknowledging my judgment matters is a good start. The question is how it works when data and judgment conflict.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them.",
+        "I'm glad you see why {topic} isn't straightforward. Now convince me you have a plan for the hard parts.",
+        "Conceding the difficulties around {topic} doesn't solve them. What's your actual answer?"
+      ],
+      "resistant": [
+        "Saying it supplements my judgment is easy. Keeping it that way when the data says something different is harder.",
+        "Every technology starts as supplementary. It tends to creep.",
+        "Agreeing with my concerns about {topic} to seem reasonable is a tactic I recognize. It doesn't change my position.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    }
   },
   "pivot_threshold": 0.5
 }

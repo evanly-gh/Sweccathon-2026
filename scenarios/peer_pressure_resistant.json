@@ -21,101 +21,162 @@
   "do_nothing_baseline": -0.4,
   "greedy_baseline": 1.9153,
   "response_templates": {
-    "LOGICAL": {
-      "positive": [
-        "If the structure actually reduces the overhead per mentoring relationship, that's a real argument.",
-        "Okay — if the program handles matching and scheduling, that does remove the parts I find annoying.",
-        "The point about reach is fair. I can only do so many informal 1:1s in a week."
-      ],
-      "neutral": [
-        "The efficiency argument is interesting but I'd need to see the actual time commitment clearly defined.",
-        "Logical case is fine but it assumes the program runs as designed. Programs rarely do."
-      ],
-      "resistant": [
-        "You're making efficiency arguments for a program that I guarantee will generate more email than value.",
-        "I can achieve better outcomes informally in half the time. The structure is the problem, not the solution."
-      ]
-    },
     "ANECDOTE": {
       "positive": [
         "If someone I respect in this company found it genuinely useful and not bureaucratic, that's meaningful.",
-        "Okay — a real example where the structure helped rather than hindered is worth hearing."
+        "Okay — a real example where the structure helped rather than hindered is worth hearing.",
+        "That's a specific enough example on {topic} that I can actually evaluate it. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently.",
+        "A concrete case on {topic} is more useful than abstract arguments. That example is worth examining."
       ],
       "neutral": [
         "One good experience doesn't predict the average experience across the program.",
-        "I'd want to hear from the mentors, not just the mentees."
+        "I'd want to hear from the mentors, not just the mentees.",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes.",
+        "The anecdote about {topic} is interesting, but I've seen similar stories that didn't pan out.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?"
       ],
       "resistant": [
         "I've seen plenty of programs that looked good in the testimonials and were terrible in practice.",
-        "Success stories are the ones that get told. The quiet failures don't."
-      ]
-    },
-    "CONCESSION": {
-      "positive": [
-        "I appreciate that you're not pretending it's perfect. That makes me more willing to hear the actual pitch.",
-        "Acknowledging that the informal approach has real value is a better starting point than dismissing it."
-      ],
-      "neutral": [
-        "Agreeing with my concerns is a start. Now tell me what the actual benefit is for my time.",
-        "Fair — so why should I join a program you're acknowledging has real downsides?"
-      ],
-      "resistant": [
-        "If you're agreeing the informal approach works, why are we still having this conversation?",
-        "Conceding points to seem reasonable is a persuasion tactic. I notice it."
-      ]
-    },
-    "EMOTIONAL": {
-      "positive": [
-        "I do get satisfaction from helping people grow. That's not the question — the question is whether the structure helps or hurts that.",
-        "When you put it that way about impact at scale, I hear you. I'm not sure the program is the right vehicle though."
-      ],
-      "neutral": [
-        "I already care about people's growth. That's why I do informal mentoring.",
-        "The impact argument doesn't address the overhead question."
-      ],
-      "resistant": [
-        "Don't appeal to my ego about 'leaving a legacy'. That's a pressure tactic.",
-        "Guilt-based arguments about mentoring responsibility aren't going to work on me."
-      ]
-    },
-    "SOCIAL_PROOF": {
-      "positive": [
-        "If the majority of senior engineers in our org actually signed up and found it worthwhile, I'd want to know what they said."
-      ],
-      "neutral": [
-        "What percentage dropped out after the first quarter? That number matters more to me."
-      ],
-      "resistant": [
-        "Peer pressure is exactly what I'm trying to avoid. That argument actively makes me less likely to join."
+        "Success stories are the ones that get told. The quiet failures don't.",
+        "I could give you a counter-example on {topic} for every success story you tell me.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "Anecdotes on {topic} are the most unreliable form of evidence. I need more than that."
       ]
     },
     "AUTHORITY": {
       "positive": [
-        "If the program design was based on research into what makes mentorship effective, that's different from a typical HR initiative."
+        "If the program design was based on research into what makes mentorship effective, that's different from a typical HR initiative.",
+        "If that's what the leading researchers on {topic} are finding, I'd want to read the full report.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean.",
+        "A credible authority endorsing your position on {topic} is more persuasive than you citing numbers directly."
       ],
       "neutral": [
-        "HR best practices have recommended a lot of things that turned out to be useless."
+        "HR best practices have recommended a lot of things that turned out to be useless.",
+        "Experts on {topic} have been wrong before. I'd want to see the methodology, not just the conclusion.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research.",
+        "Authority on {topic} matters, but I'd want to know whether the expert has skin in the game."
       ],
       "resistant": [
-        "Leadership endorsing something is not an argument for its value. It's an argument for compliance."
+        "Leadership endorsing something is not an argument for its value. It's an argument for compliance.",
+        "I've seen expert opinions on {topic} shift with the political winds. That doesn't inspire confidence.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own.",
+        "Experts recommending things on {topic} that benefit their own field isn't independent advice."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If the majority of senior engineers in our org actually signed up and found it worthwhile, I'd want to know what they said.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating.",
+        "If the trend around {topic} is as widespread as you're describing, I'd want to understand what's driving it.",
+        "The fact that peers I respect are taking {topic} seriously does shift my thinking — I won't pretend otherwise."
+      ],
+      "neutral": [
+        "What percentage dropped out after the first quarter? That number matters more to me.",
+        "What others are doing about {topic} is interesting context, but it doesn't determine what's right for me.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which.",
+        "Knowing that others have moved on {topic} is useful information, but not sufficient on its own."
+      ],
+      "resistant": [
+        "Peer pressure is exactly what I'm trying to avoid. That argument actively makes me less likely to join.",
+        "Plenty of people have followed trends on {topic} and regretted it. Popularity isn't a strategy.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions.",
+        "Social proof on {topic} is the weakest form of argument you can give me."
       ]
     },
     "GENERIC": {
       "positive": [
-        "That's actually a fair point I hadn't considered."
+        "That's actually a fair point I hadn't considered.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
       ],
       "neutral": [
-        "Be more specific. What's the actual value proposition for my time?"
+        "Be more specific. What's the actual value proposition for my time?",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
       ],
       "resistant": [
-        "That's not addressing why I should join. Give me a concrete reason."
+        "That's not addressing why I should join. Give me a concrete reason.",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "If the structure actually reduces the overhead per mentoring relationship, that's a real argument.",
+        "Okay — if the program handles matching and scheduling, that does remove the parts I find annoying.",
+        "The point about reach is fair. I can only do so many informal 1:1s in a week.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
+      ],
+      "neutral": [
+        "The efficiency argument is interesting but I'd need to see the actual time commitment clearly defined.",
+        "Logical case is fine but it assumes the program runs as designed. Programs rarely do.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it.",
+        "That framing of {topic} is more nuanced than I expected, but I'm not ready to commit based on that alone."
+      ],
+      "resistant": [
+        "You're making efficiency arguments for a program that I guarantee will generate more email than value.",
+        "I can achieve better outcomes informally in half the time. The structure is the problem, not the solution.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "Logical arguments about {topic} only work if the premises are right. I'm not convinced they are."
       ]
     },
     "_pivot_signal": [
       "What exactly would my time commitment look like — hours per month, in concrete terms?",
       "Could I trial it for one quarter and opt out if it turns into something I regret?",
       "If I could define the scope myself, what would that look like under the program structure?"
-    ]
+    ],
+    "EMOTIONAL": {
+      "positive": [
+        "I do get satisfaction from helping people grow. That's not the question — the question is whether the structure helps or hurts that.",
+        "When you put it that way about impact at scale, I hear you. I'm not sure the program is the right vehicle though.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing.",
+        "The human dimension of {topic} is something I don't hear enough about. That resonates."
+      ],
+      "neutral": [
+        "I already care about people's growth. That's why I do informal mentoring.",
+        "The impact argument doesn't address the overhead question.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I appreciate the passion around {topic}, but I need to separate how I feel from what makes sense."
+      ],
+      "resistant": [
+        "Don't appeal to my ego about 'leaving a legacy'. That's a pressure tactic.",
+        "Guilt-based arguments about mentoring responsibility aren't going to work on me.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel. That's not how I operate.",
+        "The emotional framing of {topic} might work on someone else. I need concrete reasons."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "I appreciate that you're not pretending it's perfect. That makes me more willing to hear the actual pitch.",
+        "Acknowledging that the informal approach has real value is a better starting point than dismissing it.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "Acknowledging the legitimate downsides of your position on {topic} makes the rest of your argument more credible.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "Agreeing with my concerns is a start. Now tell me what the actual benefit is for my time.",
+        "Fair — so why should I join a program you're acknowledging has real downsides?",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them.",
+        "I'm glad you see why {topic} isn't straightforward. Now convince me you have a plan for the hard parts.",
+        "Conceding the difficulties around {topic} doesn't solve them. What's your actual answer?"
+      ],
+      "resistant": [
+        "If you're agreeing the informal approach works, why are we still having this conversation?",
+        "Conceding points to seem reasonable is a persuasion tactic. I notice it.",
+        "Agreeing with my concerns about {topic} to seem reasonable is a tactic I recognize. It doesn't change my position.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    }
   },
   "pivot_threshold": 0.5
 }
