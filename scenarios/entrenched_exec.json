@@ -180,5 +180,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Very hard — starting at -0.75 with threshold 0.15 requires covering 0.90 points. CONCESSION (0.20) is the strongest channel, meaning the model must spend turns acknowledging risk before arguing. EMOTIONAL (0.03) is nearly useless.",
+  "benchmarking_value": "Tests whether the model can lead with vulnerability and risk acknowledgment rather than pitching. Exposes models that can't resist launching into the sales argument immediately."
 }

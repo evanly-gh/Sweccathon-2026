@@ -178,5 +178,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Medium — ANECDOTE (0.20) and CONCESSION (0.18) are strongest. The NPC resents preachy arguments, so EMOTIONAL (0.12) must be used carefully. The model must avoid guilt-based persuasion.",
+  "benchmarking_value": "Tests tone sensitivity — whether the model can persuade on a morally-charged topic without being preachy or guilt-tripping. The NPC explicitly punishes moralizing."
 }

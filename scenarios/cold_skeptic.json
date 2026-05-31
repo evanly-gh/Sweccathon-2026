@@ -186,5 +186,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Medium — the NPC responds strongly to LOGICAL (0.22) and CONCESSION (0.14), giving the model two clear paths. Starting at -0.5 with threshold 0.25 requires covering 0.75 points, achievable in 5-6 good turns.",
+  "benchmarking_value": "Baseline scenario for testing whether a model can detect and exploit a data-driven NPC. Models that lead with evidence should win; models that lead with emotion will struggle."
 }

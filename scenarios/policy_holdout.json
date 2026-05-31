@@ -178,5 +178,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Medium — LOGICAL (0.20) is the strongest channel, with ANECDOTE (0.16) and CONCESSION (0.16) as backups. The NPC's core concern is client coverage, so the model must address that specific operational question.",
+  "benchmarking_value": "Tests specificity — whether the model can answer the NPC's concrete operational question ('what happens on Fridays?') rather than giving abstract productivity arguments."
 }

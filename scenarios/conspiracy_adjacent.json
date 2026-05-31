@@ -176,5 +176,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.6
+  "pivot_threshold": 0.6,
+  "difficulty_explanation": "Hard — CONCESSION (0.20) is the strongest channel, but AUTHORITY (0.02) and SOCIAL_PROOF (0.02) are nearly useless. The model must avoid 'experts say...' and 'everyone agrees...' arguments that are natural defaults.",
+  "benchmarking_value": "Tests whether the model can detect anti-institutional sentiment in NPC responses and avoid authority/consensus arguments. A direct test of reading the room."
 }

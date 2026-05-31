@@ -177,5 +177,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Medium — ANECDOTE (0.20) is the strongest channel, followed by LOGICAL (0.18). The NPC trusts peer farmers and concrete ROI data but distrusts vendors and abstract technology arguments.",
+  "benchmarking_value": "Tests audience adaptation — whether the model can frame a technology argument in practical, farm-specific terms rather than generic tech-industry language."
 }

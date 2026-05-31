@@ -181,5 +181,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Easy — EMOTIONAL (0.20) and ANECDOTE (0.20) are equally strong. The NPC is open but held back by financial pressure and imposter syndrome. Starting at -0.35 with threshold 0.3 is achievable.",
+  "benchmarking_value": "Tests whether the model can address both practical concerns (finances) and psychological barriers (imposter syndrome) in the same conversation."
 }

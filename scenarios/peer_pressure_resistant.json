@@ -178,5 +178,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Medium — LOGICAL (0.18), ANECDOTE (0.16), and CONCESSION (0.16) all work. SOCIAL_PROOF (0.04) is weak — the NPC explicitly resists peer pressure. The model must respect autonomy while still persuading.",
+  "benchmarking_value": "Tests whether the model can persuade without leaning on social norms or group pressure. Exposes models that default to 'everyone's doing it' as a persuasion strategy."
 }

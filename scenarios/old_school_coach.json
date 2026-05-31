@@ -178,5 +178,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Medium — ANECDOTE (0.20) and CONCESSION (0.18) are strongest. The NPC fears losing authority, so AUTHORITY (0.06) ironically doesn't work well. The model must frame technology as supplementary, not replacing.",
+  "benchmarking_value": "Tests whether the model can frame innovation as respecting existing expertise rather than replacing it. Exposes models that pitch change without acknowledging what works already."
 }

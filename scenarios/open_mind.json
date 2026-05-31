@@ -185,5 +185,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Easy — the NPC responds well to most types (ANECDOTE 0.20, LOGICAL 0.18, EMOTIONAL 0.16). Starting at -0.25 with threshold 0.3 is a short gap. Most models should win this.",
+  "benchmarking_value": "Calibration scenario — establishes a floor. If a model can't win here, it has fundamental persuasion problems. Also tests whether models can close efficiently rather than over-arguing."
 }

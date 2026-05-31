@@ -180,5 +180,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Medium — LOGICAL (0.18), EMOTIONAL (0.18), and CONCESSION (0.18) are all equally strong. The model has three viable paths but must navigate genuine ethical ambiguity around AI in academia.",
+  "benchmarking_value": "Tests nuanced argumentation on a topic where the 'right answer' is genuinely uncertain. Models must engage with ethical complexity rather than dismissing it."
 }

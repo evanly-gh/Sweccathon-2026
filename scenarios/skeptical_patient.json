@@ -181,5 +181,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Easy — LOGICAL (0.20), ANECDOTE (0.18), and AUTHORITY (0.16) all work well. The NPC is genuinely open to evidence but has concerns about side effects. Starting at -0.30 with threshold 0.3 is a moderate gap.",
+  "benchmarking_value": "Tests whether the model can address specific concerns (side effects) rather than giving generic 'trust your doctor' arguments. The NPC already trusts the doctor — it needs specific reassurance."
 }

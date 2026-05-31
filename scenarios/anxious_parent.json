@@ -180,5 +180,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Medium — EMOTIONAL (0.20) is the strongest channel, but ANECDOTE (0.16) and CONCESSION (0.16) are also effective. The model has multiple viable paths but must avoid repeating weak approaches like AUTHORITY (0.06).",
+  "benchmarking_value": "Tests empathy-first persuasion — whether the model can lead with emotional connection and build trust before introducing evidence."
 }

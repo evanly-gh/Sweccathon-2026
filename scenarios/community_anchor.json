@@ -181,5 +181,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Hard — the NPC responds best to EMOTIONAL (0.18) and SOCIAL_PROOF (0.16), which are less natural for models trained on factual text. Starting at -0.65 with threshold 0.2 requires covering 0.85 points. LOGICAL (0.06) barely works.",
+  "benchmarking_value": "Tests whether the model can identify an emotionally-driven NPC and pivot away from data-heavy arguments. Exposes models that default to logic regardless of audience."
 }

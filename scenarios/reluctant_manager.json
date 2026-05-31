@@ -177,5 +177,7 @@
       ]
     }
   },
-  "pivot_threshold": 0.5
+  "pivot_threshold": 0.5,
+  "difficulty_explanation": "Medium — LOGICAL (0.18) and ANECDOTE (0.18) are equally strong. The model can win through either evidence or peer examples. SOCIAL_PROOF (0.06) is weak because the NPC distrusts industry trends.",
+  "benchmarking_value": "Tests balanced persuasion — whether the model can combine data with concrete examples rather than relying on a single approach."
 }
