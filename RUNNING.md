@@ -29,7 +29,7 @@ The platform clones your repo and rebuilds the env. Takes ~30 seconds.
 ## Step 2 — Create a run
 
 ```powershell
-mesocosm run create --domain 3a7286d6-b6f5-4bca-9e8d-b94f9d9ea927 --vow-version 1.0.0 --model MODEL --episodes N --visibility gallery_public --solo
+mesocosm run create --domain 3a7286d6-b6f5-4bca-9e8d-b94f9d9ea927 --vow-version 6.7.0 --model MODEL --episodes N --visibility gallery_public --solo
 ```
 
 **Allowed models** (as of May 2026):
@@ -44,7 +44,7 @@ mesocosm run create --domain 3a7286d6-b6f5-4bca-9e8d-b94f9d9ea927 --vow-version 
 
 **Recommended first run:**
 ```powershell
-mesocosm run create --domain 3a7286d6-b6f5-4bca-9e8d-b94f9d9ea927 --vow-version 1.0.0 --model anthropic/claude-sonnet-4-6 --episodes 4 --visibility gallery_public --solo
+mesocosm run create --domain 3a7286d6-b6f5-4bca-9e8d-b94f9d9ea927 --vow-version 6.7.0 --model anthropic/claude-sonnet-4-6 --episodes 4 --visibility gallery_public --solo
 ```
 
 Copy the `id` from the output — you'll need it for the next steps.
