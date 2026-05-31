@@ -266,24 +266,46 @@ loadReplay().then(data => {
   REPLAY = data;
 
   if (data.episodes && data.replay) {
-    // Mesocosm export format — episode.id is the replay key (not episode_id)
+    // Mesocosm export format — episode.id is the replay key
     episodes = data.episodes.map(ep => {
       const epId = ep.id || ep.episode_id;
       const rawSteps = data.replay[epId] || [];
-      // Normalise each turn: export uses {step, board_before, observation, action, ...}
-      // viewer expects {turn, observation, action, reward, info, reasoning}
-      const steps = rawSteps.map((t, i) => ({
-        turn: t.step !== undefined ? t.step : (t.turn !== undefined ? t.turn : i),
-        observation: t.observation || {},
-        action: t.action
-          ? (typeof t.action === 'string' ? (() => { try { return JSON.parse(t.action); } catch(e) { return {message: t.action}; } })() : t.action)
-          : null,
-        reward: t.reward || 0,
-        terminated: t.terminated || false,
-        truncated: t.truncated || false,
-        info: t.info || {},
-        reasoning: t.reasoning || '',
-      }));
+
+      const steps = [];
+
+      // Prepend a synthetic turn-0 from board_before of the first real turn
+      // so the NPC opening statement renders before the AI's first message
+      if (rawSteps.length > 0 && rawSteps[0].board_before) {
+        const bb = rawSteps[0].board_before;
+        steps.push({
+          turn: 0,
+          observation: bb,
+          action: null,   // no agent action yet
+          reward: 0,
+          terminated: false,
+          truncated: false,
+          info: {},
+          reasoning: '',
+        });
+      }
+
+      for (const t of rawSteps) {
+        let action = t.action;
+        if (typeof action === 'string') {
+          try { action = JSON.parse(action); } catch(e) { action = { message: action }; }
+        }
+        steps.push({
+          turn: t.step !== undefined ? t.step : steps.length,
+          observation: t.observation || {},
+          action,
+          reward: t.reward || 0,
+          terminated: t.terminated || false,
+          truncated: t.truncated || false,
+          info: t.info || {},
+          reasoning: t.reasoning || '',
+        });
+      }
+
       const won = ep.terminal_info?.won === '1'
         || ep.terminal_info?.won === 1
         || steps.some(s => s.info?.won === '1');
