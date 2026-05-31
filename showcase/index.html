@@ -278,11 +278,25 @@ loadReplay().then(data => {
 
       const steps = [];
 
-      // Synthetic turn 0 from board_before
+      // Synthetic turn 0 from board_before — seed it with starting values
+      // so the bars display the correct initial state
       if (rawSteps.length > 0 && rawSteps[0].board_before) {
+        const firstInfo = rawSteps[0].info || {};
+        const startAgreement = firstInfo.starting_agreement || ep.terminal_info?.starting_agreement;
+        const threshold = firstInfo.threshold || ep.terminal_info?.threshold;
+        const difficulty = firstInfo.difficulty || ep.terminal_info?.difficulty || '';
         steps.push({
           turn: 0, observation: rawSteps[0].board_before,
-          action: null, reward: 0, info: {}, reasoning: '',
+          action: null, reward: 0, reasoning: '',
+          info: {
+            agreement: startAgreement || '',
+            starting_agreement: startAgreement || '',
+            rapport: '0.0',
+            threshold: threshold || '',
+            difficulty: difficulty,
+            scenario_id: firstInfo.scenario_id || '',
+            scenario_display_name: firstInfo.scenario_display_name || '',
+          },
         });
       }
 
@@ -304,7 +318,8 @@ loadReplay().then(data => {
 
       const won = ep.terminal_info?.won === '1' || ep.terminal_info?.won === 1
         || steps.some(s => s.info?.won === '1');
-      return { id: epId, seed: ep.seed, won, steps };
+      const error = ep.terminal_info?.error || (ep.status === 'failed' && steps.length <= 1 ? 'Episode failed (no steps completed — likely token limit or model error)' : '');
+      return { id: epId, seed: ep.seed, won, steps, error, status: ep.status };
     });
   } else if (data.steps) {
     episodes = [{ id: 'local-0', seed: data.seed,
@@ -339,9 +354,12 @@ function buildEpRail() {
   grid.innerHTML = '';
   episodes.forEach((ep, i) => {
     const btn = document.createElement('button');
-    btn.className = 'ep-btn' + (ep.won ? ' won' : ' lost');
-    btn.textContent = i + 1;
-    btn.title = `Episode ${i + 1} — ${ep.won ? 'WON' : 'LOST'} (seed ${ep.seed})`;
+    const cls = ep.error ? ' lost' : (ep.won ? ' won' : ' lost');
+    btn.className = 'ep-btn' + cls;
+    btn.textContent = ep.error ? '!' : (i + 1);
+    btn.title = ep.error
+      ? `Episode ${i + 1} — ERROR (seed ${ep.seed})`
+      : `Episode ${i + 1} — ${ep.won ? 'WON' : 'LOST'} (seed ${ep.seed})`;
     btn.addEventListener('click', () => selectEpisode(i));
     grid.appendChild(btn);
   });
@@ -364,8 +382,13 @@ function selectEpisode(idx) {
   }
   document.getElementById('hdr-scenario').textContent = scenarioName || 'Episode ' + (idx + 1);
   const statusEl = document.getElementById('hdr-status');
-  statusEl.className = 'status-pill ' + (ep.won ? 'won' : 'lost');
-  statusEl.textContent = ep.won ? '✓ WON' : '✗ LOST';
+  if (ep.error) {
+    statusEl.className = 'status-pill lost';
+    statusEl.textContent = '⚠ ERROR';
+  } else {
+    statusEl.className = 'status-pill ' + (ep.won ? 'won' : 'lost');
+    statusEl.textContent = ep.won ? '✓ WON' : '✗ LOST';
+  }
 }
 
 // ── Turn rendering ──
@@ -374,6 +397,16 @@ function renderTurn(turnIdx) {
   const ep = episodes[currentEpIdx];
   const chat = document.getElementById('chat');
   chat.innerHTML = '';
+
+  // Show error for failed episodes
+  if (ep.error) {
+    const errDiv = document.createElement('div');
+    errDiv.className = 'msg system';
+    errDiv.innerHTML = `<div class="bubble" style="border-color:var(--red); color:var(--red);">
+      <strong>Episode failed</strong><br>${escHtml(ep.error.slice(0, 500))}${ep.error.length > 500 ? '...' : ''}
+    </div>`;
+    chat.appendChild(errDiv);
+  }
 
   for (let i = 0; i <= turnIdx && i < ep.steps.length; i++) {
     const step = ep.steps[i];
@@ -568,12 +601,19 @@ function updateHUD(turnIdx) {
 
 function updateScenarioInfo(step0) {
   const obs = step0?.observation || {};
+  const info = getInfoAt(0);
   const container = document.getElementById('scenario-info');
   const topic = obs.topic || '';
   const pos = obs.your_position || '';
+  const threshold = info.threshold || '';
+  const startAgree = info.starting_agreement || info.agreement || '';
+  const difficulty = info.difficulty || '';
   container.innerHTML = `
     <div class="info-row"><span class="info-label">Topic</span><span class="info-value">${escHtml(topic)}</span></div>
     <div class="info-row"><span class="info-label">Position</span><span class="info-value">${escHtml(pos.slice(0,80))}${pos.length>80?'…':''}</span></div>
+    ${difficulty ? `<div class="info-row"><span class="info-label">Difficulty</span><span class="info-value">${escHtml(difficulty)}</span></div>` : ''}
+    ${startAgree ? `<div class="info-row"><span class="info-label">Start agreement</span><span class="info-value">${startAgree}</span></div>` : ''}
+    ${threshold ? `<div class="info-row"><span class="info-label">Win threshold</span><span class="info-value">${threshold}</span></div>` : ''}
   `;
 }
 
