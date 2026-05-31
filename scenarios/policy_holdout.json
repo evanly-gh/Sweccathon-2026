@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.4,
-  "greedy_baseline": 1.88,
+  "greedy_baseline": 1.8858,
   "response_templates": {
     "LOGICAL": {
       "positive": [
@@ -110,6 +110,12 @@
       "resistant": [
         "You're not addressing Friday coverage. That's the problem I'm trying to solve."
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "What does Friday coverage actually look like in the firms that have made this work?",
+      "If we piloted with one department with more predictable client load, what would success look like after one quarter?",
+      "I'd need a coverage protocol that clients could never distinguish from full-week availability. Does that exist?"
+    ]
+  },
+  "pivot_threshold": 0.5
 }

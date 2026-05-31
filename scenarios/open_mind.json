@@ -117,6 +117,12 @@
       "resistant": [
         "You're being a bit vague. What exactly are you suggesting I do?"
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "What does the first two weeks actually look like — what am I eating, what am I measuring?",
+      "If I tried this and felt worse after two weeks, is there a reason to keep going or would I stop?",
+      "I'm not committing, but I'd want to know what the first step would be."
+    ]
+  },
+  "pivot_threshold": 0.5
 }

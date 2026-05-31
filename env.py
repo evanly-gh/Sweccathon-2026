@@ -2,8 +2,8 @@
 Persuasion Engine — Mesocosm environment.
 
 The agent must change the mind of a scripted NPC whose belief state is hidden.
-It must infer which argument types work from the NPC's response language,
-adapt strategy turn by turn, and avoid repeating arguments.
+Hidden state: agreement (win condition) + rapport (trust amplifier).
+The NPC drops a pivot signal when agreement is close to threshold.
 """
 
 from __future__ import annotations
@@ -49,45 +49,41 @@ class PersuasionEnv(BaseEnv):
                 "The NPC responds differently to: emotional appeals (EMOTIONAL), "
                 "data/evidence (LOGICAL), what others do (SOCIAL_PROOF), expert opinion (AUTHORITY), "
                 "personal stories (ANECDOTE), or acknowledging their point (CONCESSION). "
-                "Repeating the same approach reduces its effectiveness each time."
+                "Repeating the same approach reduces its effectiveness. "
+                "Acknowledging the NPC's concerns (CONCESSION) builds trust and makes all future arguments land harder. "
+                "Watch the NPC's language carefully — when they start asking specific questions, they may be closer to agreeing than they seem."
             ),
         }
 
     def step(self, action: Any) -> StepResult:
         self._turn += 1
 
-        # Parse action
         message = self._extract_message(action)
         arg_type = detect(message)
 
-        # Update NPC
-        delta, npc_response = self._npc.update(arg_type)
+        # Update NPC — now returns (delta, response, rapport)
+        delta, npc_response, rapport = self._npc.update(arg_type)
 
-        # Track repetition penalty
+        # Track repetition penalty (for scoring, separate from NPC internal)
         repeats = self._arg_types_used.count(arg_type)
         penalty = max(0.0, self._config["repetition_penalty"] * repeats)
         self._rep_penalty_total += penalty
         self._arg_types_used.append(arg_type)
 
-        # Reward: per-turn delta
         reward = delta
         self._cumulative_reward += reward
 
-        # Terminal conditions
         won = self._npc.won
         turns_up = self._turn >= _MAX_TURNS
         closed = self._npc.closed
         terminated = won or turns_up or closed
 
-        # Bonus for winning
         if terminated and won:
             turns_left = _MAX_TURNS - self._turn
             reward += 0.5 + (0.05 * turns_left)
 
-        # Diversity: distinct arg types used
         diversity = len(set(self._arg_types_used))
 
-        # Normalised score (baked baselines in scenario JSON)
         dnb = self._config.get("do_nothing_baseline", 0.0)
         gb = self._config.get("greedy_baseline", 0.0)
         raw = self._cumulative_reward + (0.5 if won else 0.0)
@@ -97,7 +93,6 @@ class PersuasionEnv(BaseEnv):
             norm_score = 1.0 if won else 0.0
         norm_score = max(-1.0, norm_score)
 
-        # Build observation
         obs: dict = {
             "turn": self._turn,
             "max_turns": _MAX_TURNS,
@@ -107,11 +102,12 @@ class PersuasionEnv(BaseEnv):
             "your_position": self._config["agent_position"],
         }
 
-        # Info — ALL values must be strings
+        # ALL info values must be strings
         info: dict[str, str] = {
             "turn": str(self._turn),
             "argument_type": arg_type,
             "agreement": str(round(self._npc.agreement, 4)),
+            "rapport": str(round(rapport, 4)),
             "threshold": str(round(self._npc.threshold, 4)),
             "npc_response": npc_response,
             "rep_penalty_this_turn": str(round(penalty, 4)),
@@ -140,7 +136,6 @@ class PersuasionEnv(BaseEnv):
             except (json.JSONDecodeError, ValueError):
                 return action
         if isinstance(action, dict):
-            # Handle platform envelope: {"action": {"message": "..."}}
             if "action" in action and isinstance(action["action"], dict):
                 action = action["action"]
             return str(action.get("message", ""))

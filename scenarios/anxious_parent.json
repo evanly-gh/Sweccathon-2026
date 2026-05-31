@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.4,
-  "greedy_baseline": 1.86,
+  "greedy_baseline": 1.8658,
   "response_templates": {
     "EMOTIONAL": {
       "positive": [
@@ -112,6 +112,12 @@
       "resistant": [
         "You're not addressing my actual concern. What about parental rights?"
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "Can parents actually review the curriculum materials before they go to students?",
+      "Is there a real opt-out process or is that just theoretical?",
+      "I'd want to sit in on a session before deciding. Is that something the school allows?"
+    ]
+  },
+  "pivot_threshold": 0.5
 }

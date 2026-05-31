@@ -113,6 +113,12 @@
       "resistant": [
         "You're not addressing the financial pressure. That's the main thing holding me back."
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "What does a funded PhD actually cover — is it enough to live on, or am I still taking loans?",
+      "If I deferred and did one year in industry first, would that hurt my application?",
+      "What would I say to my family to explain why this is worth five more years?"
+    ]
+  },
+  "pivot_threshold": 0.5
 }

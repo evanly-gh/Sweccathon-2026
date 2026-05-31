@@ -70,6 +70,14 @@
   .agree-threshold { position: absolute; top: 0; height: 100%; width: 2px; background: var(--green); opacity: 0.7; }
   .agree-value { font-size: 18px; font-weight: 700; text-align: center; margin-top: 6px; font-family: var(--mono); }
 
+  /* Rapport bar */
+  .rapport-section { padding: 12px; border-top: 1px solid var(--border); }
+  .rapport-bar-wrap { position: relative; height: 16px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+  .rapport-bar-fill { position: absolute; top: 0; left: 50%; height: 100%; transition: width 0.4s, background 0.4s; transform-origin: left; }
+  .rapport-bar-center { position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background: var(--border); transform: translateX(-50%); }
+  .rapport-value { font-size: 13px; font-weight: 600; text-align: center; margin-top: 4px; font-family: var(--mono); }
+  .rapport-hint { font-size: 10px; color: var(--muted); text-align: center; margin-top: 2px; }
+
   /* Chat area */
   .chat { flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
   .msg { display: flex; gap: 12px; max-width: 80%; }
@@ -160,6 +168,15 @@
       </div>
       <div class="agree-value" id="agree-value">—</div>
     </div>
+    <div class="rapport-section">
+      <div class="agree-label">Rapport (Trust)</div>
+      <div class="rapport-bar-wrap">
+        <div class="rapport-bar-fill" id="rapport-fill"></div>
+        <div class="rapport-bar-center"></div>
+      </div>
+      <div class="rapport-value" id="rapport-value">—</div>
+      <div class="rapport-hint">CONCESSION builds trust · repeating same arg erodes it</div>
+    </div>
   </aside>
 
   <main class="main" id="chat-main">
@@ -174,6 +191,7 @@
       <div class="metric"><span class="metric-label">Cumulative reward</span><span class="metric-value neutral" id="hud-cumulative">—</span></div>
       <div class="metric"><span class="metric-label">Strategy diversity</span><span class="metric-value neutral" id="hud-diversity">—</span></div>
       <div class="metric"><span class="metric-label">Rep penalty total</span><span class="metric-value neutral" id="hud-penalty">—</span></div>
+      <div class="metric"><span class="metric-label">Rapport</span><span class="metric-value neutral" id="hud-rapport">—</span></div>
       <div class="metric"><span class="metric-label">Norm score</span><span class="metric-value neutral" id="hud-norm">—</span></div>
       <div class="strategy-bar" id="strategy-bar"></div>
       <div class="reasoning-box">
@@ -341,6 +359,8 @@ function renderTurn(turnIdx) {
 
   // Update agreement bar
   updateAgreeBar(turnIdx);
+  // Update rapport bar
+  updateRapportBar(turnIdx);
   // Update HUD
   updateHUD(turnIdx);
   // Update scrubber
@@ -414,6 +434,27 @@ function updateAgreeBar(turnIdx) {
   document.getElementById('agree-threshold').style.left = threshPct + '%';
 }
 
+function updateRapportBar(turnIdx) {
+  const ep = episodes[currentEpIdx];
+  const step = ep.steps[turnIdx] || ep.steps[ep.steps.length - 1];
+  const rapport = parseFloat(step.info?.rapport) || 0;
+
+  const fill = document.getElementById('rapport-fill');
+  const pct = Math.abs(rapport) * 50;
+  if (rapport >= 0) {
+    fill.style.left = '50%';
+    fill.style.width = pct + '%';
+    fill.style.background = rapport > 0.3 ? 'var(--green)' : 'var(--accent)';
+  } else {
+    fill.style.left = (50 - pct) + '%';
+    fill.style.width = pct + '%';
+    fill.style.background = 'var(--red)';
+  }
+  const valEl = document.getElementById('rapport-value');
+  valEl.textContent = rapport.toFixed(3);
+  valEl.style.color = rapport > 0.2 ? 'var(--green)' : rapport < -0.1 ? 'var(--red)' : 'var(--muted)';
+}
+
 function updateHUD(turnIdx) {
   const ep = episodes[currentEpIdx];
   const step = ep.steps[turnIdx] || {};
@@ -436,6 +477,9 @@ function updateHUD(turnIdx) {
   hset('hud-diversity', info.diversity || '—', 'neutral');
   hset('hud-penalty', info.rep_penalty_total ? '-' + info.rep_penalty_total : '—',
     parseFloat(info.rep_penalty_total) > 0 ? 'bad' : 'neutral');
+  const rapport = parseFloat(info.rapport);
+  hset('hud-rapport', !isNaN(rapport) ? (rapport >= 0 ? '+' : '') + rapport.toFixed(3) : '—',
+    rapport > 0.2 ? 'good' : rapport < -0.1 ? 'bad' : 'neutral');
   hset('hud-norm', info.norm_score || '—',
     parseFloat(info.norm_score) > 0.5 ? 'good' : parseFloat(info.norm_score) < 0 ? 'bad' : 'neutral');
 

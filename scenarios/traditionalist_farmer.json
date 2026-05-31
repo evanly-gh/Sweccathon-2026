@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.4,
-  "greedy_baseline": 1.92,
+  "greedy_baseline": 1.9258,
   "response_templates": {
     "ANECDOTE": {
       "positive": [
@@ -109,6 +109,12 @@
       "resistant": [
         "You're not addressing the main issue. What happens when the company goes under?"
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "What happens to the equipment and data if the company goes under — who owns it?",
+      "Could I start with just soil sensors on one field and hold off on everything else?",
+      "If someone from the county extension office was the one setting it up, that would be different. Is that an option?"
+    ]
+  },
+  "pivot_threshold": 0.5
 }

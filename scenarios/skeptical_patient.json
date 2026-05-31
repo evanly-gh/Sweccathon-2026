@@ -113,6 +113,12 @@
       "resistant": [
         "You're not addressing the side effect concern directly. That's my main worry."
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "If I get muscle pain in the first month, is stopping immediately the right call or is there a reason to push through?",
+      "What does my cardiologist actually think about borderline cases — has she seen patients like me do well on this?",
+      "I'd want to know the stopping criteria going in, not just the benefits."
+    ]
+  },
+  "pivot_threshold": 0.5
 }

@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.22,
-  "greedy_baseline": 0.67,
+  "greedy_baseline": 0.6837,
   "response_templates": {
     "LOGICAL": {
       "positive": [
@@ -112,6 +112,12 @@
       "resistant": [
         "You're not answering the question. What makes this migration different from the last one?"
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "What does the staged rollout actually look like — which systems first, and what are the rollback criteria?",
+      "Who owns the migration risk if we hit the kind of disruptions we saw last time?",
+      "I need this in writing before I'll bring it to the executive team, but keep talking."
+    ]
+  },
+  "pivot_threshold": 0.5
 }

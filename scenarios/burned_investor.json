@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.34,
-  "greedy_baseline": 0.82,
+  "greedy_baseline": 0.838,
   "response_templates": {
     "EMOTIONAL": {
       "positive": [
@@ -111,6 +111,12 @@
       "resistant": [
         "You're not addressing my core concern. I don't trust my own judgment. What do I do about that?"
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "What would a structured evaluation process look like — one that removes the personal trust element I got burned on?",
+      "Is there a way to do this with smaller checks at first, enough to get signal without the same exposure?",
+      "What would need to be different about the diligence process for you to feel confident recommending it?"
+    ]
+  },
+  "pivot_threshold": 0.5
 }

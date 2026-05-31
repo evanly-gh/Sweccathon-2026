@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.4,
-  "greedy_baseline": 1.92,
+  "greedy_baseline": 1.9265,
   "response_templates": {
     "ANECDOTE": {
       "positive": [
@@ -110,6 +110,12 @@
       "resistant": [
         "You're not addressing the sustainability problem. That's why I failed before."
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "What does the first week actually look like — am I eliminating everything at once or is there a ramp?",
+      "If I set a target of three plant-based days a week instead of seven, is that actually meaningfully better?",
+      "What's the one change that would have the most impact with the least disruption to how I already cook?"
+    ]
+  },
+  "pivot_threshold": 0.5
 }

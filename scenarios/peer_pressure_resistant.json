@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.4,
-  "greedy_baseline": 1.84,
+  "greedy_baseline": 1.8523,
   "response_templates": {
     "LOGICAL": {
       "positive": [
@@ -110,6 +110,12 @@
       "resistant": [
         "That's not addressing why I should join. Give me a concrete reason."
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "What exactly would my time commitment look like — hours per month, in concrete terms?",
+      "Could I trial it for one quarter and opt out if it turns into something I regret?",
+      "If I could define the scope myself, what would that look like under the program structure?"
+    ]
+  },
+  "pivot_threshold": 0.5
 }

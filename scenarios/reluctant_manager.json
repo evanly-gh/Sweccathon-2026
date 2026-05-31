@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.4,
-  "greedy_baseline": 1.86,
+  "greedy_baseline": 1.8658,
   "response_templates": {
     "LOGICAL": {
       "positive": [
@@ -109,6 +109,12 @@
       "resistant": [
         "You're not engaging with my core concern. How does this preserve deep review culture?"
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "If we piloted with one team for one sprint, what metrics would tell me whether it was helping or hurting?",
+      "What would the rollout look like if we started with style and syntax only — nothing architectural?",
+      "I'd need to see a pilot proposal that includes explicit culture safeguards. What would that look like?"
+    ]
+  },
+  "pivot_threshold": 0.5
 }

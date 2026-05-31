@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.4,
-  "greedy_baseline": 1.92,
+  "greedy_baseline": 1.9265,
   "response_templates": {
     "ANECDOTE": {
       "positive": [
@@ -110,6 +110,12 @@
       "resistant": [
         "You're not addressing the authority question. What happens when the data says one thing and I see another?"
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "What would the data actually show me about a player that I don't already see in practice?",
+      "If it was framed as injury prevention only, with no performance ranking visible to players, what would that look like?",
+      "Who sets it up and who explains the numbers to me — I'm not learning a new software system."
+    ]
+  },
+  "pivot_threshold": 0.5
 }

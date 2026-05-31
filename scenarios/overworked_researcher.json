@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.4,
-  "greedy_baseline": 1.96,
+  "greedy_baseline": 1.9665,
   "response_templates": {
     "LOGICAL": {
       "positive": [
@@ -112,6 +112,12 @@
       "resistant": [
         "You're not engaging with the integrity question. That's the core issue for me."
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "Which specific tasks would you actually use it for — not in theory, in a real paper workflow?",
+      "What would I say if a colleague asked me directly whether I used AI assistance?",
+      "Is there a version of this I could describe publicly at a department meeting without it being a problem?"
+    ]
+  },
+  "pivot_threshold": 0.5
 }

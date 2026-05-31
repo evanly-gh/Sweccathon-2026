@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.34,
-  "greedy_baseline": 0.79,
+  "greedy_baseline": 0.8041,
   "response_templates": {
     "EMOTIONAL": {
       "positive": [
@@ -113,6 +113,12 @@
       "resistant": [
         "You're talking around the real issue. What happens to people like me?"
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "What protections are actually in the proposal — legally binding ones, not just statements of intent?",
+      "Has anyone in a neighborhood like ours actually negotiated affordability guarantees that held up?",
+      "I'm not ready to support this, but I'd be willing to review the actual zoning language."
+    ]
+  },
+  "pivot_threshold": 0.5
 }

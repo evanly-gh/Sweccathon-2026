@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.28,
-  "greedy_baseline": 0.52,
+  "greedy_baseline": 0.5337,
   "response_templates": {
     "CONCESSION": {
       "positive": [
@@ -108,6 +108,12 @@
       "resistant": [
         "That sounds like a talking point, not an argument. Give me something I can independently verify."
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "What would I need to look at to verify the temperature data myself, independently of the institutions?",
+      "If I could check the raw measurements directly, where would I go?",
+      "What's a claim in here that I could actually test without trusting anyone's interpretation?"
+    ]
+  },
+  "pivot_threshold": 0.6
 }

@@ -19,7 +19,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.4,
-  "greedy_baseline": 1.82,
+  "greedy_baseline": 1.8329,
   "response_templates": {
     "LOGICAL": {
       "positive": [
@@ -118,6 +118,12 @@
       "resistant": [
         "You're not really answering the question. Give me something concrete."
       ]
-    }
-  }
+    },
+    "_pivot_signal": [
+      "What would a phased rollout actually look like — say, one facility first?",
+      "Assuming the numbers held up under audit, what would implementation realistically cost us?",
+      "I'm not saying yes, but I'd want to see a proper pilot proposal before the next board meeting."
+    ]
+  },
+  "pivot_threshold": 0.5
 }
