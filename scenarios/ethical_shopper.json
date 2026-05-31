@@ -21,8 +21,8 @@
     "AUTHORITY": 0.06,
     "GENERIC": 0.02
   },
-  "do_nothing_baseline": -0.58,
-  "greedy_baseline": 2.5438,
+  "do_nothing_baseline": -0.572,
+  "greedy_baseline": 1.3319,
   "response_templates": {
     "ANECDOTE": {
       "positive": [

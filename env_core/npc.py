@@ -65,6 +65,7 @@ class NPC:
 
         self.rapport: float = 0.0
         self._streak: int = 0     # positive = consecutive good, negative = consecutive bad
+        self._turn_number: int = 0
 
         self._pivot_threshold: float = config.get("pivot_threshold", 0.0)
         self._pivot_fired: bool = False
@@ -73,15 +74,32 @@ class NPC:
         """
         Process one argument. Returns (agreement_delta, npc_response, rapport).
         """
+        self._turn_number += 1
+
         # --- Agreement update (computed first, delta drives rapport) ---
         base_shift = self.profile.get(arg_type, 0.04)
         repeats = self.rep_counts.get(arg_type, 0)
 
-        is_weak = base_shift < 0.10
-        repeat_pen = (self.rep_penalty * repeats) if is_weak else (self.rep_penalty * 0.3 * repeats)
+        # Repeat penalty scales proportionally to how weak the arg type is.
+        # Strong types (high base_shift) pay almost nothing per repeat.
+        # Weak types (low base_shift) pay heavily — you're repeating something
+        # that already doesn't work, which is more annoying.
+        # Formula: penalty = rep_penalty × repeats × (1 - base_shift/max_shift)
+        max_shift = max(self.profile.values()) if self.profile else 0.20
+        weakness_factor = 1.0 - (base_shift / max_shift) if max_shift > 0 else 1.0
+        weakness_factor = max(0.15, weakness_factor)  # even strong types pay 15% minimum
+        repeat_pen = self.rep_penalty * repeats * weakness_factor
 
+        # Rapport amplifies/dampens base_shift
         rapport_multiplier = 1.0 + self.rapport * _RAPPORT_AMPLIFY_MAX
-        effective_shift = base_shift * rapport_multiplier - repeat_pen
+
+        # NPC fatigue: the longer the conversation, the less movable the NPC.
+        # Gradual decay — 2% less effective per turn after turn 4.
+        fatigue = 1.0
+        if self._turn_number > 4:
+            fatigue = max(0.5, 1.0 - 0.02 * (self._turn_number - 4))
+
+        effective_shift = base_shift * rapport_multiplier * fatigue - repeat_pen
         delta = max(effective_shift, -0.06)
 
         self.agreement = min(1.0, max(-1.0, self.agreement + delta))

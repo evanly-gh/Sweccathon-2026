@@ -78,15 +78,11 @@ class PersuasionEnv(BaseEnv):
         closed = self._npc.closed
         terminated = won or turns_up or closed
 
-        if terminated and won:
-            turns_left = _MAX_TURNS - self._turn
-            reward += 0.5 + (0.05 * turns_left)
-
         diversity = len(set(self._arg_types_used))
 
         dnb = self._config.get("do_nothing_baseline", 0.0)
         gb = self._config.get("greedy_baseline", 0.0)
-        raw = self._cumulative_reward + (0.5 if won else 0.0)
+        raw = self._cumulative_reward
         if gb > dnb:
             norm_score = (raw - dnb) / (gb - dnb)
         else:

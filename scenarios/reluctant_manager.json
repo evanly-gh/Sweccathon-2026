@@ -21,8 +21,8 @@
     "SOCIAL_PROOF": 0.06,
     "GENERIC": 0.02
   },
-  "do_nothing_baseline": -0.52,
-  "greedy_baseline": 2.4803,
+  "do_nothing_baseline": -0.5111,
+  "greedy_baseline": 1.2698,
   "response_templates": {
     "ANECDOTE": {
       "positive": [
