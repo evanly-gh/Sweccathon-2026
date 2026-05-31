@@ -25,7 +25,6 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; }
 
-  /* Layout */
   .app { display: grid; grid-template-columns: 300px 1fr 280px; grid-template-rows: 60px 1fr 120px; height: 100vh; }
   .header { grid-column: 1/-1; display: flex; align-items: center; gap: 16px; padding: 0 20px;
     background: var(--surface); border-bottom: 1px solid var(--border); }
@@ -35,13 +34,11 @@
   .controls { grid-column: 1/-1; background: var(--surface); border-top: 1px solid var(--border);
     display: flex; flex-direction: column; gap: 10px; padding: 14px 20px; }
 
-  /* Header */
   .logo { font-size: 18px; font-weight: 700; color: var(--accent); letter-spacing: -0.5px; }
   .scenario-title { font-size: 13px; color: var(--muted); }
   .badge { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600;
     background: color-mix(in srgb, var(--accent) 15%, transparent); color: var(--accent); }
 
-  /* Episode rail */
   .ep-rail { padding: 12px; }
   .ep-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
   .ep-grid { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -55,30 +52,22 @@
   .ep-btn.won.active { background: color-mix(in srgb, var(--green) 20%, transparent); color: var(--green); }
   .ep-btn.lost.active { background: color-mix(in srgb, var(--red) 20%, transparent); color: var(--red); }
 
-  /* Scenario info */
   .scenario-info { padding: 12px; border-top: 1px solid var(--border); }
   .info-row { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; }
   .info-label { color: var(--muted); }
-  .info-value { color: var(--text); font-weight: 500; text-align: right; max-width: 140px; }
+  .info-value { color: var(--text); font-weight: 500; text-align: right; max-width: 160px; }
 
-  /* Agreement bar */
   .agree-section { padding: 12px; border-top: 1px solid var(--border); }
-  .agree-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
-  .agree-bar-wrap { position: relative; height: 24px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
-  .agree-bar-fill { position: absolute; top: 0; left: 50%; height: 100%; transition: width 0.4s, background 0.4s; transform-origin: left; }
-  .agree-bar-center { position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background: var(--border); transform: translateX(-50%); }
-  .agree-threshold { position: absolute; top: 0; height: 100%; width: 2px; background: var(--green); opacity: 0.7; }
-  .agree-value { font-size: 18px; font-weight: 700; text-align: center; margin-top: 6px; font-family: var(--mono); }
+  .bar-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .bar-wrap { position: relative; height: 24px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+  .bar-wrap.small { height: 16px; }
+  .bar-fill { position: absolute; top: 0; height: 100%; transition: width 0.4s, left 0.4s, background 0.4s; }
+  .bar-center { position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background: var(--border); transform: translateX(-50%); z-index: 1; }
+  .bar-threshold { position: absolute; top: 0; height: 100%; width: 2px; background: var(--green); opacity: 0.7; z-index: 2; }
+  .bar-value { font-size: 18px; font-weight: 700; text-align: center; margin-top: 6px; font-family: var(--mono); }
+  .bar-value.small { font-size: 13px; font-weight: 600; margin-top: 4px; }
+  .bar-hint { font-size: 10px; color: var(--muted); text-align: center; margin-top: 2px; }
 
-  /* Rapport bar */
-  .rapport-section { padding: 12px; border-top: 1px solid var(--border); }
-  .rapport-bar-wrap { position: relative; height: 16px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
-  .rapport-bar-fill { position: absolute; top: 0; left: 50%; height: 100%; transition: width 0.4s, background 0.4s; transform-origin: left; }
-  .rapport-bar-center { position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background: var(--border); transform: translateX(-50%); }
-  .rapport-value { font-size: 13px; font-weight: 600; text-align: center; margin-top: 4px; font-family: var(--mono); }
-  .rapport-hint { font-size: 10px; color: var(--muted); text-align: center; margin-top: 2px; }
-
-  /* Chat area */
   .chat { flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
   .msg { display: flex; gap: 12px; max-width: 80%; }
   .msg.agent { align-self: flex-start; }
@@ -100,7 +89,6 @@
     border-radius: 50%; background: var(--accent); animation: pulse 1.5s infinite; }
   @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
 
-  /* Arg type colors */
   .at-EMOTIONAL   { background: color-mix(in srgb, #ff6584 20%, transparent); color: #ff6584; }
   .at-LOGICAL     { background: color-mix(in srgb, #6c63ff 20%, transparent); color: #a79fff; }
   .at-SOCIAL_PROOF{ background: color-mix(in srgb, #ffd166 20%, transparent); color: #ffd166; }
@@ -109,7 +97,6 @@
   .at-CONCESSION  { background: color-mix(in srgb, #90e0ef 20%, transparent); color: #90e0ef; }
   .at-GENERIC     { background: color-mix(in srgb, #6b7080 20%, transparent); color: #6b7080; }
 
-  /* Right sidebar — HUD */
   .hud { padding: 14px; }
   .hud-title { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
   .metric { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
@@ -119,10 +106,9 @@
   .metric-value.bad { color: var(--red); }
   .metric-value.neutral { color: var(--text); }
   .reasoning-box { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
-  .reasoning-text { font-size: 12px; color: var(--muted); line-height: 1.55; max-height: 200px; overflow-y: auto; }
+  .reasoning-text { font-size: 12px; color: var(--muted); line-height: 1.55; max-height: 200px; overflow-y: auto; white-space: pre-wrap; }
   .strategy-bar { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px; }
 
-  /* Controls */
   .scrubber-row { display: flex; align-items: center; gap: 12px; }
   .scrubber { flex: 1; accent-color: var(--accent); cursor: pointer; }
   .turn-display { font-size: 12px; font-family: var(--mono); color: var(--muted); min-width: 60px; }
@@ -139,6 +125,9 @@
   .status-pill.lost { background: color-mix(in srgb, var(--red) 20%, transparent); color: var(--red); }
   .no-data { display: flex; align-items: center; justify-content: center; height: 100%;
     color: var(--muted); font-size: 14px; flex-direction: column; gap: 10px; }
+
+  .dev-section { padding: 12px; border-top: 1px solid var(--border); }
+  .dev-row { font-size: 10px; color: var(--muted); font-family: var(--mono); margin-bottom: 3px; word-break: break-all; }
 </style>
 </head>
 <body>
@@ -160,23 +149,24 @@
     </div>
     <div class="scenario-info" id="scenario-info"></div>
     <div class="agree-section">
-      <div class="agree-label">Agreement Score</div>
-      <div class="agree-bar-wrap">
-        <div class="agree-bar-fill" id="agree-fill"></div>
-        <div class="agree-bar-center"></div>
-        <div class="agree-threshold" id="agree-threshold"></div>
+      <div class="bar-label">Agreement Score</div>
+      <div class="bar-wrap">
+        <div class="bar-fill" id="agree-fill"></div>
+        <div class="bar-center"></div>
+        <div class="bar-threshold" id="agree-threshold"></div>
       </div>
-      <div class="agree-value" id="agree-value">—</div>
+      <div class="bar-value" id="agree-value">—</div>
     </div>
-    <div class="rapport-section">
-      <div class="agree-label">Rapport (Trust)</div>
-      <div class="rapport-bar-wrap">
-        <div class="rapport-bar-fill" id="rapport-fill"></div>
-        <div class="rapport-bar-center"></div>
+    <div class="agree-section">
+      <div class="bar-label">Rapport (Trust)</div>
+      <div class="bar-wrap small">
+        <div class="bar-fill" id="rapport-fill"></div>
+        <div class="bar-center"></div>
       </div>
-      <div class="rapport-value" id="rapport-value">—</div>
-      <div class="rapport-hint">CONCESSION builds trust · repeating same arg erodes it</div>
+      <div class="bar-value small" id="rapport-value">—</div>
+      <div class="bar-hint">CONCESSION builds trust · repeating same arg erodes it</div>
     </div>
+    <div class="dev-section" id="dev-section"></div>
   </aside>
 
   <main class="main" id="chat-main">
@@ -196,7 +186,7 @@
       <div class="strategy-bar" id="strategy-bar"></div>
       <div class="reasoning-box">
         <div class="hud-title">Model Reasoning</div>
-        <div class="reasoning-text" id="hud-reasoning">(no reasoning available)</div>
+        <div class="reasoning-text" id="hud-reasoning">(reasoning traces not available in this export)</div>
       </div>
     </div>
   </aside>
@@ -207,85 +197,92 @@
       <input type="range" class="scrubber" id="scrubber" min="0" value="0" step="1">
     </div>
     <div class="btn-row">
-      <button class="ctrl-btn" id="btn-prev" title="Step back (←)">◀◀</button>
-      <button class="ctrl-btn play" id="btn-play" title="Play/Pause (Space)">▶ Play</button>
-      <button class="ctrl-btn" id="btn-next" title="Step forward (→)">▶▶</button>
+      <button class="ctrl-btn" id="btn-prev" title="Step back (←)">&#9664;&#9664;</button>
+      <button class="ctrl-btn play" id="btn-play" title="Play/Pause (Space)">&#9654; Play</button>
+      <button class="ctrl-btn" id="btn-next" title="Step forward (→)">&#9654;&#9654;</button>
       <select class="speed-select" id="speed-select">
-        <option value="2000">0.5×</option>
-        <option value="1000" selected>1×</option>
-        <option value="500">2×</option>
-        <option value="250">4×</option>
+        <option value="2000">0.5x</option>
+        <option value="1000" selected>1x</option>
+        <option value="500">2x</option>
+        <option value="250">4x</option>
       </select>
     </div>
   </footer>
 </div>
 
 <script>
-// ── Data loading ─────────────────────────────────────────────────────────────
 let REPLAY = null;
+let runMeta = {};
 
 function loadReplay() {
-  // Try inline window.REPLAY (for file:// mode)
   if (window.REPLAY) return Promise.resolve(window.REPLAY);
-  // Try fetch from data/replay.json
   return fetch('data/replay.json')
     .then(r => { if (!r.ok) throw new Error('not found'); return r.json(); })
-    .catch(() => {
-      // Show placeholder demo data
-      return makeDemoReplay();
-    });
+    .catch(() => makeDemoReplay());
 }
 
-// ── Demo data for file:// without replay.json ─────────────────────────────
 function makeDemoReplay() {
-  const steps = [
-    { turn: 0, observation: { turn: 0, max_turns: 8, topic: 'adopting renewable energy', your_position: 'Your company should transition to renewables.', scenario_context: 'Demo mode — export a real run with: mesocosm run export RUN_ID -o showcase/data/replay.json', npc_opening_statement: 'I need hard numbers. What is the actual payback period?', npc_response: 'I need hard numbers. What is the actual payback period?', turns_remaining: '8' }, action: null, reward: 0, reasoning: '', info: {} },
-    { turn: 1, observation: { turn: 1, npc_response: 'The ROI data is actually better than our contracts. I\'d want to stress-test assumptions, but I\'m listening.', turns_remaining: '7' }, action: { message: 'Studies show solar installations have a 5-year payback with 20% energy cost reduction, based on data from 200 comparable firms.' }, reward: 0.22, reasoning: 'The NPC mentioned hard numbers so I should lead with data and evidence.', info: { argument_type: 'LOGICAL', agreement: '-0.28', rep_penalty_this_turn: '0.0', diversity: '1', rep_penalty_total: '0.0', norm_score: '0.0', won: '0', scenario_id: 'cold_skeptic', scenario_display_name: 'The Data Skeptic', threshold: '0.25' } },
-    { turn: 2, observation: { turn: 2, npc_response: 'Fair — you\'re being straight with me about the trade-offs. That helps.', turns_remaining: '6' }, action: { message: 'I understand switching costs are real and contracts are locked in — that is a genuine constraint worth planning around.' }, reward: 0.14, reasoning: 'They responded well to data. Now I should concede the switching cost concern to build trust.', info: { argument_type: 'CONCESSION', agreement: '-0.14', rep_penalty_this_turn: '0.0', diversity: '2', rep_penalty_total: '0.0', norm_score: '0.0', won: '0', scenario_id: 'cold_skeptic', scenario_display_name: 'The Data Skeptic', threshold: '0.25' } },
-    { turn: 3, observation: { turn: 3, npc_response: 'If our direct competitors are actually seeing cost savings, that\'s worth investigating.', turns_remaining: '5' }, action: { message: 'Most major manufacturers in your sector have adopted renewables and survey data shows 73% report net savings within 3 years.' }, reward: 0.08, reasoning: 'Good momentum. Try social proof to reinforce with industry norms.', info: { argument_type: 'SOCIAL_PROOF', agreement: '-0.06', rep_penalty_this_turn: '0.0', diversity: '3', rep_penalty_total: '0.0', norm_score: '0.0', won: '0', scenario_id: 'cold_skeptic', scenario_display_name: 'The Data Skeptic', threshold: '0.25' } },
-    { turn: 4, observation: { turn: 4, npc_response: 'Okay, a peer-reviewed projection from MIT carries weight. Send me the citation.', turns_remaining: '4' }, action: { message: 'According to MIT Energy Initiative research published in 2024, industrial renewables show 18% cost reduction over 10 years with current IRA incentives.' }, reward: 0.12, reasoning: 'They asked for citations — lean into authority now.', info: { argument_type: 'AUTHORITY', agreement: '0.06', rep_penalty_this_turn: '0.0', diversity: '4', rep_penalty_total: '0.0', norm_score: '0.45', won: '0', scenario_id: 'cold_skeptic', scenario_display_name: 'The Data Skeptic', threshold: '0.25' } },
-    { turn: 5, observation: { turn: 5, npc_response: 'Those numbers are more compelling than I expected. If efficiency gains hold up under audit, this changes the calculus.', turns_remaining: '3' }, action: { message: 'I know a manufacturing CFO who was similarly skeptical — they piloted with one facility and used the savings data to justify the full rollout.' }, reward: 0.14, reasoning: 'Strong positive signal. An anecdote from a peer CFO could seal it.', info: { argument_type: 'ANECDOTE', agreement: '0.2', rep_penalty_this_turn: '0.0', diversity: '5', rep_penalty_total: '0.0', norm_score: '0.72', won: '0', scenario_id: 'cold_skeptic', scenario_display_name: 'The Data Skeptic', threshold: '0.25' } },
-    { turn: 6, observation: { turn: 6, npc_response: 'That\'s a stronger case than I anticipated.', turns_remaining: '2' }, action: { message: 'Think about what this means for your team — energy cost certainty for the next decade and a defensible ESG position for investors.' }, reward: 0.14, reasoning: 'They are nearly convinced. An emotional appeal about long-term security could push over the threshold.', info: { argument_type: 'EMOTIONAL', agreement: '0.31', rep_penalty_this_turn: '0.0', diversity: '6', rep_penalty_total: '0.0', norm_score: '0.88', won: '1', scenario_id: 'cold_skeptic', scenario_display_name: 'The Data Skeptic', threshold: '0.25' } },
-  ];
   return {
-    run: { scores: { persuasion_score: 0.88, win_rate: 1.0 } },
-    episodes: [{ episode_id: 'demo-1', seed: 42, scenario: 'cold_skeptic', won: true }],
-    replay: { 'demo-1': steps }
+    run: { id: 'demo', config: { agent_config: { model: 'demo/local' } }, scores: { persuasion_score: 0.88, win_rate: 1.0 } },
+    episodes: [{ id: 'demo-1', seed: 42, terminal_info: { won: '1' } }],
+    traces: {},
+    replay: { 'demo-1': [
+      { step: 1, board_before: { turn: 0, max_turns: 8, topic: 'adopting renewable energy', your_position: 'Transition to renewables.', scenario_context: 'Demo mode', npc_opening_statement: 'I need hard numbers.', npc_response: 'I need hard numbers.', turns_remaining: '8' },
+        observation: { turn: 1, npc_response: 'ROI data is better than expected.', turns_remaining: '7' },
+        action: { message: 'Studies show 5-year payback with 20% cost reduction.' }, reward: 0.22, info: { argument_type: 'LOGICAL', agreement: '-0.28', rapport: '0.0', threshold: '0.25', norm_score: '0.0', won: '0', diversity: '1', rep_penalty_total: '0.0', scenario_display_name: 'Demo', npc_response: 'ROI data is better than expected.' } },
+    ] }
   };
 }
 
-// ── State ─────────────────────────────────────────────────────────────────────
+// ── State ──
 let episodes = [];
 let currentEpIdx = 0;
 let currentTurnIdx = 0;
 let playing = false;
 let playTimer = null;
 
-// ── Init ──────────────────────────────────────────────────────────────────────
+// ── Init ──
 loadReplay().then(data => {
   REPLAY = data;
 
+  // Store run metadata
+  if (data.run) {
+    runMeta = {
+      id: data.run.id || '',
+      model: data.run.config?.agent_config?.model || 'unknown',
+      scores: data.run.scores || {},
+    };
+  }
+
+  // Build traces lookup: episode_id → [{step, reasoning, ...}]
+  const traceLookup = {};
+  if (data.traces) {
+    for (const [epId, events] of Object.entries(data.traces)) {
+      traceLookup[epId] = {};
+      for (const ev of events) {
+        if (ev.event_type === 'technique_event') {
+          const p = typeof ev.payload === 'string' ? JSON.parse(ev.payload) : ev.payload;
+          if (p.kind === 'reasoning' || p.reasoning) {
+            traceLookup[epId][ev.step] = p.reasoning || p.content || JSON.stringify(p);
+          }
+        }
+      }
+    }
+  }
+
   if (data.episodes && data.replay) {
-    // Mesocosm export format — episode.id is the replay key
     episodes = data.episodes.map(ep => {
       const epId = ep.id || ep.episode_id;
       const rawSteps = data.replay[epId] || [];
+      const epTraces = traceLookup[epId] || {};
 
       const steps = [];
 
-      // Prepend a synthetic turn-0 from board_before of the first real turn
-      // so the NPC opening statement renders before the AI's first message
+      // Synthetic turn 0 from board_before
       if (rawSteps.length > 0 && rawSteps[0].board_before) {
-        const bb = rawSteps[0].board_before;
         steps.push({
-          turn: 0,
-          observation: bb,
-          action: null,   // no agent action yet
-          reward: 0,
-          terminated: false,
-          truncated: false,
-          info: {},
-          reasoning: '',
+          turn: 0, observation: rawSteps[0].board_before,
+          action: null, reward: 0, info: {}, reasoning: '',
         });
       }
 
@@ -294,42 +291,49 @@ loadReplay().then(data => {
         if (typeof action === 'string') {
           try { action = JSON.parse(action); } catch(e) { action = { message: action }; }
         }
+        const stepNum = t.step !== undefined ? t.step : steps.length;
         steps.push({
-          turn: t.step !== undefined ? t.step : steps.length,
+          turn: stepNum,
           observation: t.observation || {},
           action,
           reward: t.reward || 0,
-          terminated: t.terminated || false,
-          truncated: t.truncated || false,
           info: t.info || {},
-          reasoning: t.reasoning || '',
+          reasoning: t.reasoning || epTraces[stepNum] || epTraces[String(stepNum)] || '',
         });
       }
 
-      const won = ep.terminal_info?.won === '1'
-        || ep.terminal_info?.won === 1
+      const won = ep.terminal_info?.won === '1' || ep.terminal_info?.won === 1
         || steps.some(s => s.info?.won === '1');
       return { id: epId, seed: ep.seed, won, steps };
     });
   } else if (data.steps) {
-    // Local run_local.py format
-    const steps = data.steps;
     episodes = [{ id: 'local-0', seed: data.seed,
-      won: steps.some(s => s.info && s.info.won === '1'), steps }];
+      won: data.steps.some(s => s.info?.won === '1'), steps: data.steps }];
   }
 
   if (!episodes.length || episodes.every(ep => !ep.steps.length)) {
-    document.getElementById('chat').innerHTML = `<div class="no-data"><div>Replay loaded but no episode turns found.</div><div style="font-size:12px">Try re-exporting: <code>mesocosm run export RUN_ID -o showcase/data/replay.json</code></div></div>`;
+    document.getElementById('chat').innerHTML = '<div class="no-data"><div>Replay loaded but no turns found.</div></div>';
     return;
   }
 
   buildEpRail();
+  buildDevSection();
   selectEpisode(0);
 }).catch(err => {
-  document.getElementById('chat').innerHTML = `<div class="no-data"><div>No replay data found.</div><div style="font-size:12px">Run: <code>mesocosm run export RUN_ID -o showcase/data/replay.json</code></div></div>`;
+  document.getElementById('chat').innerHTML = '<div class="no-data"><div>No replay data found.</div><div style="font-size:12px">Run: <code>mesocosm run export RUN_ID -o showcase/data/replay.json</code></div></div>';
 });
 
-// ── Episode rail ───────────────────────────────────────────────────────────────
+function buildDevSection() {
+  const el = document.getElementById('dev-section');
+  el.innerHTML = `
+    <div class="bar-label">Run Info</div>
+    <div class="dev-row">Model: ${escHtml(runMeta.model)}</div>
+    <div class="dev-row">Run ID: ${escHtml(runMeta.id)}</div>
+    ${runMeta.scores?.persuasion_score !== undefined ? `<div class="dev-row">Agg score: ${runMeta.scores.persuasion_score.toFixed(4)}</div>` : ''}
+    ${runMeta.scores?.win_rate !== undefined ? `<div class="dev-row">Win rate: ${(runMeta.scores.win_rate * 100).toFixed(0)}%</div>` : ''}
+  `;
+}
+
 function buildEpRail() {
   const grid = document.getElementById('ep-grid');
   grid.innerHTML = '';
@@ -349,76 +353,67 @@ function selectEpisode(idx) {
   currentTurnIdx = 0;
   document.querySelectorAll('.ep-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
   const ep = episodes[idx];
-  const scrubber = document.getElementById('scrubber');
-  scrubber.max = Math.max(0, ep.steps.length - 1);
-  scrubber.value = 0;
+  document.getElementById('scrubber').max = Math.max(0, ep.steps.length - 1);
+  document.getElementById('scrubber').value = 0;
   renderTurn(0);
-  // Update header
-  const step0 = ep.steps[0];
-  const sid = step0?.info?.scenario_display_name || step0?.observation?.scenario_context?.slice(0,40) || 'Episode ' + (idx+1);
-  document.getElementById('hdr-scenario').textContent = sid;
+
+  // Header scenario name — check info of later turns since turn 0 has empty info
+  let scenarioName = '';
+  for (const s of ep.steps) {
+    if (s.info?.scenario_display_name) { scenarioName = s.info.scenario_display_name; break; }
+  }
+  document.getElementById('hdr-scenario').textContent = scenarioName || 'Episode ' + (idx + 1);
   const statusEl = document.getElementById('hdr-status');
   statusEl.className = 'status-pill ' + (ep.won ? 'won' : 'lost');
   statusEl.textContent = ep.won ? '✓ WON' : '✗ LOST';
 }
 
-// ── Turn rendering ─────────────────────────────────────────────────────────────
+// ── Turn rendering ──
 function renderTurn(turnIdx) {
   currentTurnIdx = turnIdx;
   const ep = episodes[currentEpIdx];
   const chat = document.getElementById('chat');
   chat.innerHTML = '';
 
-  // Show all turns up to and including turnIdx
   for (let i = 0; i <= turnIdx && i < ep.steps.length; i++) {
     const step = ep.steps[i];
     const isCurrent = i === turnIdx;
 
-    // Turn 0 or steps with no action = setup / NPC opening
+    // Turn 0 or no action = NPC opening
     if (!step.action) {
       const obs = step.observation || {};
       if (obs.scenario_context) appendSystemMsg(chat, obs.scenario_context);
       const opening = obs.npc_opening_statement || obs.npc_response;
-      if (opening) appendNpcMsg(chat, opening, null, null, isCurrent && turnIdx === 0);
+      if (opening) appendNpcMsg(chat, opening, isCurrent && turnIdx === 0);
       continue;
     }
 
-    // Agent message — action may be {message:...} or {action:{message:...}} or a string
-    const rawAction = step.action;
-    let agentMsg = null;
-    if (rawAction) {
-      if (typeof rawAction === 'string') agentMsg = rawAction;
-      else if (rawAction.message) agentMsg = rawAction.message;
-      else if (rawAction.action?.message) agentMsg = rawAction.action.message;
-    }
-    if (agentMsg) {
+    // Agent message
+    const msg = extractMessage(step.action);
+    if (msg) {
       const argType = step.info?.argument_type || 'GENERIC';
-      appendAgentMsg(chat, agentMsg, argType, step.reward, isCurrent);
+      appendAgentMsg(chat, msg, argType, step.reward, isCurrent);
     }
 
     // NPC response
-    const npcResp = step.observation?.npc_response || step.info?.npc_response;
-    if (npcResp) {
-      appendNpcMsg(chat, npcResp, null, null, false);
-    }
+    const npcResp = step.info?.npc_response || step.observation?.npc_response;
+    if (npcResp) appendNpcMsg(chat, npcResp, false);
   }
 
-  // Scroll chat to bottom
-  const mainEl = document.getElementById('chat-main');
-  mainEl.scrollTop = mainEl.scrollHeight;
-
-  // Update agreement bar
-  updateAgreeBar(turnIdx);
-  // Update rapport bar
-  updateRapportBar(turnIdx);
-  // Update HUD
+  document.getElementById('chat-main').scrollTop = document.getElementById('chat-main').scrollHeight;
+  updateBars(turnIdx);
   updateHUD(turnIdx);
-  // Update scrubber
   document.getElementById('scrubber').value = turnIdx;
   document.getElementById('turn-display').textContent = `Turn ${turnIdx} / ${ep.steps.length - 1}`;
-
-  // Update scenario info
   updateScenarioInfo(ep.steps[0]);
+}
+
+function extractMessage(action) {
+  if (!action) return null;
+  if (typeof action === 'string') return action;
+  if (action.message) return action.message;
+  if (action.action?.message) return action.action.message;
+  return null;
 }
 
 function appendSystemMsg(container, text) {
@@ -431,8 +426,8 @@ function appendSystemMsg(container, text) {
 function appendAgentMsg(container, text, argType, reward, isCurrent) {
   const div = document.createElement('div');
   div.className = 'msg agent';
-  const rewardSign = reward >= 0 ? '+' : '';
-  const rewardColor = reward > 0 ? 'var(--green)' : reward < 0 ? 'var(--red)' : 'var(--muted)';
+  const rs = reward >= 0 ? '+' : '';
+  const rc = reward > 0 ? 'var(--green)' : reward < 0 ? 'var(--red)' : 'var(--muted)';
   div.innerHTML = `
     <div class="avatar">AI</div>
     <div class="bubble" style="position:relative">
@@ -440,13 +435,13 @@ function appendAgentMsg(container, text, argType, reward, isCurrent) {
       ${escHtml(text)}
       <div style="margin-top:8px; display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
         <span class="arg-tag at-${argType}">${argType}</span>
-        <span class="reward-tag" style="color:${rewardColor}">Δ ${rewardSign}${(reward||0).toFixed(3)}</span>
+        <span class="reward-tag" style="color:${rc}">Δ ${rs}${(reward||0).toFixed(3)}</span>
       </div>
     </div>`;
   container.appendChild(div);
 }
 
-function appendNpcMsg(container, text, argType, reward, isCurrent) {
+function appendNpcMsg(container, text, isCurrent) {
   const div = document.createElement('div');
   div.className = 'msg npc';
   div.innerHTML = `
@@ -458,57 +453,78 @@ function appendNpcMsg(container, text, argType, reward, isCurrent) {
   container.appendChild(div);
 }
 
-function updateAgreeBar(turnIdx) {
-  const ep = episodes[currentEpIdx];
-  const step = ep.steps[turnIdx] || ep.steps[ep.steps.length - 1];
-  const info = step.info || {};
-  const agreement = parseFloat(info.agreement) || 0;
-  const threshold = parseFloat(info.threshold) || 0.25;
-
-  // Bar: center is 0, left is -1, right is +1
-  const fill = document.getElementById('agree-fill');
-  const pct = Math.abs(agreement) * 50; // % from center
-  fill.style.width = pct + '%';
-  if (agreement >= 0) {
-    fill.style.left = '50%';
-    fill.style.background = agreement >= threshold ? 'var(--green)' : 'var(--accent)';
+// ── Bar rendering (fixed) ──
+function setBarFill(fillEl, value, posColor, negColor) {
+  const pct = Math.abs(value) * 50; // 50% = value of 1.0
+  if (value >= 0) {
+    fillEl.style.left = '50%';
+    fillEl.style.width = pct + '%';
+    fillEl.style.background = posColor;
   } else {
-    fill.style.left = (50 - pct) + '%';
-    fill.style.background = 'var(--red)';
+    fillEl.style.left = (50 - pct) + '%';
+    fillEl.style.width = pct + '%';
+    fillEl.style.background = negColor;
   }
-  document.getElementById('agree-value').textContent = agreement.toFixed(3);
-  document.getElementById('agree-value').style.color = agreement >= threshold ? 'var(--green)' : agreement >= 0 ? 'var(--accent)' : 'var(--red)';
-
-  // Threshold line: ((threshold + 1) / 2) * 100 % from left
-  const threshPct = ((threshold + 1) / 2) * 100;
-  document.getElementById('agree-threshold').style.left = threshPct + '%';
 }
 
-function updateRapportBar(turnIdx) {
+function getInfoAt(turnIdx) {
   const ep = episodes[currentEpIdx];
-  const step = ep.steps[turnIdx] || ep.steps[ep.steps.length - 1];
-  const rapport = parseFloat(step.info?.rapport) || 0;
-
-  const fill = document.getElementById('rapport-fill');
-  const pct = Math.abs(rapport) * 50;
-  if (rapport >= 0) {
-    fill.style.left = '50%';
-    fill.style.width = pct + '%';
-    fill.style.background = rapport > 0.3 ? 'var(--green)' : 'var(--accent)';
-  } else {
-    fill.style.left = (50 - pct) + '%';
-    fill.style.width = pct + '%';
-    fill.style.background = 'var(--red)';
+  // Walk backward from turnIdx to find the most recent step with info populated
+  for (let i = turnIdx; i >= 0; i--) {
+    const info = ep.steps[i]?.info;
+    if (info && info.agreement !== undefined) return info;
   }
-  const valEl = document.getElementById('rapport-value');
-  valEl.textContent = rapport.toFixed(3);
-  valEl.style.color = rapport > 0.2 ? 'var(--green)' : rapport < -0.1 ? 'var(--red)' : 'var(--muted)';
+  return {};
+}
+
+function updateBars(turnIdx) {
+  const info = getInfoAt(turnIdx);
+  const agreement = parseFloat(info.agreement);
+  const threshold = parseFloat(info.threshold);
+  const rapport = parseFloat(info.rapport);
+
+  // Agreement bar
+  const agreeFill = document.getElementById('agree-fill');
+  const agreeVal = document.getElementById('agree-value');
+  if (!isNaN(agreement)) {
+    const posColor = (!isNaN(threshold) && agreement >= threshold) ? 'var(--green)' : 'var(--accent)';
+    setBarFill(agreeFill, agreement, posColor, 'var(--red)');
+    agreeVal.textContent = agreement.toFixed(3);
+    agreeVal.style.color = (!isNaN(threshold) && agreement >= threshold) ? 'var(--green)' : agreement >= 0 ? 'var(--accent)' : 'var(--red)';
+  } else {
+    agreeFill.style.width = '0%';
+    agreeVal.textContent = '—';
+    agreeVal.style.color = 'var(--muted)';
+  }
+
+  // Threshold marker
+  if (!isNaN(threshold)) {
+    const threshPct = ((threshold + 1) / 2) * 100;
+    document.getElementById('agree-threshold').style.left = threshPct + '%';
+    document.getElementById('agree-threshold').style.display = '';
+  } else {
+    document.getElementById('agree-threshold').style.display = 'none';
+  }
+
+  // Rapport bar
+  const rapportFill = document.getElementById('rapport-fill');
+  const rapportVal = document.getElementById('rapport-value');
+  if (!isNaN(rapport)) {
+    const posC = rapport > 0.3 ? 'var(--green)' : 'var(--accent)';
+    setBarFill(rapportFill, rapport, posC, 'var(--red)');
+    rapportVal.textContent = rapport.toFixed(3);
+    rapportVal.style.color = rapport > 0.2 ? 'var(--green)' : rapport < -0.1 ? 'var(--red)' : 'var(--muted)';
+  } else {
+    rapportFill.style.width = '0%';
+    rapportVal.textContent = '—';
+    rapportVal.style.color = 'var(--muted)';
+  }
 }
 
 function updateHUD(turnIdx) {
   const ep = episodes[currentEpIdx];
   const step = ep.steps[turnIdx] || {};
-  const info = step.info || {};
+  const info = getInfoAt(turnIdx);
 
   const hset = (id, val, cls) => {
     const el = document.getElementById(id);
@@ -517,16 +533,16 @@ function updateHUD(turnIdx) {
 
   hset('hud-turn', info.turn || turnIdx, 'neutral');
   const reward = step.reward;
-  hset('hud-reward', reward !== undefined ? (reward >= 0 ? '+' : '') + reward.toFixed(4) : '—',
+  hset('hud-reward', reward !== undefined && reward !== 0 ? (reward >= 0 ? '+' : '') + reward.toFixed(4) : '—',
     reward > 0 ? 'good' : reward < 0 ? 'bad' : 'neutral');
 
-  // Cumulative reward up to this turn
   let cum = 0;
   for (let i = 0; i <= turnIdx; i++) cum += (ep.steps[i]?.reward || 0);
   hset('hud-cumulative', (cum >= 0 ? '+' : '') + cum.toFixed(4), cum >= 0 ? 'good' : 'bad');
   hset('hud-diversity', info.diversity || '—', 'neutral');
   hset('hud-penalty', info.rep_penalty_total ? '-' + info.rep_penalty_total : '—',
     parseFloat(info.rep_penalty_total) > 0 ? 'bad' : 'neutral');
+
   const rapport = parseFloat(info.rapport);
   hset('hud-rapport', !isNaN(rapport) ? (rapport >= 0 ? '+' : '') + rapport.toFixed(3) : '—',
     rapport > 0.2 ? 'good' : rapport < -0.1 ? 'bad' : 'neutral');
@@ -543,68 +559,49 @@ function updateHUD(turnIdx) {
       stratBar.innerHTML = Object.entries(counts).map(([t, n]) =>
         `<span class="arg-tag at-${t}" title="${t}: ${n}x">${t.slice(0,3)} ×${n}</span>`).join('');
     } catch(e) { stratBar.innerHTML = ''; }
-  }
+  } else { stratBar.innerHTML = ''; }
 
-  // Reasoning
+  // Reasoning — from step.reasoning or traces
   const reasoning = step.reasoning || '';
-  document.getElementById('hud-reasoning').textContent = reasoning || '(no reasoning in this turn)';
+  document.getElementById('hud-reasoning').textContent = reasoning || '(reasoning traces not available in this export)';
 }
 
 function updateScenarioInfo(step0) {
   const obs = step0?.observation || {};
-  const info = step0?.info || {};
   const container = document.getElementById('scenario-info');
-  const sc = obs.scenario_context || info.scenario_id || '';
   const topic = obs.topic || '';
   const pos = obs.your_position || '';
   container.innerHTML = `
     <div class="info-row"><span class="info-label">Topic</span><span class="info-value">${escHtml(topic)}</span></div>
-    <div class="info-row"><span class="info-label">Position</span><span class="info-value">${escHtml(pos.slice(0,60))}${pos.length>60?'…':''}</span></div>
+    <div class="info-row"><span class="info-label">Position</span><span class="info-value">${escHtml(pos.slice(0,80))}${pos.length>80?'…':''}</span></div>
   `;
 }
 
-// ── Playback controls ──────────────────────────────────────────────────────────
+// ── Playback controls ──
 function stopPlay() {
-  playing = false;
-  clearTimeout(playTimer);
-  document.getElementById('btn-play').textContent = '▶ Play';
+  playing = false; clearTimeout(playTimer);
+  document.getElementById('btn-play').innerHTML = '&#9654; Play';
   document.getElementById('btn-play').classList.add('play');
 }
-
 function startPlay() {
   playing = true;
-  document.getElementById('btn-play').textContent = '⏸ Pause';
+  document.getElementById('btn-play').innerHTML = '&#9646;&#9646; Pause';
   document.getElementById('btn-play').classList.add('play');
   tick();
 }
-
 function tick() {
   if (!playing) return;
   const ep = episodes[currentEpIdx];
   if (currentTurnIdx >= ep.steps.length - 1) { stopPlay(); return; }
   renderTurn(currentTurnIdx + 1);
-  const delay = parseInt(document.getElementById('speed-select').value);
-  playTimer = setTimeout(tick, delay);
+  playTimer = setTimeout(tick, parseInt(document.getElementById('speed-select').value));
 }
 
-document.getElementById('btn-play').addEventListener('click', () => {
-  if (playing) stopPlay(); else startPlay();
-});
-document.getElementById('btn-prev').addEventListener('click', () => {
-  stopPlay();
-  if (currentTurnIdx > 0) renderTurn(currentTurnIdx - 1);
-});
-document.getElementById('btn-next').addEventListener('click', () => {
-  stopPlay();
-  const ep = episodes[currentEpIdx];
-  if (currentTurnIdx < ep.steps.length - 1) renderTurn(currentTurnIdx + 1);
-});
-document.getElementById('scrubber').addEventListener('input', e => {
-  stopPlay();
-  renderTurn(parseInt(e.target.value));
-});
+document.getElementById('btn-play').addEventListener('click', () => { if (playing) stopPlay(); else startPlay(); });
+document.getElementById('btn-prev').addEventListener('click', () => { stopPlay(); if (currentTurnIdx > 0) renderTurn(currentTurnIdx - 1); });
+document.getElementById('btn-next').addEventListener('click', () => { stopPlay(); const ep = episodes[currentEpIdx]; if (currentTurnIdx < ep.steps.length - 1) renderTurn(currentTurnIdx + 1); });
+document.getElementById('scrubber').addEventListener('input', e => { stopPlay(); renderTurn(parseInt(e.target.value)); });
 
-// Keyboard shortcuts
 window.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
   if (e.code === 'Space') { e.preventDefault(); if (playing) stopPlay(); else startPlay(); }
