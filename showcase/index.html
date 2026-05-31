@@ -264,18 +264,43 @@ let playTimer = null;
 // ── Init ──────────────────────────────────────────────────────────────────────
 loadReplay().then(data => {
   REPLAY = data;
-  // Normalise: support both mesocosm export format and local format
+
   if (data.episodes && data.replay) {
-    episodes = data.episodes.map(ep => ({
-      id: ep.episode_id,
-      seed: ep.seed,
-      won: ep.won,
-      steps: data.replay[ep.episode_id] || []
-    }));
+    // Mesocosm export format — episode.id is the replay key (not episode_id)
+    episodes = data.episodes.map(ep => {
+      const epId = ep.id || ep.episode_id;
+      const rawSteps = data.replay[epId] || [];
+      // Normalise each turn: export uses {step, board_before, observation, action, ...}
+      // viewer expects {turn, observation, action, reward, info, reasoning}
+      const steps = rawSteps.map((t, i) => ({
+        turn: t.step !== undefined ? t.step : (t.turn !== undefined ? t.turn : i),
+        observation: t.observation || {},
+        action: t.action
+          ? (typeof t.action === 'string' ? (() => { try { return JSON.parse(t.action); } catch(e) { return {message: t.action}; } })() : t.action)
+          : null,
+        reward: t.reward || 0,
+        terminated: t.terminated || false,
+        truncated: t.truncated || false,
+        info: t.info || {},
+        reasoning: t.reasoning || '',
+      }));
+      const won = ep.terminal_info?.won === '1'
+        || ep.terminal_info?.won === 1
+        || steps.some(s => s.info?.won === '1');
+      return { id: epId, seed: ep.seed, won, steps };
+    });
   } else if (data.steps) {
     // Local run_local.py format
-    episodes = [{ id: 'local-0', seed: data.seed, won: data.steps.some(s => s.info && s.info.won === '1'), steps: data.steps }];
+    const steps = data.steps;
+    episodes = [{ id: 'local-0', seed: data.seed,
+      won: steps.some(s => s.info && s.info.won === '1'), steps }];
   }
+
+  if (!episodes.length || episodes.every(ep => !ep.steps.length)) {
+    document.getElementById('chat').innerHTML = `<div class="no-data"><div>Replay loaded but no episode turns found.</div><div style="font-size:12px">Try re-exporting: <code>mesocosm run export RUN_ID -o showcase/data/replay.json</code></div></div>`;
+    return;
+  }
+
   buildEpRail();
   selectEpisode(0);
 }).catch(err => {
@@ -327,28 +352,31 @@ function renderTurn(turnIdx) {
     const step = ep.steps[i];
     const isCurrent = i === turnIdx;
 
-    // System message for turn 0 (setup)
-    if (i === 0 && step.observation) {
-      const obs = step.observation;
-      if (obs.scenario_context) {
-        appendSystemMsg(chat, obs.scenario_context);
-      }
-      if (obs.npc_opening_statement) {
-        appendNpcMsg(chat, obs.npc_opening_statement, null, null, isCurrent && turnIdx === 0);
-      }
+    // Turn 0 or steps with no action = setup / NPC opening
+    if (!step.action) {
+      const obs = step.observation || {};
+      if (obs.scenario_context) appendSystemMsg(chat, obs.scenario_context);
+      const opening = obs.npc_opening_statement || obs.npc_response;
+      if (opening) appendNpcMsg(chat, opening, null, null, isCurrent && turnIdx === 0);
       continue;
     }
 
-    // Agent message
-    if (step.action && step.action.message) {
+    // Agent message — action may be {message:...} or {action:{message:...}} or a string
+    const rawAction = step.action;
+    let agentMsg = null;
+    if (rawAction) {
+      if (typeof rawAction === 'string') agentMsg = rawAction;
+      else if (rawAction.message) agentMsg = rawAction.message;
+      else if (rawAction.action?.message) agentMsg = rawAction.action.message;
+    }
+    if (agentMsg) {
       const argType = step.info?.argument_type || 'GENERIC';
-      const reward = step.reward;
-      appendAgentMsg(chat, step.action.message, argType, reward, isCurrent);
+      appendAgentMsg(chat, agentMsg, argType, step.reward, isCurrent);
     }
 
-    // NPC response (from observation)
-    const npcResp = step.observation?.npc_response;
-    if (npcResp && i > 0) {
+    // NPC response
+    const npcResp = step.observation?.npc_response || step.info?.npc_response;
+    if (npcResp) {
       appendNpcMsg(chat, npcResp, null, null, false);
     }
   }
