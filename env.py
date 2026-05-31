@@ -135,9 +135,22 @@ class PersuasionEnv(BaseEnv):
             try:
                 action = json.loads(action)
             except (json.JSONDecodeError, ValueError):
-                return action
+                # Try to recover a message from truncated JSON
+                # e.g. {"action":{"message":"I think you should consi
+                recovered = self._recover_truncated(action)
+                return recovered if recovered else action
         if isinstance(action, dict):
             if "action" in action and isinstance(action["action"], dict):
                 action = action["action"]
             return str(action.get("message", ""))
         return str(action)
+
+    @staticmethod
+    def _recover_truncated(raw: str) -> str:
+        """Extract partial message from truncated JSON."""
+        import re
+        # Look for "message":"..." even if the string is cut off
+        match = re.search(r'"message"\s*:\s*"((?:[^"\\]|\\.)*)', raw)
+        if match and len(match.group(1)) > 10:
+            return match.group(1)
+        return ""

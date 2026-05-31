@@ -22,7 +22,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.52,
-  "greedy_baseline": 1.3754,
+  "greedy_baseline": 1.2123,
   "response_templates": {
     "ANECDOTE": {
       "positive": [
