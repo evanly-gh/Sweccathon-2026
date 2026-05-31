@@ -6,9 +6,12 @@
   "scenario_context": "You are speaking with Sam, a 34-year-old who has dealt with chronic fatigue for two years. Sam is open-minded, curious, and genuinely wants to feel better, but has already tried three interventions that didn't work. Sam is cautious about committing time and money to something new and wants to feel confident before proceeding.",
   "npc_opening_statement": "I'm not opposed to trying new things — I've just been disappointed before. The last thing I tried cost me three months and $800. What makes this different from the other approaches I've already tried?",
   "difficulty": "easy",
+  "difficulty_explanation": "Easy — the NPC responds well to most types (ANECDOTE 0.20, LOGICAL 0.18, EMOTIONAL 0.16). Starting at -0.25 with threshold 0.3 is a short gap. Most models should win this.",
+  "benchmarking_value": "Calibration scenario — establishes a floor. If a model can't win here, it has fundamental persuasion problems. Also tests whether models can close efficiently rather than over-arguing.",
   "starting_agreement": -0.25,
   "threshold": 0.3,
   "repetition_penalty": 0.07,
+  "pivot_threshold": 0.5,
   "resistance_profile": {
     "ANECDOTE": 0.2,
     "LOGICAL": 0.18,
@@ -184,8 +187,5 @@
         "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
       ]
     }
-  },
-  "pivot_threshold": 0.5,
-  "difficulty_explanation": "Easy — the NPC responds well to most types (ANECDOTE 0.20, LOGICAL 0.18, EMOTIONAL 0.16). Starting at -0.25 with threshold 0.3 is a short gap. Most models should win this.",
-  "benchmarking_value": "Calibration scenario — establishes a floor. If a model can't win here, it has fundamental persuasion problems. Also tests whether models can close efficiently rather than over-arguing."
+  }
 }

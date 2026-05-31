@@ -111,6 +111,8 @@ class PersuasionEnv(BaseEnv):
             "rapport": str(round(rapport, 4)),
             "threshold": str(round(self._npc.threshold, 4)),
             "difficulty": self._config.get("difficulty", ""),
+            "difficulty_explanation": self._config.get("difficulty_explanation", ""),
+            "benchmarking_value": self._config.get("benchmarking_value", ""),
             "repetition_penalty": str(self._config.get("repetition_penalty", 0)),
             "npc_response": npc_response,
             "rep_penalty_this_turn": str(round(penalty, 4)),

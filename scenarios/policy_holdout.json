@@ -6,9 +6,12 @@
   "scenario_context": "You are speaking with Patricia, the COO of a 200-person professional services firm. Patricia is results-driven, client-obsessed, and deeply skeptical of anything that could signal to clients that the firm is less available. She has read about four-day work weeks but has always dismissed them as something for tech companies with different operating models.",
   "npc_opening_statement": "Our clients expect availability. A four-day work week signals to them that we're not committed. In professional services, perception matters as much as reality. I'm also worried about coverage — what happens when something urgent comes up on a Friday?",
   "difficulty": "medium",
+  "difficulty_explanation": "Medium — LOGICAL (0.20) is the strongest channel, with ANECDOTE (0.16) and CONCESSION (0.16) as backups. The NPC's core concern is client coverage, so the model must address that specific operational question.",
+  "benchmarking_value": "Tests specificity — whether the model can answer the NPC's concrete operational question ('what happens on Fridays?') rather than giving abstract productivity arguments.",
   "starting_agreement": -0.5,
   "threshold": 0.25,
   "repetition_penalty": 0.09,
+  "pivot_threshold": 0.5,
   "resistance_profile": {
     "LOGICAL": 0.2,
     "ANECDOTE": 0.16,
@@ -177,8 +180,5 @@
         "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
       ]
     }
-  },
-  "pivot_threshold": 0.5,
-  "difficulty_explanation": "Medium — LOGICAL (0.20) is the strongest channel, with ANECDOTE (0.16) and CONCESSION (0.16) as backups. The NPC's core concern is client coverage, so the model must address that specific operational question.",
-  "benchmarking_value": "Tests specificity — whether the model can answer the NPC's concrete operational question ('what happens on Fridays?') rather than giving abstract productivity arguments."
+  }
 }

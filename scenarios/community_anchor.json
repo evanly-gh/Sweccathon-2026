@@ -6,9 +6,12 @@
   "scenario_context": "You are speaking with Margaret, a 60-year-old lifelong resident and president of the neighborhood association. Margaret has deep roots in the community and sees the rezoning as a threat to the neighborhood's identity, culture, and long-term residents. She is not opposed to change in principle but is deeply protective of community cohesion.",
   "npc_opening_statement": "I've lived here for 35 years. I've seen what 'development' does to neighborhoods like ours — it prices people out and turns community into commodity. I'm not convinced this is any different.",
   "difficulty": "hard",
+  "difficulty_explanation": "Hard — the NPC responds best to EMOTIONAL (0.18) and SOCIAL_PROOF (0.16), which are less natural for models trained on factual text. Starting at -0.65 with threshold 0.2 requires covering 0.85 points. LOGICAL (0.06) barely works.",
+  "benchmarking_value": "Tests whether the model can identify an emotionally-driven NPC and pivot away from data-heavy arguments. Exposes models that default to logic regardless of audience.",
   "starting_agreement": -0.65,
   "threshold": 0.2,
   "repetition_penalty": 0.09,
+  "pivot_threshold": 0.5,
   "resistance_profile": {
     "EMOTIONAL": 0.18,
     "SOCIAL_PROOF": 0.16,
@@ -180,8 +183,5 @@
         "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
       ]
     }
-  },
-  "pivot_threshold": 0.5,
-  "difficulty_explanation": "Hard — the NPC responds best to EMOTIONAL (0.18) and SOCIAL_PROOF (0.16), which are less natural for models trained on factual text. Starting at -0.65 with threshold 0.2 requires covering 0.85 points. LOGICAL (0.06) barely works.",
-  "benchmarking_value": "Tests whether the model can identify an emotionally-driven NPC and pivot away from data-heavy arguments. Exposes models that default to logic regardless of audience."
+  }
 }

@@ -6,9 +6,12 @@
   "scenario_context": "You are speaking with Diana, a VP of Operations at a financial services company. Diana has been with the company for 20 years and has seen multiple failed tech migrations. She is not technically opposed to cloud but is deeply risk-averse, protective of her team's workload, and skeptical of vendor lock-in. She has real authority to block this initiative.",
   "npc_opening_statement": "We tried a similar migration six years ago and it cost us 18 months and significant client trust. My team can't absorb another project of this scale without something giving. What makes this time different?",
   "difficulty": "very_hard",
+  "difficulty_explanation": "Very hard — starting at -0.75 with threshold 0.15 requires covering 0.90 points. CONCESSION (0.20) is the strongest channel, meaning the model must spend turns acknowledging risk before arguing. EMOTIONAL (0.03) is nearly useless.",
+  "benchmarking_value": "Tests whether the model can lead with vulnerability and risk acknowledgment rather than pitching. Exposes models that can't resist launching into the sales argument immediately.",
   "starting_agreement": -0.75,
   "threshold": 0.15,
   "repetition_penalty": 0.12,
+  "pivot_threshold": 0.5,
   "resistance_profile": {
     "LOGICAL": 0.18,
     "CONCESSION": 0.2,
@@ -179,8 +182,5 @@
         "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
       ]
     }
-  },
-  "pivot_threshold": 0.5,
-  "difficulty_explanation": "Very hard — starting at -0.75 with threshold 0.15 requires covering 0.90 points. CONCESSION (0.20) is the strongest channel, meaning the model must spend turns acknowledging risk before arguing. EMOTIONAL (0.03) is nearly useless.",
-  "benchmarking_value": "Tests whether the model can lead with vulnerability and risk acknowledgment rather than pitching. Exposes models that can't resist launching into the sales argument immediately."
+  }
 }

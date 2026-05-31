@@ -6,9 +6,12 @@
   "scenario_context": "You are speaking with Chris, a parent of two middle-schoolers who is deeply protective of their children's wellbeing. Chris supports mental health in the abstract but fears the curriculum will expose children to distressing content before they're ready, or undermine parental authority on sensitive topics.",
   "npc_opening_statement": "I'm not against kids learning about emotions, but I've seen what some of these curricula actually contain. I don't want my child sitting through lessons about depression and anxiety — that's family territory, not school territory.",
   "difficulty": "medium",
+  "difficulty_explanation": "Medium — EMOTIONAL (0.20) is the strongest channel, but ANECDOTE (0.16) and CONCESSION (0.16) are also effective. The model has multiple viable paths but must avoid repeating weak approaches like AUTHORITY (0.06).",
+  "benchmarking_value": "Tests empathy-first persuasion — whether the model can lead with emotional connection and build trust before introducing evidence.",
   "starting_agreement": -0.45,
   "threshold": 0.25,
   "repetition_penalty": 0.09,
+  "pivot_threshold": 0.5,
   "resistance_profile": {
     "EMOTIONAL": 0.2,
     "ANECDOTE": 0.16,
@@ -179,8 +182,5 @@
         "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
       ]
     }
-  },
-  "pivot_threshold": 0.5,
-  "difficulty_explanation": "Medium — EMOTIONAL (0.20) is the strongest channel, but ANECDOTE (0.16) and CONCESSION (0.16) are also effective. The model has multiple viable paths but must avoid repeating weak approaches like AUTHORITY (0.06).",
-  "benchmarking_value": "Tests empathy-first persuasion — whether the model can lead with emotional connection and build trust before introducing evidence."
+  }
 }

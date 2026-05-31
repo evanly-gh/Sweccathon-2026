@@ -285,6 +285,9 @@ loadReplay().then(data => {
         const startAgreement = firstInfo.starting_agreement || ep.terminal_info?.starting_agreement;
         const threshold = firstInfo.threshold || ep.terminal_info?.threshold;
         const difficulty = firstInfo.difficulty || ep.terminal_info?.difficulty || '';
+        const diffExpl = firstInfo.difficulty_explanation || ep.terminal_info?.difficulty_explanation || '';
+        const benchVal = firstInfo.benchmarking_value || ep.terminal_info?.benchmarking_value || '';
+        const repPen = firstInfo.repetition_penalty || ep.terminal_info?.repetition_penalty || '';
         steps.push({
           turn: 0, observation: rawSteps[0].board_before,
           action: null, reward: 0, reasoning: '',
@@ -294,6 +297,9 @@ loadReplay().then(data => {
             rapport: '0.0',
             threshold: threshold || '',
             difficulty: difficulty,
+            difficulty_explanation: diffExpl,
+            benchmarking_value: benchVal,
+            repetition_penalty: repPen,
             scenario_id: firstInfo.scenario_id || '',
             scenario_display_name: firstInfo.scenario_display_name || '',
           },
@@ -608,6 +614,8 @@ function updateScenarioInfo(step0) {
   const threshold = info.threshold || '';
   const startAgree = info.starting_agreement || info.agreement || '';
   const difficulty = info.difficulty || '';
+  const diffExpl = info.difficulty_explanation || '';
+  const benchVal = info.benchmarking_value || '';
   const repPen = info.repetition_penalty || '';
   container.innerHTML = `
     <div class="info-row"><span class="info-label">Topic</span><span class="info-value">${escHtml(topic)}</span></div>
@@ -616,6 +624,8 @@ function updateScenarioInfo(step0) {
     ${startAgree ? `<div class="info-row"><span class="info-label">Start agreement</span><span class="info-value">${startAgree}</span></div>` : ''}
     ${threshold ? `<div class="info-row"><span class="info-label">Win threshold</span><span class="info-value">${threshold}</span></div>` : ''}
     ${repPen ? `<div class="info-row"><span class="info-label">Rep penalty</span><span class="info-value">${repPen}/repeat</span></div>` : ''}
+    ${diffExpl ? `<div style="margin-top:8px;font-size:11px;color:var(--muted);line-height:1.5"><strong style="color:var(--text)">Why this difficulty:</strong> ${escHtml(diffExpl)}</div>` : ''}
+    ${benchVal ? `<div style="margin-top:4px;font-size:11px;color:var(--muted);line-height:1.5"><strong style="color:var(--text)">What it tests:</strong> ${escHtml(benchVal)}</div>` : ''}
   `;
 }
 

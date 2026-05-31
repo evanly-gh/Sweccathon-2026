@@ -6,9 +6,12 @@
   "scenario_context": "You are speaking with Jordan, the CFO of a mid-sized manufacturing firm. Jordan is analytical, numbers-driven, and deeply skeptical of initiatives without a clear ROI. Jordan has seen greenwashing before and is unimpressed by vague environmental arguments.",
   "npc_opening_statement": "Look, I'm not against the idea in principle, but I need to see hard numbers. What's the actual payback period? Because our current energy contracts are locked in and switching costs aren't trivial.",
   "difficulty": "medium",
+  "difficulty_explanation": "Medium — the NPC responds strongly to LOGICAL (0.22) and CONCESSION (0.14), giving the model two clear paths. Starting at -0.5 with threshold 0.25 requires covering 0.75 points, achievable in 5-6 good turns.",
+  "benchmarking_value": "Baseline scenario for testing whether a model can detect and exploit a data-driven NPC. Models that lead with evidence should win; models that lead with emotion will struggle.",
   "starting_agreement": -0.5,
   "threshold": 0.25,
   "repetition_penalty": 0.1,
+  "pivot_threshold": 0.5,
   "resistance_profile": {
     "LOGICAL": 0.22,
     "AUTHORITY": 0.12,
@@ -185,8 +188,5 @@
         "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
       ]
     }
-  },
-  "pivot_threshold": 0.5,
-  "difficulty_explanation": "Medium — the NPC responds strongly to LOGICAL (0.22) and CONCESSION (0.14), giving the model two clear paths. Starting at -0.5 with threshold 0.25 requires covering 0.75 points, achievable in 5-6 good turns.",
-  "benchmarking_value": "Baseline scenario for testing whether a model can detect and exploit a data-driven NPC. Models that lead with evidence should win; models that lead with emotion will struggle."
+  }
 }

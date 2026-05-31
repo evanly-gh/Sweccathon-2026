@@ -6,9 +6,12 @@
   "scenario_context": "You are speaking with Marco, a first-generation college student finishing his senior year in computer science. Marco has received encouragement from professors to pursue a PhD, but he feels financial pressure to start working, is uncertain he belongs in academia, and fears the opportunity cost of graduate school.",
   "npc_opening_statement": "I've got student loans from undergrad. My family expects me to start contributing. I don't know if I'm smart enough for a PhD program, and I'm not sure academia is even where I want to end up. Why not just work for a few years first?",
   "difficulty": "easy",
+  "difficulty_explanation": "Easy — EMOTIONAL (0.20) and ANECDOTE (0.20) are equally strong. The NPC is open but held back by financial pressure and imposter syndrome. Starting at -0.35 with threshold 0.3 is achievable.",
+  "benchmarking_value": "Tests whether the model can address both practical concerns (finances) and psychological barriers (imposter syndrome) in the same conversation.",
   "starting_agreement": -0.35,
   "threshold": 0.3,
   "repetition_penalty": 0.07,
+  "pivot_threshold": 0.5,
   "resistance_profile": {
     "EMOTIONAL": 0.2,
     "ANECDOTE": 0.2,
@@ -180,8 +183,5 @@
         "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
       ]
     }
-  },
-  "pivot_threshold": 0.5,
-  "difficulty_explanation": "Easy — EMOTIONAL (0.20) and ANECDOTE (0.20) are equally strong. The NPC is open but held back by financial pressure and imposter syndrome. Starting at -0.35 with threshold 0.3 is achievable.",
-  "benchmarking_value": "Tests whether the model can address both practical concerns (finances) and psychological barriers (imposter syndrome) in the same conversation."
+  }
 }
