@@ -70,7 +70,13 @@ class NPC:
         # --- Agreement update ---
         base_shift = self.profile.get(arg_type, 0.04)
         repeats = self.rep_counts.get(arg_type, 0)
-        repeat_pen = self.rep_penalty * repeats
+
+        # Repetition penalty only applies when the argument isn't landing well.
+        # If base_shift is strong for this NPC, repeating is fine — people don't
+        # get annoyed when you keep giving them answers they agree with.
+        # The penalty bites when you repeat a weak or ineffective argument type.
+        is_weak_for_this_npc = base_shift < 0.10
+        repeat_pen = (self.rep_penalty * repeats) if is_weak_for_this_npc else (self.rep_penalty * 0.3 * repeats)
 
         # Rapport amplifies/dampens base_shift (not the penalty)
         rapport_multiplier = 1.0 + self.rapport * _RAPPORT_AMPLIFY_MAX
