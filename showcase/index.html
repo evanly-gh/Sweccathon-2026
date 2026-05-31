@@ -608,12 +608,14 @@ function updateScenarioInfo(step0) {
   const threshold = info.threshold || '';
   const startAgree = info.starting_agreement || info.agreement || '';
   const difficulty = info.difficulty || '';
+  const repPen = info.repetition_penalty || '';
   container.innerHTML = `
     <div class="info-row"><span class="info-label">Topic</span><span class="info-value">${escHtml(topic)}</span></div>
-    <div class="info-row"><span class="info-label">Position</span><span class="info-value">${escHtml(pos.slice(0,80))}${pos.length>80?'…':''}</span></div>
-    ${difficulty ? `<div class="info-row"><span class="info-label">Difficulty</span><span class="info-value">${escHtml(difficulty)}</span></div>` : ''}
+    <div class="info-row"><span class="info-label">Position</span><span class="info-value">${escHtml(pos.slice(0,80))}${pos.length>80?'...':''}</span></div>
+    ${difficulty ? `<div class="info-row"><span class="info-label">Difficulty</span><span class="info-value" style="text-transform:capitalize">${escHtml(difficulty)}</span></div>` : ''}
     ${startAgree ? `<div class="info-row"><span class="info-label">Start agreement</span><span class="info-value">${startAgree}</span></div>` : ''}
     ${threshold ? `<div class="info-row"><span class="info-label">Win threshold</span><span class="info-value">${threshold}</span></div>` : ''}
+    ${repPen ? `<div class="info-row"><span class="info-label">Rep penalty</span><span class="info-value">${repPen}/repeat</span></div>` : ''}
   `;
 }
 

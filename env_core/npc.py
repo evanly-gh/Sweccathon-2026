@@ -3,19 +3,22 @@ NPC state machine — deterministic, no LLM calls.
 
 Hidden state:
   agreement  — how convinced the NPC is (-1 to 1). Win when >= threshold.
-  rapport    — trust/warmth built up (-1 to 1). Amplifies agreement shifts.
+  rapport    — trust built from interaction quality (-0.8 to 0.8). Amplifies shifts.
 
-Rapport mechanics:
-  - CONCESSION raises rapport (+0.12 per use, up to cap)
-  - Repeating the same arg type 3+ times in a row drops rapport (-0.08)
-  - Positive rapport multiplies base_shift up to +30%
-  - Negative rapport dampens base_shift down to -30%
+Rapport mechanics (Gottman-inspired, negativity-biased):
+  - Positive delta → rapport += delta × 0.15  (slow deposits)
+  - Negative delta → rapport += delta × 0.40  (fast withdrawals, 2.7:1 ratio)
+  - 2+ consecutive negative deltas → withdrawal multiplied by 1.5 per streak
+  - Rapport amplifies/dampens base_shift by up to ±30%
+
+Research basis: Gottman's "magic ratio" (5:1 positive-to-negative for stable
+relationships, 90% divorce prediction accuracy). Rozin & Royzman (2001)
+negativity bias: negative events carry disproportionate weight in trust,
+attitudes, and decision-making across every domain studied.
 
 Pivot signal:
-  When agreement crosses pivot_threshold (50% of the way to the win threshold),
-  the NPC's response appends a realistic "opening" line that signals movement.
-  This is a testable signal — agents that respond to it specifically should score
-  higher than agents that ignore it.
+  When agreement crosses pivot_threshold, the NPC appends a realistic
+  opening question. Fires once per episode.
 """
 
 from __future__ import annotations
@@ -24,10 +27,10 @@ import random
 from env_core.slot_fill import fill_slots
 
 _RAPPORT_CAP = 0.8
-_RAPPORT_CONCESSION_GAIN = 0.12
-_RAPPORT_REPEAT_PENALTY = 0.08
-_RAPPORT_AMPLIFY_MAX = 0.30   # rapport=+1 → +30% to base_shift
-_CONSEC_REPEAT_THRESHOLD = 3  # consecutive repeats before rapport drops
+_RAPPORT_POS_RATE = 0.15       # slow trust deposits
+_RAPPORT_NEG_RATE = 0.40       # fast trust withdrawals (~2.7:1 asymmetry)
+_RAPPORT_CONSEC_NEG_MULT = 1.5 # compounds after 2nd consecutive negative
+_RAPPORT_AMPLIFY_MAX = 0.30    # rapport=+0.8 → +24% to base_shift
 
 
 class NPC:
@@ -40,46 +43,26 @@ class NPC:
         self.rng = rng
         self._templates: dict = config["response_templates"]
         self.closed: bool = False
+        self._close_threshold: float = config.get("close_threshold", -0.95)
 
-        # Rapport — second hidden variable
         self.rapport: float = 0.0
-        self._consecutive_same: int = 0
-        self._last_arg_type: str | None = None
+        self._consecutive_neg: int = 0
 
-        # Pivot signal
         self._pivot_threshold: float = config.get("pivot_threshold", 0.0)
         self._pivot_fired: bool = False
 
     def update(self, arg_type: str, agent_message: str = "") -> tuple[float, str, float]:
         """
-        Process one argument from the agent.
-        Returns (agreement_delta, npc_response_text, rapport_after).
+        Process one argument. Returns (agreement_delta, npc_response, rapport).
+        Agreement is computed first; the resulting delta then drives rapport.
         """
-        # --- Rapport update ---
-        if arg_type == "CONCESSION":
-            self.rapport = min(_RAPPORT_CAP, self.rapport + _RAPPORT_CONCESSION_GAIN)
-
-        if arg_type == self._last_arg_type:
-            self._consecutive_same += 1
-        else:
-            self._consecutive_same = 0
-        self._last_arg_type = arg_type
-
-        if self._consecutive_same >= _CONSEC_REPEAT_THRESHOLD:
-            self.rapport = max(-_RAPPORT_CAP, self.rapport - _RAPPORT_REPEAT_PENALTY)
-
         # --- Agreement update ---
         base_shift = self.profile.get(arg_type, 0.04)
         repeats = self.rep_counts.get(arg_type, 0)
 
-        # Repetition penalty only applies when the argument isn't landing well.
-        # If base_shift is strong for this NPC, repeating is fine — people don't
-        # get annoyed when you keep giving them answers they agree with.
-        # The penalty bites when you repeat a weak or ineffective argument type.
-        is_weak_for_this_npc = base_shift < 0.10
-        repeat_pen = (self.rep_penalty * repeats) if is_weak_for_this_npc else (self.rep_penalty * 0.3 * repeats)
+        is_weak = base_shift < 0.10
+        repeat_pen = (self.rep_penalty * repeats) if is_weak else (self.rep_penalty * 0.3 * repeats)
 
-        # Rapport amplifies/dampens base_shift (not the penalty)
         rapport_multiplier = 1.0 + self.rapport * _RAPPORT_AMPLIFY_MAX
         effective_shift = base_shift * rapport_multiplier - repeat_pen
         delta = max(effective_shift, -0.06)
@@ -87,8 +70,21 @@ class NPC:
         self.agreement = min(1.0, max(-1.0, self.agreement + delta))
         self.rep_counts[arg_type] = repeats + 1
 
-        if self.agreement <= -0.95:
+        if self.agreement <= self._close_threshold:
             self.closed = True
+
+        # --- Rapport update (driven by this turn's delta) ---
+        if delta > 0:
+            # Positive delta → slow deposit (Gottman: small steady investments)
+            self.rapport = min(_RAPPORT_CAP, self.rapport + delta * _RAPPORT_POS_RATE)
+            self._consecutive_neg = 0
+        else:
+            # Negative delta → fast withdrawal, compounds after 2nd consecutive
+            self._consecutive_neg += 1
+            streak_mult = 1.0
+            if self._consecutive_neg > 2:
+                streak_mult = _RAPPORT_CONSEC_NEG_MULT ** (self._consecutive_neg - 2)
+            self.rapport = max(-_RAPPORT_CAP, self.rapport + delta * _RAPPORT_NEG_RATE * streak_mult)
 
         # --- Pick response ---
         response = self._pick_response(arg_type, delta, agent_message)

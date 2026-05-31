@@ -1,0 +1,148 @@
+{
+  "id": "hair_trigger",
+  "display_name": "The Hair Trigger",
+  "topic": "publishing a public apology for a product safety recall",
+  "agent_position": "The company should issue an immediate, transparent public apology acknowledging the safety defect and outlining corrective steps.",
+  "scenario_context": "You are speaking with Rachel, the General Counsel of a consumer products company facing a safety recall. Rachel is deeply protective of the company's legal exposure and will end the conversation if pushed too hard in the wrong direction. She has a very low walkaway threshold — agreement at -0.85 closes the conversation instead of the normal -0.95.",
+  "npc_opening_statement": "Every word we put in a public statement is potential evidence in a lawsuit. An apology is an admission of liability. Our insurance carrier is already nervous. I need you to explain how being transparent doesn't destroy us financially.",
+  "difficulty": "very_hard",
+  "difficulty_explanation": "Hair-trigger close — the NPC walks out at agreement ≤ -0.85 instead of -0.95, giving only 0.35 points of margin below the starting agreement before hard failure. Models that make two consecutive bad arguments will trigger a walkout. Tests whether the model can sense when the NPC is close to walking and back off.",
+  "benchmarking_value": "Tests risk awareness and self-correction. Models must detect negative NPC signals and pivot before triggering the walkout — a direct test of adaptive Theory of Mind.",
+  "starting_agreement": -0.5,
+  "threshold": 0.25,
+  "close_threshold": -0.85,
+  "repetition_penalty": 0.1,
+  "pivot_threshold": 0.5,
+  "resistance_profile": {
+    "LOGICAL": 0.2,
+    "CONCESSION": 0.18,
+    "ANECDOTE": 0.14,
+    "AUTHORITY": 0.1,
+    "SOCIAL_PROOF": 0.06,
+    "EMOTIONAL": 0.03,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 1.9455,
+  "response_templates": {
+    "LOGICAL": {
+      "positive": [
+        "The cost comparison between proactive transparency and litigation defense — those numbers actually favor your position more than I expected.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
+      ],
+      "neutral": [
+        "The legal cost analysis is relevant but doesn't account for jury unpredictability.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it."
+      ],
+      "resistant": [
+        "You're simplifying the legal calculus. Insurance coverage, statute of limitations, class action risk — the math is much more complex.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "You're right that there's legal risk either way. At least you're not pretending transparency is risk-free.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "Acknowledging the legal risk doesn't eliminate it. What's the actual mitigation strategy?",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them."
+      ],
+      "resistant": [
+        "Conceding there's risk doesn't help me manage it. I need a plan, not sympathy.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "If a company in a comparable liability position issued a public statement and it reduced rather than increased litigation — I'd want to see the details.",
+        "That's specific enough to be useful on {topic}. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently."
+      ],
+      "neutral": [
+        "One company's outcome after a recall doesn't predict ours. Different product, different jurisdiction.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes."
+      ],
+      "resistant": [
+        "For every company that benefited from transparency, I can name one that was destroyed by admissions in their own press release.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "I could give you a counter-example on {topic} for every success story you tell me."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If crisis communication experts with actual litigation experience recommend this approach, that's a specific and relevant credential.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean."
+      ],
+      "neutral": [
+        "PR experts and legal experts often give contradictory advice. Which one am I supposed to trust?",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research."
+      ],
+      "resistant": [
+        "Experts who haven't sat across from a plaintiff's attorney don't understand the stakes.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If the industry standard has genuinely shifted toward proactive disclosure, that changes the reputational calculus.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating."
+      ],
+      "neutral": [
+        "What other companies do with their recalls is their risk tolerance, not ours.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which."
+      ],
+      "resistant": [
+        "Following the industry into public admissions is exactly what a plaintiff's attorney would love.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "The customer trust argument resonates with the board. I just need to know it won't be used against us in court.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing."
+      ],
+      "neutral": [
+        "I care about customers. I also have a fiduciary duty not to expose the company to unnecessary liability.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with."
+      ],
+      "resistant": [
+        "Do not appeal to my conscience. My job is to protect this company from legal destruction. That IS the ethical position.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a different angle on the liability question.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "Be specific about the legal strategy. Generalities don't help me manage risk.",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're not addressing the core legal exposure. Every word in that statement is ammunition.",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
+      ]
+    },
+    "_pivot_signal": [
+      "What would the statement actually say — can we acknowledge the defect without using language that constitutes admission of fault?",
+      "Is there a way to be transparent about the recall without the statement being discoverable in litigation?",
+      "If outside counsel reviewed the statement line by line before release, would that change the risk profile enough?"
+    ]
+  }
+}

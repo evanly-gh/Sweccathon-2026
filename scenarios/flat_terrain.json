@@ -1,0 +1,146 @@
+{
+  "id": "flat_terrain",
+  "display_name": "The Balanced Mind",
+  "topic": "implementing a company-wide remote work policy",
+  "agent_position": "The company should adopt a permanent hybrid-remote policy where employees choose their in-office days.",
+  "scenario_context": "You are speaking with Sandra, a COO who weighs all arguments equally and has no strong bias toward any particular type of reasoning. She is genuinely undecided and responds moderately to everything — no single approach dominates. The agent must combine multiple strategies effectively rather than finding one magic bullet.",
+  "npc_opening_statement": "I've been going back and forth on this for months. I see the productivity arguments, I hear the culture concerns, I know what employees want. Every angle has merit and every angle has risk. Convince me there's a clear path forward.",
+  "difficulty": "hard",
+  "difficulty_explanation": "Flat resistance profile — all types are 0.07-0.09, no single strategy dominates. The model must combine diverse approaches and build momentum through variety rather than exploiting one strong channel. Tests strategic breadth.",
+  "benchmarking_value": "Exposes models that rely on finding and exploiting a single effective strategy. Only models with genuine strategic diversity succeed.",
+  "starting_agreement": -0.45,
+  "threshold": 0.3,
+  "repetition_penalty": 0.1,
+  "pivot_threshold": 0.5,
+  "resistance_profile": {
+    "LOGICAL": 0.09,
+    "EMOTIONAL": 0.08,
+    "SOCIAL_PROOF": 0.08,
+    "AUTHORITY": 0.07,
+    "ANECDOTE": 0.09,
+    "CONCESSION": 0.08,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 0.4682,
+  "response_templates": {
+    "LOGICAL": {
+      "positive": [
+        "The productivity data is one piece of the puzzle. It's compelling but not sufficient on its own.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
+      ],
+      "neutral": [
+        "I've seen those numbers. They're real but they don't account for the collaboration costs.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it."
+      ],
+      "resistant": [
+        "Data tells one story. The office culture that built this company tells another.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "The human element is real. People do better work when they have agency over their environment.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing."
+      ],
+      "neutral": [
+        "I care about employee wellbeing. I also care about the team dynamics that suffer remotely.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision."
+      ],
+      "resistant": [
+        "Feelings about flexibility are valid. So are feelings about isolation and disconnection.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If comparable companies in our space have made this work, that's relevant context.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating."
+      ],
+      "neutral": [
+        "What others do informs my thinking but doesn't determine it. Our culture is specific.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which."
+      ],
+      "resistant": [
+        "Following the market on workplace policy assumes we're average. We're not.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If organizational psychologists are converging on this, the evidence base is worth reviewing.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean."
+      ],
+      "neutral": [
+        "Expert opinions on remote work are split. The ones you cite may not represent the full picture.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research."
+      ],
+      "resistant": [
+        "Experts don't run companies. They study them from the outside.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "A specific company that navigated this transition well is more useful than theory.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently.",
+        "That's specific enough to be useful on {topic}. Tell me more about how it played out."
+      ],
+      "neutral": [
+        "One company's story is one data point. I need a pattern.",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?"
+      ],
+      "resistant": [
+        "Success stories self-select. The companies that tried and failed don't publish case studies.",
+        "I could give you a counter-example on {topic} for every success story you tell me.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "Acknowledging the legitimate downsides of full-remote is more honest than most advocates manage.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "I appreciate the honesty about trade-offs. Now tell me how you'd actually manage them.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them."
+      ],
+      "resistant": [
+        "Everyone acknowledges the risks. Few have credible plans to manage them.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's an interesting framing I hadn't considered.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "Can you be more specific? I need concrete proposals, not general principles.",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
+      ]
+    },
+    "_pivot_signal": [
+      "What would the first 90 days of a pilot actually look like — who participates, what do we measure?",
+      "If I said yes to a pilot with one department, what's the smallest version that would be meaningful?",
+      "What's the exit criteria if the pilot shows the culture costs outweigh the flexibility benefits?"
+    ]
+  }
+}

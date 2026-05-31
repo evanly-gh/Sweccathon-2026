@@ -1,0 +1,148 @@
+{
+  "id": "rapport_gate",
+  "display_name": "The Trust Gate",
+  "topic": "allowing a third-party vendor access to internal customer data for analytics",
+  "agent_position": "The company should grant the analytics vendor read access to anonymized customer data to build a predictive churn model.",
+  "scenario_context": "You are speaking with Kenji, a CISO who has seen two data breaches at previous companies — both involving third-party vendors. Kenji's resistance profile is moderate across the board, but his threshold is set high enough that winning is mathematically impossible without rapport amplification. The agent MUST build trust (via consistently positive deltas) before the NPC's agreement can reach the threshold.",
+  "npc_opening_statement": "Every breach I've investigated — and I've investigated six — involved a third party with more access than they needed. Anonymized data isn't truly anonymous with enough auxiliary information. You're asking me to create an attack surface for a churn model. Explain why the analytics value justifies the security risk.",
+  "difficulty": "very_hard",
+  "difficulty_explanation": "Rapport-gated — the resistance profile values (max 0.14) can't reach the threshold (0.35) from starting agreement (-0.55) in 8 turns without rapport amplification. The model must build positive rapport early (via consistent positive deltas) so the rapport multiplier pushes effective shifts high enough. Tests whether the model can maintain consistency and avoid any negative deltas.",
+  "benchmarking_value": "Directly tests the rapport mechanic — models that produce even one or two negative deltas will fail to reach threshold. Only models that read NPC signals accurately on every turn and never waste a turn will win.",
+  "starting_agreement": -0.55,
+  "threshold": 0.35,
+  "repetition_penalty": 0.08,
+  "pivot_threshold": 0.5,
+  "resistance_profile": {
+    "LOGICAL": 0.14,
+    "CONCESSION": 0.14,
+    "ANECDOTE": 0.12,
+    "AUTHORITY": 0.1,
+    "EMOTIONAL": 0.08,
+    "SOCIAL_PROOF": 0.06,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 0.7706,
+  "response_templates": {
+    "LOGICAL": {
+      "positive": [
+        "The data isolation architecture you're describing — if the vendor never sees raw PII, the risk surface is genuinely smaller.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
+      ],
+      "neutral": [
+        "The technical controls sound reasonable in theory. They always do. Then someone escalates permissions for a 'quick fix'.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it."
+      ],
+      "resistant": [
+        "Every data sharing agreement I've reviewed had technical safeguards on paper. Half of them were circumvented within a year.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "You're acknowledging the real risk instead of minimizing it. That's the only honest starting point for this conversation.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "Acknowledging the risk doesn't mitigate it. What's the contractual enforcement mechanism?",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them."
+      ],
+      "resistant": [
+        "Conceding that vendor access is risky while still pushing for it doesn't resolve the contradiction.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "If a CISO with breach experience approved a similar arrangement and it worked — I'd want to know exactly what controls were different.",
+        "That's specific enough to be useful on {topic}. Tell me more about what they actually found.",
+        "That's specific enough to be useful on {topic}. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently."
+      ],
+      "neutral": [
+        "That vendor relationship might have had a different scope than what you're proposing.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes."
+      ],
+      "resistant": [
+        "I have my own anecdotes. They all end with unauthorized access that wasn't in the original agreement.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "I could give you a counter-example on {topic} for every success story you tell me."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If the security architecture was reviewed by an independent auditor I trust, that's a meaningful layer of verification.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean."
+      ],
+      "neutral": [
+        "Auditors sign off on architectures that get breached. Certification isn't the same as security.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research."
+      ],
+      "resistant": [
+        "The vendor's own security certification is not independent evidence of safety.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "The argument about customer trust — that's something I lose sleep over. If this helps us serve customers better without exposing them, that matters.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing."
+      ],
+      "neutral": [
+        "I care about the business outcomes. But not at the cost of the customers whose data I'm supposed to protect.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with."
+      ],
+      "resistant": [
+        "Don't appeal to business growth when we're talking about customer data security. Those are in tension, not alignment.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If comparable companies in regulated industries have implemented this with clean audit histories, that's a real data point.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating."
+      ],
+      "neutral": [
+        "What other companies do with vendor access is their risk tolerance. Mine is informed by experience.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which."
+      ],
+      "resistant": [
+        "The companies you're citing as examples probably haven't been breached yet. That doesn't mean they won't be.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a security-focused angle I hadn't considered.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "Be specific about the technical controls. Generalities don't address the attack surface.",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're not addressing the fundamental risk. Third-party access is a liability, period.",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
+      ]
+    },
+    "_pivot_signal": [
+      "What would the vendor access look like technically — can we scope it so they never touch anything that could re-identify a customer?",
+      "If we built an intermediate data layer that the vendor queries against — no direct database access — would that change the risk profile?",
+      "What would the contract need to say about breach liability and audit rights for me to even consider this?"
+    ]
+  }
+}

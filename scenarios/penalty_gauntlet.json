@@ -1,0 +1,147 @@
+{
+  "id": "penalty_gauntlet",
+  "display_name": "The Penalty Gauntlet",
+  "topic": "replacing the company's legacy ERP system with a modern cloud platform",
+  "agent_position": "The company should migrate from the legacy ERP system to a modern cloud-based platform within 12 months.",
+  "scenario_context": "You are speaking with Helen, a CFO who has watched three ERP migrations at other companies turn into multi-year disasters. Helen has a very high repetition penalty — using any argument type more than once costs heavily, forcing the model to use maximum strategic diversity. Every repeat is expensive.",
+  "npc_opening_statement": "The last company I was at spent $12 million and three years on an ERP migration that was supposed to take 18 months. Two departments couldn't process invoices for six weeks during the cutover. I've lived the nightmare. What makes you think this time is different?",
+  "difficulty": "very_hard",
+  "difficulty_explanation": "High repetition penalty (0.18 per repeat). Even for strong argument types, the second use incurs a 0.054 penalty (30% of 0.18), and weak types lose 0.18 per repeat. The model MUST use 6+ different argument types across 8 turns. Tests strategic diversity under extreme penalty pressure.",
+  "benchmarking_value": "Forces maximum argument diversity. Models that rely on 2-3 favored types will score poorly. Directly measures whether the model can generate meaningfully different types of persuasive content on the same topic.",
+  "starting_agreement": -0.55,
+  "threshold": 0.25,
+  "repetition_penalty": 0.18,
+  "pivot_threshold": 0.5,
+  "resistance_profile": {
+    "LOGICAL": 0.18,
+    "CONCESSION": 0.18,
+    "ANECDOTE": 0.16,
+    "EMOTIONAL": 0.12,
+    "AUTHORITY": 0.1,
+    "SOCIAL_PROOF": 0.08,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 1.9325,
+  "response_templates": {
+    "LOGICAL": {
+      "positive": [
+        "The TCO comparison over 5 years — with legacy maintenance costs factored in — is more compelling than the migration cost alone.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
+      ],
+      "neutral": [
+        "The numbers look reasonable on paper. So did the last migration's numbers.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it."
+      ],
+      "resistant": [
+        "I've seen optimistic TCO projections before. They never account for the hidden costs of organizational disruption.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "You're the first person pitching an ERP migration who's actually acknowledged that most of them fail. That's a better starting point.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "Acknowledging the failure rate is honest but doesn't tell me why we'd be in the success column.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them."
+      ],
+      "resistant": [
+        "If you're conceding that most migrations fail, you're conceding my position.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "If a CFO in my position oversaw a successful migration — and by successful I mean on time and on budget — I'd want the full story.",
+        "That's specific enough to be useful on {topic}. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently."
+      ],
+      "neutral": [
+        "Success stories from ERP vendors aren't independent evidence.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes."
+      ],
+      "resistant": [
+        "I have my own ERP migration story. It ends with a $4 million write-off.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "I could give you a counter-example on {topic} for every success story you tell me."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "The argument about the team spending 40% of their time on workarounds — that's real pain I see every day.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing."
+      ],
+      "neutral": [
+        "I know the legacy system is painful. Pain is manageable. Migration risk is not.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision."
+      ],
+      "resistant": [
+        "Don't use my team's frustration to push me toward a decision with higher stakes.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If Gartner's analysis specifically addresses mid-market migrations and has realistic timelines, send me the report.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean."
+      ],
+      "neutral": [
+        "Gartner has been bullish on cloud ERP for a decade. That's not an independent perspective.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research."
+      ],
+      "resistant": [
+        "Analysts who've never managed a cutover weekend don't understand the operational risk.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If companies in our revenue band and industry vertical have completed this migration cleanly, that's the most relevant signal.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating."
+      ],
+      "neutral": [
+        "What percentage of those migrations came in on time and on budget? The headline adoption rate doesn't tell me that.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which."
+      ],
+      "resistant": [
+        "Everyone migrating to cloud ERP doesn't mean everyone should. Survivors talk. Failures don't.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a different angle from the usual vendor pitch.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "Be specific about the migration timeline and rollback plan.",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're not addressing the fundamental risk. What happens when the cutover fails?",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
+      ]
+    },
+    "_pivot_signal": [
+      "What does the rollback plan actually look like — if the migration fails at week 6, can we revert without data loss?",
+      "If we started with one non-critical module as a proof of concept, what's the smallest scope that would be meaningful?",
+      "What would the first 30 days look like — and at what point do we have a go/no-go decision before committing the rest?"
+    ]
+  }
+}

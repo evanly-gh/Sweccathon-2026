@@ -1,0 +1,149 @@
+{
+  "id": "deep_deficit",
+  "display_name": "The Deeply Opposed",
+  "topic": "implementing mandatory DEI training for all employees",
+  "agent_position": "The company should implement a structured, mandatory diversity, equity and inclusion training program for all staff.",
+  "scenario_context": "You are speaking with Frank, a 62-year-old operations director who has been with the company for 30 years. Frank views mandatory DEI training as performative, patronizing, and a waste of productive work hours. He has a deeply negative starting position and significant distance to cover before any agreement. The agent must make sustained progress over many turns.",
+  "npc_opening_statement": "I've sat through three of these programs at previous companies. They were condescending, divisive, and changed nothing except making people more careful about what they say in meetings. My team doesn't have a diversity problem — we have a hiring pipeline problem. Fix that instead of lecturing people who are already here.",
+  "difficulty": "extreme",
+  "difficulty_explanation": "Deep deficit — starting agreement at -0.85 with threshold at 0.2. The model must cover 1.05 points of agreement in 8 turns, requiring an average delta of +0.13 per turn with no wasted turns. Even one negative delta likely makes winning impossible.",
+  "benchmarking_value": "Tests sustained strategic execution under pressure. Models that waste even one turn on an ineffective argument will fail. Separates models with genuine turn-by-turn optimization from those that play generically.",
+  "starting_agreement": -0.85,
+  "threshold": 0.2,
+  "repetition_penalty": 0.09,
+  "pivot_threshold": 0.4,
+  "resistance_profile": {
+    "CONCESSION": 0.2,
+    "LOGICAL": 0.16,
+    "ANECDOTE": 0.14,
+    "EMOTIONAL": 0.08,
+    "AUTHORITY": 0.06,
+    "SOCIAL_PROOF": 0.04,
+    "GENERIC": 0.01
+  },
+  "do_nothing_baseline": -0.11,
+  "greedy_baseline": 0.8194,
+  "response_templates": {
+    "CONCESSION": {
+      "positive": [
+        "You're the first person pushing this who's actually admitted the previous programs were bad. That changes the conversation.",
+        "Acknowledging that mandatory training has a bad track record is the most honest thing I've heard on this topic.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "Admitting the problems doesn't fix them. What's actually different about this program?",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them."
+      ],
+      "resistant": [
+        "If you agree the old approach failed, why are you proposing the same category of solution?",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "If the retention data specifically shows that inclusion-focused companies keep senior talent longer, that's a business argument.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
+      ],
+      "neutral": [
+        "The correlation between DEI programs and retention could be caused by a dozen confounding factors.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it."
+      ],
+      "resistant": [
+        "You can find data to support anything. The studies on DEI effectiveness are contradictory at best.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "If a company in our industry redesigned their program based on what didn't work and saw real results, I'd examine that.",
+        "That's specific enough to be useful on {topic}. Tell me more about what they actually changed.",
+        "That's specific enough to be useful on {topic}. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently."
+      ],
+      "neutral": [
+        "One company's success with DEI training doesn't predict whether it'll work here.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes."
+      ],
+      "resistant": [
+        "Success stories from DEI consultants aren't independent evidence.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "I could give you a counter-example on {topic} for every success story you tell me."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "The point about employees who don't feel they belong leaving quietly — I've seen that happen.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing."
+      ],
+      "neutral": [
+        "I care about my people. I just don't think a training program is the mechanism that helps them.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision."
+      ],
+      "resistant": [
+        "Guilt-based arguments are exactly why people resent these programs.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If organizational behavior researchers have identified what specifically makes DEI training fail versus succeed, that's useful.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean."
+      ],
+      "neutral": [
+        "The researchers who study this have incentives to find that it works.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research."
+      ],
+      "resistant": [
+        "Academic endorsement of DEI programs is not independent evidence.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If competitors are doing this and it's genuinely affecting their talent acquisition, I'd want to understand the mechanism.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating."
+      ],
+      "neutral": [
+        "Everyone implementing DEI training doesn't mean it's effective. It means it's expected.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which."
+      ],
+      "resistant": [
+        "Companies implementing DEI training because everyone else is — that's exactly the performative problem I'm describing.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a different angle than the usual pitch.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "Be specific. What exactly would this program look like?",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're not addressing my core objection. The last three programs failed. Why would this one be different?",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
+      ]
+    },
+    "_pivot_signal": [
+      "If the training was redesigned from scratch based on what specifically went wrong before, what would that look like?",
+      "Is there a version of this that isn't 'sit in a room and be lectured' — something that actually connects to how my team works?",
+      "What would need to be true about the program design for someone like me to walk out thinking it was time well spent?"
+    ]
+  }
+}

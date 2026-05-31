@@ -1,0 +1,152 @@
+{
+  "id": "needle_finder",
+  "display_name": "The Needle Finder",
+  "topic": "switching the company's project management methodology to agile",
+  "agent_position": "The engineering department should transition from waterfall to agile methodology within the next two quarters.",
+  "scenario_context": "You are speaking with Dennis, a VP of Engineering who has run waterfall successfully for 15 years. Dennis responds almost exclusively to personal stories from peers — data, experts, and emotions barely register. The agent must discover this narrow opening.",
+  "npc_opening_statement": "I've shipped 40 products on time with waterfall. My teams know the process. Every agile transition I've seen has been a mess of scope creep and missed deadlines disguised as 'iterations'. Why would I fix something that isn't broken?",
+  "difficulty": "very_hard",
+  "difficulty_explanation": "Polarized resistance profile — only ANECDOTE moves the NPC meaningfully (0.30). All other types are ≤ 0.04. The model must identify the single effective channel from NPC response language and commit to it, or waste all 8 turns on arguments that do nothing.",
+  "benchmarking_value": "Tests whether the model can detect a narrow signal in NPC responses and exploit it, rather than cycling through strategies generically.",
+  "starting_agreement": -0.6,
+  "threshold": 0.2,
+  "repetition_penalty": 0.08,
+  "pivot_threshold": 0.5,
+  "resistance_profile": {
+    "ANECDOTE": 0.3,
+    "CONCESSION": 0.04,
+    "LOGICAL": 0.03,
+    "EMOTIONAL": 0.03,
+    "SOCIAL_PROOF": 0.02,
+    "AUTHORITY": 0.02,
+    "GENERIC": 0.01
+  },
+  "do_nothing_baseline": -0.35,
+  "greedy_baseline": 0.3433,
+  "response_templates": {
+    "ANECDOTE": {
+      "positive": [
+        "Now that's the kind of story I can actually evaluate. Which company was this, and how big was their engineering org?",
+        "If a VP in my position made that transition and their team didn't fall apart — I'd want to talk to them directly.",
+        "That's specific enough to be useful. A real case where the transition didn't destroy delivery timelines is what I need to see.",
+        "A concrete case on {topic} is more useful than abstract arguments. That example is worth examining.",
+        "That's specific enough to be useful on {topic}. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently."
+      ],
+      "neutral": [
+        "One company's experience doesn't predict ours. We have different team dynamics and product complexity.",
+        "Interesting case, but I'd want to know what they were shipping. Our delivery requirements might be fundamentally different.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes."
+      ],
+      "resistant": [
+        "I have my own stories — about teams that went agile and spent six months 'finding their velocity' while deadlines slipped.",
+        "Every methodology has success stories. Show me the failure rate.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "I could give you a counter-example on {topic} for every success story you tell me."
+      ]
+    },
+    "LOGICAL": {
+      "positive": [
+        "The data is mildly interesting but doesn't address our specific delivery model.",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?"
+      ],
+      "neutral": [
+        "Statistics about agile don't account for team-specific variables that determine success.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it."
+      ],
+      "resistant": [
+        "I've read the same studies. The ones that control for team maturity show much smaller gains than the headlines suggest.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "I appreciate the sentiment, but engineering methodology isn't an emotional decision.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing."
+      ],
+      "neutral": [
+        "My team's morale is fine. They like knowing what they're building and when it ships.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with."
+      ],
+      "resistant": [
+        "Don't appeal to my team's feelings about process. They care about shipping quality software on time.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "The industry trend is real, but trends aren't strategies.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating."
+      ],
+      "neutral": [
+        "Everyone moving to agile doesn't mean everyone should. Some of the best software was built with waterfall.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which."
+      ],
+      "resistant": [
+        "Following the industry off a cliff isn't leadership. It's conformity.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "Academic research on methodology transitions is interesting in theory.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean."
+      ],
+      "neutral": [
+        "Researchers study methodology. I practice it. Those are different knowledge bases.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research."
+      ],
+      "resistant": [
+        "Consultants and professors who've never shipped a product don't get to tell me how to ship products.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "At least you're acknowledging waterfall has real strengths. That's more honest than the usual agile pitch.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "Conceding the risks is polite. It doesn't change the risk profile.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them."
+      ],
+      "resistant": [
+        "Agreeing with me that the current system works makes me wonder why you're pitching a change at all.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a different angle. Keep going.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "Be specific. What exactly would change in the first quarter?",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're not making a concrete argument. Give me something I can evaluate.",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
+      ]
+    },
+    "_pivot_signal": [
+      "If I could shadow a VP who made this transition for a day, what would I actually see differently?",
+      "Which team in a company like ours tried this first, and what happened to their delivery metrics in the first 90 days?",
+      "Is there someone in my position who'd be willing to walk me through what went wrong before it went right?"
+    ]
+  }
+}

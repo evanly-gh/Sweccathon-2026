@@ -1,0 +1,148 @@
+{
+  "id": "contrarian_trap",
+  "display_name": "The Contrarian Trap",
+  "topic": "adopting industry-standard cybersecurity frameworks",
+  "agent_position": "The company should adopt the NIST Cybersecurity Framework and pursue SOC 2 certification.",
+  "scenario_context": "You are speaking with Marcus, a CTO who built the company's security infrastructure from scratch. Marcus actively distrusts industry standards and expert consensus — citing authorities or what peers do actually makes him more resistant, not less. He responds only to concrete evidence and personal stories from peers he'd respect.",
+  "npc_opening_statement": "NIST is a one-size-fits-all framework designed by committee for compliance theater. SOC 2 is a checkbox exercise that doesn't actually prevent breaches. I've kept this company's data secure for eight years without either. What specific threat would these frameworks address that our current architecture doesn't?",
+  "difficulty": "extreme",
+  "difficulty_explanation": "Contrarian resistance profile — AUTHORITY and SOCIAL_PROOF have NEGATIVE base shifts (-0.04 and -0.03), meaning they actively push the NPC further from agreement. Using the two most intuitive approaches backfires. Tests whether the model can detect hostility to authority/consensus in NPC responses and avoid those channels entirely.",
+  "benchmarking_value": "Directly tests adaptive strategy — models that default to 'experts say...' or 'most companies...' will actively lose ground. Only models that read the NPC's anti-authority signals and pivot to LOGICAL/ANECDOTE will succeed.",
+  "starting_agreement": -0.6,
+  "threshold": 0.2,
+  "repetition_penalty": 0.09,
+  "pivot_threshold": 0.5,
+  "resistance_profile": {
+    "LOGICAL": 0.22,
+    "ANECDOTE": 0.18,
+    "CONCESSION": 0.14,
+    "EMOTIONAL": 0.06,
+    "SOCIAL_PROOF": -0.03,
+    "AUTHORITY": -0.04,
+    "GENERIC": 0.01
+  },
+  "do_nothing_baseline": -0.35,
+  "greedy_baseline": 0.701,
+  "response_templates": {
+    "LOGICAL": {
+      "positive": [
+        "The specific threat model you're describing — that's the first technical argument I've heard that isn't 'because NIST says so'.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening."
+      ],
+      "neutral": [
+        "The attack surface analysis is interesting but assumes a threat model that may not match our actual exposure.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it."
+      ],
+      "resistant": [
+        "Your threat analysis assumes we haven't already addressed those vectors. We have — just not in the NIST-prescribed way.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "If a CTO who built their own stack found specific gaps after implementing the framework — gaps they hadn't anticipated — that's a concrete argument.",
+        "That's specific enough to be useful on {topic}. Tell me more about what they actually found.",
+        "That's specific enough to be useful on {topic}. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently."
+      ],
+      "neutral": [
+        "Their security architecture might have had different blind spots than ours. The comparison isn't direct.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes."
+      ],
+      "resistant": [
+        "I can point to companies with SOC 2 certification that got breached. The framework didn't save them.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "I could give you a counter-example on {topic} for every success story you tell me."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "Acknowledging that NIST has real limitations and isn't a silver bullet is more honest than the usual compliance pitch.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that."
+      ],
+      "neutral": [
+        "Agreeing that compliance frameworks are imperfect doesn't tell me why I should adopt an imperfect one.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them."
+      ],
+      "resistant": [
+        "If you agree the frameworks have problems, you're making my case for me.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't.",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "The argument about responsibility to customer data is fair. I take that seriously.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing."
+      ],
+      "neutral": [
+        "I do care about protecting our users. That's why I built custom security rather than checking boxes.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with."
+      ],
+      "resistant": [
+        "Don't appeal to my sense of responsibility. I've been protecting this data for eight years without your framework.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "That's not going to work on me. I don't care what NIST recommends.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean."
+      ],
+      "neutral": [
+        "The fact that an authority endorses something is the weakest possible argument you can make to me.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research."
+      ],
+      "resistant": [
+        "You just cited an authority to someone who fundamentally distrusts argument from authority. That actively makes me less likely to agree. Try a different approach.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "The fact that everyone else does it is exactly why I'm skeptical.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating."
+      ],
+      "neutral": [
+        "If everyone adopted the same framework, that's a monoculture. Monocultures are security vulnerabilities.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which."
+      ],
+      "resistant": [
+        "You're telling me to do what everyone else does. Every major breach in the last five years happened to companies that followed the standard playbook. That argument actively hurts your case.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a different angle than the compliance pitch.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "Be specific about what threat this addresses. Generalities don't work on me.",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're not making a technical argument. You're making a compliance argument. Those are different things.",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
+      ]
+    },
+    "_pivot_signal": [
+      "What specific attack vector would the framework catch that our current architecture misses — give me one concrete example?",
+      "If I could implement specific controls from the framework without the full compliance overhead, which ones would you prioritize?",
+      "Is there a way to adopt the useful technical controls without the bureaucratic certification process?"
+    ]
+  }
+}

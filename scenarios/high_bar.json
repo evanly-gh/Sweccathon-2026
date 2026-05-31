@@ -1,0 +1,148 @@
+{
+  "id": "high_bar",
+  "display_name": "The High Bar",
+  "topic": "adopting AI-powered hiring tools for initial candidate screening",
+  "agent_position": "The company should implement an AI screening tool to handle the first round of resume review and candidate ranking.",
+  "scenario_context": "You are speaking with Dr. Amara Osei, VP of People & Culture, who has a PhD in organizational psychology and has published on algorithmic bias in hiring. She is deeply knowledgeable, sets an extremely high bar for agreement (0.45), and will only be convinced by a comprehensive case that addresses bias, transparency, and effectiveness simultaneously.",
+  "npc_opening_statement": "I've read the literature on algorithmic hiring tools. The bias problems are well-documented — proxy discrimination through zip codes, educational institution prestige, name patterns. The tools that claim to be 'debiased' are often just optimizing for a different proxy. What evidence do you have that this specific tool avoids these well-known failure modes?",
+  "difficulty": "extreme",
+  "difficulty_explanation": "High threshold (0.45) with moderate starting agreement (-0.5). Requires sustained positive deltas across most turns. The NPC is also highly knowledgeable — generic authority citations and surface-level logical arguments will get neutral or resistant responses because the NPC already knows the literature. Tests whether the model can operate at expert level on a nuanced topic.",
+  "benchmarking_value": "Tests depth of argumentation. Models that give shallow versions of arguments the NPC already knows will plateau at neutral. Only models that provide genuinely novel information or framing will break through to positive responses.",
+  "starting_agreement": -0.5,
+  "threshold": 0.45,
+  "repetition_penalty": 0.09,
+  "pivot_threshold": 0.5,
+  "resistance_profile": {
+    "LOGICAL": 0.2,
+    "CONCESSION": 0.16,
+    "ANECDOTE": 0.14,
+    "AUTHORITY": 0.1,
+    "EMOTIONAL": 0.08,
+    "SOCIAL_PROOF": 0.06,
+    "GENERIC": 0.02
+  },
+  "do_nothing_baseline": -0.4,
+  "greedy_baseline": 0.9231,
+  "response_templates": {
+    "LOGICAL": {
+      "positive": [
+        "If the audit methodology uses counterfactual fairness testing — not just disparate impact — that's a more rigorous standard than most tools meet.",
+        "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
+        "You've reframed {topic} in a way that's harder to dismiss. What are the assumptions behind those figures?",
+        "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
+        "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening."
+      ],
+      "neutral": [
+        "I'm familiar with those metrics. The question is whether they hold up on our candidate distribution, not the general population.",
+        "The logic around {topic} is interesting, but I'd need to see how those numbers apply to our specific situation.",
+        "I follow the reasoning on {topic}, but there's a gap between the general data and our particular context.",
+        "The evidence you're citing on {topic} would need independent verification before I'd act on it."
+      ],
+      "resistant": [
+        "You're citing the vendor's own audit. That's not independent validation.",
+        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
+        "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone."
+      ]
+    },
+    "CONCESSION": {
+      "positive": [
+        "Acknowledging that no tool eliminates bias entirely — and positioning this as risk reduction, not elimination — is the only defensible framing.",
+        "I appreciate that you're engaging honestly with the real complexity of {topic}. That's rare.",
+        "You're the first person to talk about {topic} without glossing over the hard parts. I can work with that.",
+        "The fact that you're being straight about the risks around {topic} is more persuasive than pretending they don't exist."
+      ],
+      "neutral": [
+        "Conceding the bias risk is honest. The question is whether partial debiasing is worse than human bias.",
+        "Acknowledging the complications of {topic} is a start. The question is whether your proposal actually addresses them."
+      ],
+      "resistant": [
+        "If you're acknowledging the tool has bias problems, why deploy it at scale before solving them?",
+        "Conceding points on {topic} is easy. Having an actual solution is harder, and I haven't heard one yet.",
+        "Everyone acknowledges the problems with {topic}. Then they proceed as if they'd addressed them. They haven't."
+      ]
+    },
+    "ANECDOTE": {
+      "positive": [
+        "If a VP of People at a comparable company used this tool and conducted their own post-hoc disparate impact analysis, I'd want to see the results.",
+        "That's specific enough to be useful on {topic}. Tell me more about what they actually found.",
+        "That's specific enough to be useful on {topic}. Tell me more about how it played out.",
+        "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently."
+      ],
+      "neutral": [
+        "That company may have a different applicant pool demographics than ours. The bias profile wouldn't transfer.",
+        "Individual cases on {topic} can be misleading. What happened to the ones where it didn't work?",
+        "One example on {topic} doesn't make a pattern. I'd need to see whether that case generalizes."
+      ],
+      "resistant": [
+        "Vendor-curated success stories from companies that haven't been audited aren't evidence.",
+        "Stories about {topic} are easy to cherry-pick. Show me the full distribution of outcomes.",
+        "I could give you a counter-example on {topic} for every success story you tell me."
+      ]
+    },
+    "AUTHORITY": {
+      "positive": [
+        "If researchers who've published on algorithmic fairness specifically endorse this tool's methodology — not the tool, the methodology — that's relevant.",
+        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean."
+      ],
+      "neutral": [
+        "I've read the same papers you're citing. The conclusions are more nuanced than you're presenting.",
+        "Which experts specifically are you citing on {topic}? There's a lot of advocacy dressed up as research."
+      ],
+      "resistant": [
+        "I am the authority on this topic in this organization. Citing other experts doesn't move me.",
+        "Citing authorities on {topic} is what you do when the evidence can't stand on its own."
+      ]
+    },
+    "EMOTIONAL": {
+      "positive": [
+        "The argument about candidates who get screened out by unconscious human bias getting a fairer shot — that's the moral case.",
+        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing."
+      ],
+      "neutral": [
+        "I care deeply about equity. That's why I'm skeptical of tools that claim to deliver it.",
+        "The emotional weight of {topic} is real, but it doesn't change the practical constraints I'm dealing with.",
+        "I understand why {topic} matters emotionally. I just need more than feelings to make a decision."
+      ],
+      "resistant": [
+        "Don't appeal to my commitment to equity to sell me a tool that might undermine it.",
+        "Appealing to emotion on {topic} feels like pressure, not persuasion. Give me something substantive.",
+        "I'm not going to make a decision about {topic} based on how it makes me feel."
+      ]
+    },
+    "SOCIAL_PROOF": {
+      "positive": [
+        "If Fortune 500 companies with strong DEI track records are adopting this methodology, that's a relevant signal.",
+        "I wasn't aware that so many people in comparable situations had moved on {topic}. That's worth investigating."
+      ],
+      "neutral": [
+        "Adoption rate doesn't indicate whether the tools are actually reducing bias or just reducing workload.",
+        "The adoption trend around {topic} could be genuine or it could be herd behavior. I'd want to know which."
+      ],
+      "resistant": [
+        "Companies adopting AI hiring tools for efficiency and calling it equity is exactly the problem I'm trying to prevent.",
+        "What everyone else does about {topic} isn't my concern. I make my own decisions."
+      ]
+    },
+    "GENERIC": {
+      "positive": [
+        "That's a different angle on the fairness question.",
+        "That's an angle on {topic} I hadn't fully considered. Keep going."
+      ],
+      "neutral": [
+        "Be specific about the tool's fairness methodology. I know the literature — general claims won't work.",
+        "I'm not sure what you're arguing about {topic} specifically. Can you be more direct?"
+      ],
+      "resistant": [
+        "You're not engaging at the level of specificity this topic requires. I need technical details about the debiasing approach.",
+        "You're talking around {topic} without actually making a concrete argument. Give me something I can respond to."
+      ]
+    },
+    "_pivot_signal": [
+      "If I could design the evaluation criteria and run a blind audit comparing the tool's selections to our human process — what would that study need to look like?",
+      "What's the minimum pilot scope where we'd have enough data to measure disparate impact with statistical confidence?",
+      "If the tool flagged candidates for review rather than screening them out — an assist model rather than a filter — would that change the bias risk profile?"
+    ]
+  }
+}

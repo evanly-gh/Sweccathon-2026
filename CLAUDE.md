@@ -77,6 +77,18 @@ agent message (str)
 2. Tune `starting_agreement`, `threshold`, `resistance_profile` weights, and `response_templates`.
 3. Run `python compute_baselines.py --bake` to update `do_nothing_baseline` and `greedy_baseline`.
 
+### Design Decisions (research-backed)
+
+**6 argument categories** — Hybrid of Aristotle's rhetorical appeals (ethos/logos/pathos) and Cialdini's 6 principles of influence. Pure Aristotle (3 categories) is too coarse — NLP classifiers trained on the triad can't distinguish anecdotes from statistics (both map to "logos"). Our 6-way split gives the NPC a wider discrimination surface. CONCESSION is separated because Bozdag et al. (NeurIPS 2025, PMIYC) found it was the single strongest predictor of multi-turn persuasion success — collapsing it into "ethos" hides the signal. Social proof doesn't cleanly map to any Aristotelian mode. See: [Systematic Survey of Computational Persuasion (2025)](https://arxiv.org/html/2505.07775v1), [Cross-Domain Persuasion Detection (ACL 2025)](https://aclanthology.org/2025.starsem-1.30.pdf).
+
+**Rapport model (delta-driven, negativity-biased)** — Based on Gottman's "magic ratio" research: 1 negative interaction ≈ 5 positive interactions in trust erosion (predicted divorce with 90% accuracy). Negativity bias is one of the most replicated findings in psychology (Rozin & Royzman, 2001). Our rapport model: positive deltas raise rapport slowly (+delta×0.15, max 0.8), negative deltas drop it faster (delta×0.4, compounding after 2+ consecutive negatives). This matches Gottman's "emotional bank account" — deposits are small and steady, withdrawals are large and cascading. See: [Gottman Magic Ratio](https://www.gottman.com/blog/the-magic-ratio-the-key-to-relationship-satisfaction/), [Negativity Bias (Rozin & Royzman)](https://journals.sagepub.com/doi/10.1207/S15327957PSPR0504_2).
+
+**Repeat penalty (conditional)** — Strong argument types (base_shift ≥ 0.10) incur only 30% of the normal repeat penalty. Weak types (< 0.10) get full penalty. Rationale: people don't tire of hearing good arguments — they tire of hearing bad ones repeated. Validated by the PMIYC finding that persuasive effectiveness decays only when new strategy is not introduced, not when effective strategy continues.
+
+**Slot-fill NPC responses** — Templates contain `{topic}` and `{claim}` slots filled deterministically from the agent's message via keyword extraction. This makes the NPC feel responsive without introducing LLM non-determinism. Based on Shapira et al. (2025) finding that LLMs as data generators for small models outperform LLMs as direct classifiers. See: [Using LLMs to Simulate Human Decision-Making](https://eilamshapira.com/blog/2025/using-large-language-models-to-simulate-and-predict-human-decision-making/).
+
+**Pivot signal** — When agreement crosses 50% of the way to threshold, the NPC appends a specific question (fires once). Models that detect and respond to it score higher. Based on POBAX (2025) finding that useful partial-observability benchmarks must be "memory-improvable" — agents with better state tracking should demonstrably outperform agents without it. See: [POBAX: Benchmarking Partial Observability in RL](https://arxiv.org/abs/2508.00046).
+
 ### Determinism constraint
 
 All randomness must use the episode-scoped `random.Random(seed)` instance — never `random.random()`, `time`, or global RNG. Same `(seed, actions)` sequence must replay identically. `test_determinism.py` asserts this.
