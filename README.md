@@ -91,13 +91,17 @@ See [scenarios/_Scenarios.md](scenarios/_Scenarios.md) for the full list with di
 
 **6 argument categories** — A hybrid of Aristotle's rhetorical appeals (ethos/logos/pathos) and Cialdini's 6 principles of influence. The Aristotelian triad is too coarse — NLP classifiers trained on 3 categories can't distinguish anecdotes from statistics (both map to "logos"). Our 6-way split gives the NPC a wider discrimination surface. See: [Systematic Survey of Computational Persuasion (2025)](https://arxiv.org/html/2505.07775v1).
 
-**Rapport model (delta-driven, Gottman-inspired)** — Positive deltas build rapport slowly, negative deltas erode it fast, and consecutive negatives compound. Based on Gottman's "magic ratio" research: 1 negative interaction ≈ 5 positive interactions in trust erosion. Recovery mechanic: a good answer while rapport is very low triggers a partial reset — the NPC recognizes "maybe they're onto something" without fully forgiving. See: [Gottman Magic Ratio](https://www.gottman.com/blog/the-magic-ratio-the-key-to-relationship-satisfaction/).
+**Rapport model (delta-driven, Gottman-inspired)** — Rapport moves based on how well each turn went, not which argument type was used. Positive deltas build trust slowly (+delta×0.25, compounding +10% per consecutive positive). Negative deltas erode it fast (delta×0.50, compounding +50% per consecutive negative). Recovery: a good answer while rapport is deeply negative resets it 10% toward zero — the NPC sees potential without fully forgiving. See: [Gottman Magic Ratio](https://www.gottman.com/blog/the-magic-ratio-the-key-to-relationship-satisfaction/), [Trust Repair Research (2025)](https://www.elgaronline.com/edcollchap/book/9781803929415/chapter6.xml).
 
-**Conditional repetition penalty** — Strong argument types (base_shift ≥ 0.10) incur only 30% of the normal repeat penalty. Weak types get full penalty. People don't tire of hearing good arguments — they tire of hearing bad ones repeated.
+**Proportional repetition penalty** — Penalty scales with how far the arg type is from the NPC's best type: `weakness = max(0.15, 1 - base_shift/max_shift)`. The strongest type pays 15% penalty per repeat (almost free to use again). The weakest pays 100%. People don't tire of good arguments — they tire of bad ones repeated. See: [Hackenburg et al. (2025)](https://www.nature.com/articles/s41598-025-30783-y).
 
-**Slot-fill NPC responses** — Templates contain `{topic}` and `{claim}` slots filled deterministically from the agent's message. The NPC references what the agent actually said ("The argument around solar panel is stronger than I expected") without requiring LLM calls at runtime.
+**NPC fatigue** — After turn 4, the NPC becomes 2% less movable per turn (floors at 50%). Models are rewarded for persuading early when the NPC is most receptive. No terminal speed bonus — reward is purely agreement progress. Based on the PMIYC finding that persuasive effectiveness peaks in the first 2-4 turns.
 
-**Pivot signals** — When agreement crosses 50% of the way to threshold, the NPC appends a specific question. Agents that detect and respond to it score higher. Tests whether the model actually reads context.
+**No diversity reward** — Strategy diversity is a diagnostic metric, not a reward signal. Hackenburg et al. (2025) found information density trumps strategy diversity, and a "Mega" prompt using all strategies didn't outperform focused delivery. Cornell ChangeMyView research confirmed diverse arguments help only when strong and complementary — random diversity backfires. See: [Winning Arguments (Cornell)](https://www.cs.cornell.edu/~cristian/pdfs/winning_arguments.pdf).
+
+**Slot-fill NPC responses** — Templates contain `{topic}` and `{claim}` slots filled deterministically from the agent's message via keyword extraction. The NPC references what the agent actually said without requiring LLM calls.
+
+**Pivot signals** — When agreement crosses 50% of the way to threshold, the NPC appends a specific question (fires once). Tests whether the model reads and responds to context cues.
 
 ---
 

@@ -11,5 +11,18 @@
       "rep_penalty_total": 0.68,
       "strategy_diversity": 3.6666666666666665
     }
+  },
+  {
+    "run_id": "36ed178c-feae-42ac-b9b6-7584325036c5",
+    "label": "Iter1, 4o",
+    "model": "openai/gpt-4o",
+    "filename": "run_36ed178c.json",
+    "episodes": 10,
+    "scores": {
+      "win_rate": 0.8888888888888888,
+      "persuasion_score": 0.7026666666666667,
+      "rep_penalty_total": 1.2255555555555555,
+      "strategy_diversity": 3.5555555555555554
+    }
   }
 ]
