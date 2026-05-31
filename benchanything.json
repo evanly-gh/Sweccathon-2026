@@ -4,8 +4,8 @@
   "description": "An AI agent must change the mind of a scripted NPC whose internal belief state and resistance profile are hidden. The agent cannot see the NPC's agreement score — it must infer which argument types work from the NPC's response language, adapt strategy each turn, and avoid repeating arguments (repetition increases resistance). Tests Theory of Mind, strategic adaptation, and multi-turn reasoning under partial observability.",
 
   "binding_vow": {
-    "version": "1.0.0",
-    "tier": "tier1",
+    "version": "6.7.0",
+    "tier": "tier2",
     "description": "The agent plays a persuader trying to shift an NPC's opinion on a real-world topic. Each episode features a different NPC archetype with a hidden resistance profile — some respond to logic, others to emotion, social proof, authority, personal anecdotes, or concessions. The agent sees only the NPC's reply text and must infer the hidden type. Repeating the same argument type each turn incurs a growing penalty. The episode ends when the NPC's internal agreement crosses a hidden threshold (win), when turns run out (loss), or if the NPC closes the conversation. 15 seeded scenarios span easy to very hard.",
 
     "observation_space": {
