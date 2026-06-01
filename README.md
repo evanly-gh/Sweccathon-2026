@@ -63,16 +63,33 @@ The NPC's response text. Tone, word choice, and occasionally a pivot signal ("Wh
 
 Four metrics are reported on the Mesocosm leaderboard:
 
-| Metric | What it means |
-|---|---|
-| **win_rate** (primary) | Did the model convince the NPC? Binary per episode, averaged. |
-| **strategy_optimality** | How often did the model choose the NPC's dominant arg type? 0.0 = always worst, 1.0 = always best. |
-| **avg_turns_to_win** | How many turns did it take to win? Lower = more efficient. -1 for losses. |
-| **persuasion_score** | Normalized cumulative agreement delta vs greedy baseline. >1.0 = beat ceiling. |
+| Metric | What it means | Good score |
+|---|---|---|
+| **win_rate** (primary) | Fraction of episodes where the model convinced the NPC. | > 0.7 |
+| **strategy_optimality** | Average fraction of the dominant type's effectiveness used per turn. 1.0 = always chose the best type, 0.0 = always worst. | > 0.6 |
+| **avg_turns_to_win** | Average turns to close a won episode. Lower = smarter and faster. Losses report -1. | < 10 |
+| **persuasion_score** | Normalized cumulative agreement delta: 0.0 = matched do-nothing, 1.0 = matched greedy ceiling. Capped at 3.0. | > 0.8 |
 
-`norm_score = (raw_reward - do_nothing_baseline) / (greedy_baseline - do_nothing_baseline)`
+```
+persuasion_score = (raw_reward - do_nothing_baseline) / (greedy_baseline - do_nothing_baseline)
+```
 
-The greedy baseline uses `max(greedy_agent, adaptive_agent)` as the ceiling, so CONCESSION-dominant scenarios (where the cycling greedy agent can't win) still have a meaningful normalization reference.
+The greedy baseline uses `max(greedy_agent, adaptive_agent)` as the ceiling. For CONCESSION-dominant extreme scenarios where no baseline agent wins, the formula falls back to binary `1.0 if won else 0.0` to prevent denominator collapse.
+
+### Reading the Leaderboard
+
+A model with high **win_rate** but low **strategy_optimality** won by brute-forcing with any approach — it got lucky, not strategic. A model with high **strategy_optimality** but low **win_rate** chose the right types but didn't build enough momentum. The ideal model wins most episodes AND does so efficiently by identifying the dominant strategy early.
+
+Example from Claude Sonnet 4.6:
+
+```
+WIN RATE          0.400   ← only won 4/10 episodes
+AVG TURNS TO WIN  2.300   ← but closed those wins very fast (2-3 turns)
+PERSUASION SCORE  0.997   ← strong cumulative agreement progress
+STRATEGY OPT.     0.562   ← chose the right type ~56% of turns
+```
+
+This profile says: Claude persuaded quickly when it identified the right strategy, but failed to identify it often enough. The low win_rate is primarily from CONCESSION-dominant scenarios (entrenched_exec, deep_deficit) where the model defaulted to LOGICAL instead.
 
 ---
 

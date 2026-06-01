@@ -68,13 +68,14 @@ agent message (str, ≤300 chars)
 ### Scoring
 
 ```
-norm_score = (raw_cumulative_reward - do_nothing_baseline) / (greedy_baseline - do_nothing_baseline)
+persuasion_score = (raw_cumulative_reward - do_nothing_baseline) / (greedy_baseline - do_nothing_baseline)
 ```
 
-- 0 = matched do-nothing, 1.0 = matched ceiling, >1.0 = beat ceiling.
-- No terminal speed bonus — reward is purely agreement progress (NPC fatigue incentivizes early wins structurally).
-- `strategy_alignment` = mean(profile[arg_type] / max_shift) per turn — measures how often the model chose the NPC's preferred type. 1.0 = always optimal.
-- `turns_to_win` = turn number when won, -1 if lost.
+- Falls back to `1.0 if won else 0.0` when `|greedy_baseline - do_nothing_baseline| < 0.10` (prevents denominator collapse on CONCESSION-dominant extreme scenarios where both baselines are nearly equal and negative).
+- Capped at 3.0 to prevent outlier inflation.
+- No terminal speed bonus — reward is purely agreement progress. NPC fatigue (2%/turn after turn 4) incentivizes early wins structurally.
+- `strategy_alignment` = mean(profile[arg_type] / max_shift) per turn — how often the model chose the NPC's preferred type. 1.0 = always optimal. Note: does not penalize overuse of a type, only measures type selection quality.
+- `turns_to_win` = turn number when won, -1 if lost. Used in `avg_turns_to_win` metric.
 
 ### Adding a new scenario
 
