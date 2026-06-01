@@ -71,5 +71,31 @@
       "rep_penalty_total": 2.377,
       "strategy_diversity": 3.2
     }
+  },
+  {
+    "run_id": "988a4f42-dd54-4145-841c-3a497d5d6521",
+    "label": "Iter-5 gpt",
+    "model": "openai/gpt-4o",
+    "filename": "run_988a4f42.json",
+    "episodes": 10,
+    "scores": {
+      "win_rate": 0.875,
+      "persuasion_score": 0.9236375,
+      "rep_penalty_total": 1.97125,
+      "strategy_diversity": 3.375
+    }
+  },
+  {
+    "run_id": "e8ead2c1-e607-4d08-85d6-bc50dfa16e04",
+    "label": "Iter-5 claude",
+    "model": "anthropic/claude-sonnet-4-6",
+    "filename": "run_e8ead2c1.json",
+    "episodes": 10,
+    "scores": {
+      "win_rate": 0.8,
+      "persuasion_score": 0.99657,
+      "rep_penalty_total": 2.689,
+      "strategy_diversity": 3.3
+    }
   }
 ]
