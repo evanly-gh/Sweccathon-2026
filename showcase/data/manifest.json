@@ -45,5 +45,18 @@
     "filename": "run_bcfe8488.json",
     "episodes": 10,
     "scores": {}
+  },
+  {
+    "run_id": "98b45ba1-ea8d-43d5-807f-8fb0108be1e0",
+    "label": "Iter-3 4o",
+    "model": "openai/gpt-4o",
+    "filename": "run_98b45ba1.json",
+    "episodes": 10,
+    "scores": {
+      "win_rate": 0.7777777777777778,
+      "persuasion_score": 1.0167555555555556,
+      "rep_penalty_total": 2.0188888888888887,
+      "strategy_diversity": 3.5555555555555554
+    }
   }
 ]
