@@ -24,5 +24,26 @@
       "rep_penalty_total": 1.2255555555555555,
       "strategy_diversity": 3.5555555555555554
     }
+  },
+  {
+    "run_id": "b7e7a659-8bce-45d8-9f1d-078eefbb79f3",
+    "label": "Iter-2 4o",
+    "model": "openai/gpt-4o",
+    "filename": "run_b7e7a659.json",
+    "episodes": 10,
+    "scores": {
+      "win_rate": 0.8888888888888888,
+      "persuasion_score": 1.040722222222222,
+      "rep_penalty_total": 1.4877777777777779,
+      "strategy_diversity": 3.3333333333333335
+    }
+  },
+  {
+    "run_id": "bcfe8488-c4db-4e90-b3aa-cded8f3decf8",
+    "label": "Iter-2 gemini (failed)",
+    "model": "gemini/gemini-3.5-flash",
+    "filename": "run_bcfe8488.json",
+    "episodes": 10,
+    "scores": {}
   }
 ]

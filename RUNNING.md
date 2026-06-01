@@ -168,7 +168,7 @@ mesocosm env submit --name "Persuasion Engine" --github-url https://github.com/e
 mesocosm env list   # wait for "ready"
 
 # 5. Run + save + push
-mesocosm run create --domain 3a7286d6-b6f5-4bca-9e8d-b94f9d9ea927 --vow-version 1.0.0 --model anthropic/claude-sonnet-4-6 --episodes 4 --visibility gallery_public --solo
+mesocosm run create --domain 3a7286d6-b6f5-4bca-9e8d-b94f9d9ea927 --vow-version 6.7.0 --model openai/gpt-4o --episodes 10 --visibility gallery_public --solo
 mesocosm run get RUN_ID
 python save_run.py RUN_ID --label "Claude Sonnet post-update"
 git add showcase/data/
