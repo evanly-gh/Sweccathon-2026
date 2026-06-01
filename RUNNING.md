@@ -20,7 +20,7 @@ Skip this if you haven't pushed any code changes since the last submit.
 
 ```powershell
 mesocosm auth login
-mesocosm env submit --name "Persuasion Engine" --github-url https://github.com/evanly-gh/Sweccathon-2026 --solo
+mesocosm env submit --name "RhetBench" --github-url https://github.com/evanly-gh/Sweccathon-2026 --solo
 mesocosm env list   # wait until status shows "ready"
 ```
 
@@ -165,7 +165,7 @@ git push origin main
 
 # 4. Resubmit env
 mesocosm auth login
-mesocosm env submit --name "Persuasion Engine" --github-url https://github.com/evanly-gh/Sweccathon-2026 --solo
+mesocosm env submit --name "RhetBench" --github-url https://github.com/evanly-gh/Sweccathon-2026 --solo
 mesocosm env list   # wait for "ready"
 
 # 5. Run + save + push
