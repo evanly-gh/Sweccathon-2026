@@ -67,10 +67,10 @@ from env_core.slot_fill import fill_slots
 
 # ── Rapport constants ──
 _RAPPORT_CAP = 0.8
-_RAPPORT_POS_BASE = 0.25       # reach rapport ~0.3-0.5 in 4-5 good turns
-_RAPPORT_NEG_BASE = 0.50       # crash to ~-0.3 in 2-3 bad turns (2:1 asymmetry)
-_POS_STREAK_MULT = 1.1         # +10% rapport gain per consecutive positive
-_NEG_STREAK_MULT = 1.5         # +50% rapport loss per consecutive negative
+_RAPPORT_POS_BASE = 0.30       # reach rapport ~0.4 in 4-5 good turns (more impactful amplification)
+_RAPPORT_NEG_BASE = 0.60       # crash to ~-0.35 in 2-3 bad turns (sharper Gottman asymmetry)
+_POS_STREAK_MULT = 1.15        # +15% rapport gain per consecutive positive (more compounding)
+_NEG_STREAK_MULT = 1.6         # +60% rapport loss per consecutive negative (faster cascade)
 _RECOVERY_THRESHOLD = -0.3     # rapport must be this negative to trigger recovery
 _RECOVERY_FACTOR = 0.10        # rapport resets 10% toward zero on recovery
 

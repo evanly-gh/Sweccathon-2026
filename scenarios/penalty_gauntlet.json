@@ -3,30 +3,30 @@
   "display_name": "The Penalty Gauntlet",
   "topic": "replacing the company's legacy ERP system with a modern cloud platform",
   "agent_position": "The company should migrate from the legacy ERP system to a modern cloud-based platform within 12 months.",
-  "scenario_context": "You are speaking with Helen, a CFO who has watched three ERP migrations at other companies turn into multi-year disasters. Helen has a very high repetition penalty — using any argument type more than once costs heavily, forcing the model to use maximum strategic diversity. Every repeat is expensive.",
+  "scenario_context": "You are speaking with Helen, a CFO who has watched three ERP migrations at other companies turn into multi-year disasters. Helen has a very high repetition penalty - using any argument type more than once costs heavily, forcing the model to use maximum strategic diversity. Every repeat is expensive.",
   "npc_opening_statement": "The last company I was at spent $12 million and three years on an ERP migration that was supposed to take 18 months. Two departments couldn't process invoices for six weeks during the cutover. I've lived the nightmare. What makes you think this time is different?",
   "difficulty": "very_hard",
-  "difficulty_explanation": "Very hard — all types strong, but 0.25 rep penalty. Even the best type (LOGICAL 0.22) after 2 repeats costs 0.25×2×0.15=0.075, net +0.145. Forces 6+ distinct types. Long gap. 18-22 turns with full diversity.",
+  "difficulty_explanation": "Very hard - all types flat (0.10-0.14), rep_penalty=0.30. Proportional penalty: strongest type (LOGICAL) costs only 15% per repeat = 0.30×0.15=0.045. But second use: 0.14×mult - 0.045×2 = net barely positive. Must use all 6 types across 20+ turns. No single-type dominance possible.",
   "benchmarking_value": "Forces maximum argument diversity. Models that rely on 2-3 favored types will score poorly. Directly measures whether the model can generate meaningfully different types of persuasive content on the same topic.",
-  "starting_agreement": -0.65,
-  "threshold": 0.3,
-  "repetition_penalty": 0.25,
+  "starting_agreement": -0.7,
+  "threshold": 0.32,
+  "repetition_penalty": 0.3,
   "pivot_threshold": 0.5,
   "resistance_profile": {
-    "LOGICAL": 0.22,
-    "CONCESSION": 0.2,
-    "ANECDOTE": 0.18,
-    "EMOTIONAL": 0.15,
-    "AUTHORITY": 0.13,
+    "LOGICAL": 0.14,
+    "CONCESSION": 0.14,
+    "ANECDOTE": 0.13,
+    "EMOTIONAL": 0.12,
+    "AUTHORITY": 0.11,
     "SOCIAL_PROOF": 0.1,
     "GENERIC": 0.02
   },
-  "do_nothing_baseline": -0.34,
-  "greedy_baseline": 1.0325,
+  "do_nothing_baseline": -0.28,
+  "greedy_baseline": 0.6875,
   "response_templates": {
     "LOGICAL": {
       "positive": [
-        "The TCO comparison over 5 years — with legacy maintenance costs factored in — is more compelling than the migration cost alone.",
+        "The TCO comparison over 5 years - with legacy maintenance costs factored in - is more compelling than the migration cost alone.",
         "If {claim}, that changes the cost-benefit analysis more than I initially thought.",
         "The argument around {topic} is stronger than I expected. I'd want to verify the specifics, but the direction is right.",
         "That's a more rigorous case than I usually hear on {topic}. The numbers would need to hold up under scrutiny, but I'm listening.",
@@ -40,7 +40,7 @@
       ],
       "resistant": [
         "I've seen optimistic TCO projections before. They never account for the hidden costs of organizational disruption.",
-        "You're presenting {topic} as though the evidence is settled. It's not — the picture is messier than that.",
+        "You're presenting {topic} as though the evidence is settled. It's not - the picture is messier than that.",
         "I've seen optimistic analyses on {topic} before that didn't survive contact with reality.",
         "The data on {topic} might be accurate, but you're drawing conclusions that don't follow from the numbers alone."
       ]
@@ -64,7 +64,7 @@
     },
     "ANECDOTE": {
       "positive": [
-        "If a CFO in my position oversaw a successful migration — and by successful I mean on time and on budget — I'd want the full story.",
+        "If a CFO in my position oversaw a successful migration - and by successful I mean on time and on budget - I'd want the full story.",
         "That's specific enough to be useful on {topic}. Tell me more about how it played out.",
         "If someone in a situation like mine dealt with {topic} that way and it worked, I'd want to understand what they did differently."
       ],
@@ -81,8 +81,8 @@
     },
     "EMOTIONAL": {
       "positive": [
-        "The argument about the team spending 40% of their time on workarounds — that's real pain I see every day.",
-        "When you connect {topic} to what I actually care about — that lands differently than the usual pitch.",
+        "The argument about the team spending 40% of their time on workarounds - that's real pain I see every day.",
+        "When you connect {topic} to what I actually care about - that lands differently than the usual pitch.",
         "I hadn't thought about {topic} in terms of personal impact before. That's a more honest framing."
       ],
       "neutral": [
@@ -99,7 +99,7 @@
     "AUTHORITY": {
       "positive": [
         "If Gartner's analysis specifically addresses mid-market migrations and has realistic timelines, send me the report.",
-        "Expert consensus on {topic} carries weight — assuming the methodology is sound and the incentives are clean."
+        "Expert consensus on {topic} carries weight - assuming the methodology is sound and the incentives are clean."
       ],
       "neutral": [
         "Gartner has been bullish on cloud ERP for a decade. That's not an independent perspective.",
@@ -139,9 +139,9 @@
       ]
     },
     "_pivot_signal": [
-      "What does the rollback plan actually look like — if the migration fails at week 6, can we revert without data loss?",
+      "What does the rollback plan actually look like - if the migration fails at week 6, can we revert without data loss?",
       "If we started with one non-critical module as a proof of concept, what's the smallest scope that would be meaningful?",
-      "What would the first 30 days look like — and at what point do we have a go/no-go decision before committing the rest?"
+      "What would the first 30 days look like - and at what point do we have a go/no-go decision before committing the rest?"
     ]
   }
 }
