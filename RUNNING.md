@@ -36,15 +36,16 @@ mesocosm run create --domain 3a7286d6-b6f5-4bca-9e8d-b94f9d9ea927 --vow-version 
 
 | Model | Notes |
 |---|---|
-| `anthropic/claude-sonnet-4-6` | Best results so far, reliable |
-| `openai/gpt-4o` | Good, may truncate on 512 max_tokens |
-| `gemini/gemini-2.5-flash` | Shared Gemini quota — may 429 |
-| `gemini/gemini-2.5-flash-lite` | Same quota pool |
-| `gemini/gemini-3.5-flash` | Same quota pool |
+| `openai/gpt-4o` | **Default** — best balance of reliability and quality |
+| `anthropic/claude-sonnet-4-6` | Good alternative, clean JSON output |
+| `gemini/gemini-2.5-flash` | Often 429/503 — avoid unless others unavailable |
+| `gemini/gemini-2.5-flash-lite` | Same quota issues |
+| `gemini/gemini-3.5-flash` | Same quota issues |
 
-**Recommended first run:**
+**Recommended run:**
 ```powershell
-mesocosm run create --domain 3a7286d6-b6f5-4bca-9e8d-b94f9d9ea927 --vow-version 6.7.0 --model anthropic/claude-sonnet-4-6 --episodes 4 --visibility gallery_public --solo
+mesocosm run create --domain 3a7286d6-b6f5-4bca-9e8d-b94f9d9ea927 --vow-version 6.7.0 --model openai/gpt-4o --episodes 10 --visibility gallery_public --solo
+
 ```
 
 Copy the `id` from the output — you'll need it for the next steps.
@@ -169,6 +170,7 @@ mesocosm env list   # wait for "ready"
 
 # 5. Run + save + push
 mesocosm run create --domain 3a7286d6-b6f5-4bca-9e8d-b94f9d9ea927 --vow-version 6.7.0 --model openai/gpt-4o --episodes 10 --visibility gallery_public --solo
+
 mesocosm run get RUN_ID
 python save_run.py RUN_ID --label "Claude Sonnet post-update"
 git add showcase/data/
