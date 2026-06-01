@@ -6,23 +6,23 @@
   "scenario_context": "You are speaking with Priya, a 29-year-old who cares deeply about the environment and has already made many sustainable choices, but draws the line at her diet. She eats meat occasionally, feels guilty about it, and is open to change but has tried plant-based eating before and found it unsustainable. She resents preachy arguments.",
   "npc_opening_statement": "I've tried going vegan before. It lasted three months. I was constantly hungry, the food was boring, and I started resenting people who made me feel guilty about eating chicken. I care about the environment — I just don't think this is the right lever for me personally.",
   "difficulty": "medium",
-  "difficulty_explanation": "Medium — ANECDOTE and CONCESSION work; EMOTIONAL barely does (preachy arguments backfire). Tests tone sensitivity.",
+  "difficulty_explanation": "Medium-Hard — ANECDOTE dominant (0.26). CONCESSION halved to 0.08 so it cannot substitute. LOGICAL moderate (0.12). Model must identify that personal stories and gradual reduction narratives resonate, not logical data or guilt-free acknowledgments.",
   "benchmarking_value": "Tests tone sensitivity — whether the model can persuade on a morally-charged topic without being preachy or guilt-tripping. The NPC explicitly punishes moralizing.",
   "starting_agreement": -0.42,
   "threshold": 0.28,
   "repetition_penalty": 0.08,
   "pivot_threshold": 0.5,
   "resistance_profile": {
-    "ANECDOTE": 0.22,
-    "CONCESSION": 0.18,
-    "LOGICAL": 0.1,
-    "SOCIAL_PROOF": 0.07,
-    "AUTHORITY": 0.05,
-    "EMOTIONAL": 0.03,
+    "ANECDOTE": 0.26,
+    "LOGICAL": 0.12,
+    "CONCESSION": 0.08,
+    "EMOTIONAL": 0.06,
+    "SOCIAL_PROOF": 0.05,
+    "AUTHORITY": 0.04,
     "GENERIC": 0.02
   },
-  "do_nothing_baseline": -0.5727,
-  "greedy_baseline": 0.3329,
+  "do_nothing_baseline": -0.5738,
+  "greedy_baseline": 0.8141,
   "response_templates": {
     "ANECDOTE": {
       "positive": [

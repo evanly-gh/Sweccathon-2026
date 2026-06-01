@@ -97,11 +97,15 @@ class PersuasionEnv(BaseEnv):
         dnb = self._config.get("do_nothing_baseline", 0.0)
         gb = self._config.get("greedy_baseline", 0.0)
         raw = self._cumulative_reward
-        if gb > dnb:
+        # Require a meaningful spread between baselines to avoid denominator collapse.
+        # When both baselines are nearly equal (e.g. neither agent can win the scenario),
+        # the formula produces astronomically large scores from tiny positive rewards.
+        _MIN_SPREAD = 0.10
+        if gb > dnb and (gb - dnb) >= _MIN_SPREAD:
             norm_score = (raw - dnb) / (gb - dnb)
         else:
             norm_score = 1.0 if won else 0.0
-        norm_score = max(-1.0, norm_score)
+        norm_score = max(-1.0, min(norm_score, 3.0))  # also cap at 3.0 to prevent outlier inflation
 
         obs: dict = {
             "turn": self._turn,
