@@ -13,7 +13,7 @@
   "repetition_penalty": 0.09,
   "pivot_threshold": 0.5,
   "resistance_profile": {
-    "LOGICAL": 0.28,
+    "LOGICAL": 0.23,
     "ANECDOTE": 0.2,
     "CONCESSION": 0.08,
     "EMOTIONAL": 0.05,
@@ -22,7 +22,7 @@
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.28,
-  "greedy_baseline": 0.7132,
+  "greedy_baseline": 0.5796,
   "response_templates": {
     "LOGICAL": {
       "positive": [

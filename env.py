@@ -132,6 +132,7 @@ class PersuasionEnv(BaseEnv):
             "arg_types_used": json.dumps(self._arg_types_used),
             "norm_score": str(round(norm_score, 4)),
             "won": "1" if won else "0",
+            "turns_to_win": str(self._turn) if won else "-1",
             "closed": "1" if closed else "0",
             "scenario_id": self._config["id"],
             "scenario_display_name": self._config["display_name"],

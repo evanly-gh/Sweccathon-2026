@@ -47,15 +47,9 @@
   },
 
   "scoring": {
-    "primary_metric": "persuasion_score",
+    "primary_metric": "win_rate",
     "higher_is_better": true,
     "metrics": [
-      {
-        "name": "persuasion_score",
-        "type": "terminal_field",
-        "field": "norm_score",
-        "aggregation": "mean"
-      },
       {
         "name": "win_rate",
         "type": "terminal_field",
@@ -63,21 +57,21 @@
         "aggregation": "mean"
       },
       {
-        "name": "strategy_diversity",
-        "type": "terminal_field",
-        "field": "diversity",
-        "aggregation": "mean"
-      },
-      {
-        "name": "rep_penalty_total",
-        "type": "terminal_field",
-        "field": "rep_penalty_total",
-        "aggregation": "mean"
-      },
-      {
-        "name": "strategy_alignment",
+        "name": "strategy_optimality",
         "type": "terminal_field",
         "field": "strategy_alignment",
+        "aggregation": "mean"
+      },
+      {
+        "name": "avg_turns_to_win",
+        "type": "terminal_field",
+        "field": "turns_to_win",
+        "aggregation": "mean"
+      },
+      {
+        "name": "persuasion_score",
+        "type": "terminal_field",
+        "field": "norm_score",
         "aggregation": "mean"
       }
     ]
