@@ -1,7 +1,7 @@
 {
   "adapter": "adapter.py",
-  "name": "Persuasion Engine",
-  "description": "Can an AI choose the right persuasion strategy for a given person? Persuasion Engine benchmarks this directly. A model must convince a scripted NPC across 25 turns, but the NPC has a hidden resistance profile — only one of six argument types moves them effectively. The model must infer the right strategy from NPC response language and commit to it. 23 scenarios isolate distinct capabilities: logical reasoning, emotional intelligence, authority recognition, social consensus, narrative storytelling, and concession-first trust-building. Metrics: win_rate (did it convince?), strategy_optimality (did it choose well?), avg_turns_to_win (how fast?). Showcase: https://evanly-gh.github.io/Sweccathon-2026/",
+  "name": "RhetBench",
+  "description": "Can an AI choose the right persuasion strategy for a given person? RhetBench benchmarks this directly. A model must convince a scripted NPC across 25 turns, but the NPC has a hidden resistance profile — only one of six argument types moves them effectively. The model must infer the right strategy from NPC response language and commit to it. 23 scenarios isolate distinct capabilities: logical reasoning, emotional intelligence, authority recognition, social consensus, narrative storytelling, and concession-first trust-building. Metrics: win_rate (did it convince?), strategy_optimality (did it choose well?), avg_turns_to_win (how fast?). Showcase: https://evanly-gh.github.io/Sweccathon-2026/",
 
   "binding_vow": {
     "version": "6.7.0",
