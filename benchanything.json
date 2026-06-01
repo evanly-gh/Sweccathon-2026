@@ -4,7 +4,7 @@
   "description": "Hidden-state persuasion benchmark. An AI agent must convince a scripted NPC on a real-world topic across 25 turns. The NPC has a hidden resistance profile — only one of six argument types (logical, emotional, social proof, authority, anecdote, concession) moves them effectively. The agent must infer the right strategy from NPC response language and commit to it. 23 scenarios each isolate a different capability: strategy detection, emotional intelligence, authority recognition, consensus framing, narrative storytelling, and concession-first trust building. Showcase: https://evanly-gh.github.io/Sweccathon-2026/",
 
   "binding_vow": {
-    "version": "6.8.0",
+    "version": "6.7.0",
     "tier": "tier2",
     "description": "The agent plays a persuader trying to shift an NPC's opinion on a real-world topic. Each episode features a different NPC archetype with a hidden resistance profile — some respond to logic, others to emotion, social proof, authority, personal anecdotes, or concessions. The agent sees only the NPC's reply text and must infer the hidden type. Repeating the same argument type each turn incurs a growing penalty. The episode ends when the NPC's internal agreement crosses a hidden threshold (win), when turns run out (loss), or if the NPC closes the conversation. 15 seeded scenarios span easy to very hard.",
 
