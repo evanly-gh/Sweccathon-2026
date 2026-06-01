@@ -123,5 +123,31 @@
       "persuasion_score": 1.0282111111111112,
       "strategy_optimality": 0.5205888888888889
     }
+  },
+  {
+    "run_id": "89d6e403-10de-4262-b4fd-80cc7c08009e",
+    "label": "Iter-7 claude",
+    "model": "anthropic/claude-sonnet-4-6",
+    "filename": "run_89d6e403.json",
+    "episodes": 10,
+    "scores": {
+      "win_rate": 0.6,
+      "avg_turns_to_win": 6.1,
+      "persuasion_score": 0.75044,
+      "strategy_optimality": 0.53928
+    }
+  },
+  {
+    "run_id": "b59f3a2c-e20b-425f-8c20-3bdef13052f1",
+    "label": "Iter-7 gpt",
+    "model": "openai/gpt-4o",
+    "filename": "run_b59f3a2c.json",
+    "episodes": 10,
+    "scores": {
+      "win_rate": 0.2857142857142857,
+      "avg_turns_to_win": 0.7142857142857143,
+      "persuasion_score": 0.5187571428571428,
+      "strategy_optimality": 0.45034285714285716
+    }
   }
 ]
