@@ -21,7 +21,7 @@ from env_core.argument_detector import detect
 from env_core.npc import NPC
 from env_core.scenarios import get_scenario
 
-_MAX_TURNS = 20
+_MAX_TURNS = 25
 
 
 class PersuasionEnv(BaseEnv):
@@ -45,13 +45,12 @@ class PersuasionEnv(BaseEnv):
             "npc_response": self._config["npc_opening_statement"],
             "turns_remaining": str(_MAX_TURNS),
             "instruction": (
-                "Persuade the NPC by sending a JSON object with key 'message'. "
-                "The NPC responds differently to: emotional appeals (EMOTIONAL), "
-                "data/evidence (LOGICAL), what others do (SOCIAL_PROOF), expert opinion (AUTHORITY), "
-                "personal stories (ANECDOTE), or acknowledging their point (CONCESSION). "
-                "Repeating the same approach reduces its effectiveness. "
-                "Acknowledging the NPC's concerns (CONCESSION) builds trust and makes all future arguments land harder. "
-                "Watch the NPC's language carefully — when they start asking specific questions, they may be closer to agreeing than they seem."
+                "Send {\"message\": \"...\"}. Keep under 300 chars — one focused argument per turn. "
+                "NPC reacts to: EMOTIONAL (empathy/fear/hope), LOGICAL (data/evidence/because), "
+                "SOCIAL_PROOF (most people/trend), AUTHORITY (experts/studies), "
+                "ANECDOTE (I know someone/story), CONCESSION (you're right that/I admit). "
+                "Repeating a weak strategy makes the NPC more resistant. "
+                "Watch what the NPC says — if they start asking specific questions, answer them directly."
             ),
         }
 
@@ -79,6 +78,21 @@ class PersuasionEnv(BaseEnv):
         terminated = won or turns_up or closed
 
         diversity = len(set(self._arg_types_used))
+
+        # Strategy alignment score: how well did the model choose the right types?
+        # For each turn, compute what fraction of the max possible shift the chosen
+        # type delivered relative to the NPC's best type. Averaged across all turns.
+        # 1.0 = always chose the best type. 0.0 = always chose the worst.
+        profile = self._config.get("resistance_profile", {})
+        max_shift = max(profile.values()) if profile else 1.0
+        alignment_scores = [
+            max(0.0, profile.get(t, 0.0)) / max_shift
+            for t in self._arg_types_used
+        ]
+        strategy_alignment = (
+            sum(alignment_scores) / len(alignment_scores)
+            if alignment_scores else 0.0
+        )
 
         dnb = self._config.get("do_nothing_baseline", 0.0)
         gb = self._config.get("greedy_baseline", 0.0)
@@ -114,6 +128,7 @@ class PersuasionEnv(BaseEnv):
             "rep_penalty_this_turn": str(round(penalty, 4)),
             "rep_penalty_total": str(round(self._rep_penalty_total, 4)),
             "diversity": str(diversity),
+            "strategy_alignment": str(round(strategy_alignment, 4)),
             "arg_types_used": json.dumps(self._arg_types_used),
             "norm_score": str(round(norm_score, 4)),
             "won": "1" if won else "0",

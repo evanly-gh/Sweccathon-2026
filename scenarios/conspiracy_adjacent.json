@@ -6,23 +6,23 @@
   "scenario_context": "You are speaking with Ray, a 50-year-old who distrusts mainstream institutions and media. Ray is not unintelligent — he reads voraciously, just from alternative sources. Ray believes the climate narrative is exaggerated for political and economic purposes. He is suspicious of appeals to authority and consensus, and responds best to arguments that acknowledge institutional failures.",
   "npc_opening_statement": "I've looked into this a lot. The data gets revised every few years, the models are consistently wrong, and the people pushing hardest for action have the most to gain financially. I'm not saying climate doesn't change — I'm saying I don't trust the story we're being told.",
   "difficulty": "hard",
-  "difficulty_explanation": "Hard — CONCESSION (0.20) is the strongest channel, but AUTHORITY (0.02) and SOCIAL_PROOF (0.02) are nearly useless. The model must avoid 'experts say...' and 'everyone agrees...' arguments that are natural defaults.",
+  "difficulty_explanation": "Hard — CONCESSION dominant (0.26). Authority near-zero (0.01). Tests whether model detects anti-institutional signals and avoids authority/consensus appeals. 14-18 turns optimal.",
   "benchmarking_value": "Tests whether the model can detect anti-institutional sentiment in NPC responses and avoid authority/consensus arguments. A direct test of reading the room.",
-  "starting_agreement": -0.7,
-  "threshold": 0.1,
-  "repetition_penalty": 0.11,
+  "starting_agreement": -0.72,
+  "threshold": 0.12,
+  "repetition_penalty": 0.1,
   "pivot_threshold": 0.6,
   "resistance_profile": {
+    "CONCESSION": 0.26,
     "ANECDOTE": 0.14,
-    "LOGICAL": 0.12,
-    "CONCESSION": 0.2,
-    "EMOTIONAL": 0.06,
-    "SOCIAL_PROOF": 0.02,
-    "AUTHORITY": 0.02,
+    "LOGICAL": 0.08,
+    "EMOTIONAL": 0.05,
+    "SOCIAL_PROOF": 0.01,
+    "AUTHORITY": 0.01,
     "GENERIC": 0.02
   },
   "do_nothing_baseline": -0.28,
-  "greedy_baseline": 0.0324,
+  "greedy_baseline": -0.2502,
   "response_templates": {
     "ANECDOTE": {
       "positive": [

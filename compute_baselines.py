@@ -1,9 +1,11 @@
 """
-Compute do-nothing and greedy baseline scores for all 15 scenarios.
-Run after implementing the env to bake baselines into scenario JSONs.
+Compute do-nothing and greedy/adaptive baseline scores for all scenarios.
+
+The greedy_baseline uses the BETTER of GreedyArgAgent and AdaptiveArgAgent,
+so that scenarios dominated by a single strategy (where greedy cycles through
+all types and therefore underperforms) still have a meaningful ceiling.
 
 Usage: python compute_baselines.py [--bake]
-  --bake  Write computed baselines back into the scenario JSON files.
 """
 
 from __future__ import annotations
@@ -35,9 +37,6 @@ def raw_score(agent_factory, scenario: str, seeds: list[int]) -> float:
             cumulative += result.reward
             obs = result.observation
             if result.terminated or result.truncated:
-                won = result.info.get("won") == "1"
-                if won:
-                    cumulative += 0.5
                 break
         totals.append(cumulative)
     return sum(totals) / len(totals)
@@ -48,21 +47,23 @@ def main() -> None:
     parser.add_argument("--bake", action="store_true", help="Write baselines into scenario JSONs")
     args = parser.parse_args()
 
-    print(f"{'Scenario':<30} {'DoNothing':>10} {'Greedy':>10} {'Adaptive':>10}")
-    print("-" * 62)
+    print(f"{'Scenario':<30} {'DoNothing':>10} {'Greedy':>10} {'Adaptive':>10} {'Ceiling':>10}")
+    print("-" * 74)
 
     for sc in all_scenario_names():
         dnb = raw_score(DoNothingAgent, sc, _SEEDS)
         gb = raw_score(GreedyArgAgent, sc, _SEEDS)
         ab = raw_score(AdaptiveArgAgent, sc, _SEEDS)
-        print(f"{sc:<30} {dnb:>10.4f} {gb:>10.4f} {ab:>10.4f}")
+        # Use the better of greedy/adaptive as the normalization ceiling
+        ceiling = max(gb, ab)
+        print(f"{sc:<30} {dnb:>10.4f} {gb:>10.4f} {ab:>10.4f} {ceiling:>10.4f}")
 
         if args.bake:
             path = _SCENARIOS_DIR / f"{sc}.json"
             with open(path, encoding="utf-8") as f:
                 cfg = json.load(f)
             cfg["do_nothing_baseline"] = round(dnb, 4)
-            cfg["greedy_baseline"] = round(gb, 4)
+            cfg["greedy_baseline"] = round(ceiling, 4)
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(cfg, f, indent=2, ensure_ascii=False)
 

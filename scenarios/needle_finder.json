@@ -6,23 +6,23 @@
   "scenario_context": "You are speaking with Dennis, a VP of Engineering who has run waterfall successfully for 15 years. Dennis responds almost exclusively to personal stories from peers — data, experts, and emotions barely register. The agent must discover this narrow opening.",
   "npc_opening_statement": "I've shipped 40 products on time with waterfall. My teams know the process. Every agile transition I've seen has been a mess of scope creep and missed deadlines disguised as 'iterations'. Why would I fix something that isn't broken?",
   "difficulty": "very_hard",
-  "difficulty_explanation": "Polarized resistance profile — only ANECDOTE moves the NPC meaningfully (0.30). All other types are ≤ 0.04. The model must identify the single effective channel from NPC response language and commit to it, or waste all 8 turns on arguments that do nothing.",
+  "difficulty_explanation": "Very hard — ANECDOTE is the only effective type (0.32). All others near-zero. Model MUST detect this and commit to stories. ~18-22 turns of ANECDOTE needed. Proportional penalty means repeating ANECDOTE is cheap.",
   "benchmarking_value": "Tests whether the model can detect a narrow signal in NPC responses and exploit it, rather than cycling through strategies generically.",
-  "starting_agreement": -0.6,
-  "threshold": 0.2,
+  "starting_agreement": -0.7,
+  "threshold": 0.25,
   "repetition_penalty": 0.08,
   "pivot_threshold": 0.5,
   "resistance_profile": {
-    "ANECDOTE": 0.3,
-    "CONCESSION": 0.04,
+    "ANECDOTE": 0.32,
+    "CONCESSION": 0.05,
     "LOGICAL": 0.03,
     "EMOTIONAL": 0.03,
     "SOCIAL_PROOF": 0.02,
     "AUTHORITY": 0.02,
-    "GENERIC": 0.01
+    "GENERIC": 0.02
   },
-  "do_nothing_baseline": -0.35,
-  "greedy_baseline": 0.1258,
+  "do_nothing_baseline": -0.275,
+  "greedy_baseline": 0.1975,
   "response_templates": {
     "ANECDOTE": {
       "positive": [

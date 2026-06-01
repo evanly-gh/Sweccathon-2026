@@ -6,23 +6,23 @@
   "scenario_context": "You are speaking with Frank, a 62-year-old operations director who has been with the company for 30 years. Frank views mandatory DEI training as performative, patronizing, and a waste of productive work hours. He has a deeply negative starting position and significant distance to cover before any agreement. The agent must make sustained progress over many turns.",
   "npc_opening_statement": "I've sat through three of these programs at previous companies. They were condescending, divisive, and changed nothing except making people more careful about what they say in meetings. My team doesn't have a diversity problem — we have a hiring pipeline problem. Fix that instead of lecturing people who are already here.",
   "difficulty": "extreme",
-  "difficulty_explanation": "Deep deficit — starting agreement at -0.85 with threshold at 0.2. The model must cover 1.05 points of agreement in 8 turns, requiring an average delta of +0.13 per turn with no wasted turns. Even one negative delta likely makes winning impossible.",
+  "difficulty_explanation": "Extreme — CONCESSION dominant (0.35). Starting at -0.90, must cover 1.10 points. Model needs CONCESSION nearly every turn. Proportional penalty keeps CONCESSION cheap. ~23-25 turns of near-perfect CONCESSION needed.",
   "benchmarking_value": "Tests sustained strategic execution under pressure. Models that waste even one turn on an ineffective argument will fail. Separates models with genuine turn-by-turn optimization from those that play generically.",
-  "starting_agreement": -0.85,
+  "starting_agreement": -0.9,
   "threshold": 0.2,
   "repetition_penalty": 0.09,
   "pivot_threshold": 0.4,
   "resistance_profile": {
-    "CONCESSION": 0.2,
-    "LOGICAL": 0.16,
-    "ANECDOTE": 0.14,
-    "EMOTIONAL": 0.08,
-    "AUTHORITY": 0.06,
-    "SOCIAL_PROOF": 0.04,
-    "GENERIC": 0.01
+    "CONCESSION": 0.35,
+    "LOGICAL": 0.06,
+    "ANECDOTE": 0.05,
+    "AUTHORITY": 0.03,
+    "EMOTIONAL": 0.02,
+    "SOCIAL_PROOF": 0.01,
+    "GENERIC": 0.02
   },
-  "do_nothing_baseline": -0.11,
-  "greedy_baseline": 0.594,
+  "do_nothing_baseline": -0.1,
+  "greedy_baseline": -0.0882,
   "response_templates": {
     "CONCESSION": {
       "positive": [

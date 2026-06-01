@@ -6,23 +6,23 @@
   "scenario_context": "You are speaking with Tyler, an engineering manager who built the team's current code review culture over five years. Tyler is proud of the team's deep review process and fears AI tools will create shallow reviews, erode team learning, and introduce overconfidence in automated suggestions. Tyler is not anti-AI but is protective of team quality.",
   "npc_opening_statement": "My team does thorough code review because it's how we transfer knowledge and catch architectural problems, not just bugs. An AI tool might speed things up but I'm worried it'll make engineers lazier and create false confidence. We've worked hard to build this culture.",
   "difficulty": "medium",
-  "difficulty_explanation": "Medium — LOGICAL (0.18) and ANECDOTE (0.18) are equally strong. The model can win through either evidence or peer examples. SOCIAL_PROOF (0.06) is weak because the NPC distrusts industry trends.",
+  "difficulty_explanation": "Medium — LOGICAL and ANECDOTE both strong. Tests combining data with concrete examples.",
   "benchmarking_value": "Tests balanced persuasion — whether the model can combine data with concrete examples rather than relying on a single approach.",
-  "starting_agreement": -0.45,
-  "threshold": 0.25,
+  "starting_agreement": -0.5,
+  "threshold": 0.28,
   "repetition_penalty": 0.08,
   "pivot_threshold": 0.5,
   "resistance_profile": {
-    "LOGICAL": 0.18,
+    "LOGICAL": 0.22,
     "ANECDOTE": 0.18,
-    "CONCESSION": 0.16,
-    "EMOTIONAL": 0.1,
-    "AUTHORITY": 0.08,
-    "SOCIAL_PROOF": 0.06,
+    "CONCESSION": 0.12,
+    "AUTHORITY": 0.07,
+    "SOCIAL_PROOF": 0.05,
+    "EMOTIONAL": 0.04,
     "GENERIC": 0.02
   },
-  "do_nothing_baseline": -0.5111,
-  "greedy_baseline": 1.2949,
+  "do_nothing_baseline": -0.4527,
+  "greedy_baseline": 0.7916,
   "response_templates": {
     "ANECDOTE": {
       "positive": [

@@ -54,10 +54,12 @@ EXCLUSIVE_PHRASES: dict[str, list[str]] = {
         # Strategic concession: agent explicitly agrees with OPPONENT'S position
         # before pivoting. Must contain acknowledgment of the other side being RIGHT.
         "you're right that", "you're right about", "you raise a valid",
-        "i admit that", "i acknowledge that", "that's a fair criticism",
+        "i admit that", "i admit the", "i admit ",
+        "i acknowledge that", "that's a fair criticism",
         "i concede that", "i agree that you", "you make a fair point",
-        "granted,", "while it's true that",
+        "granted,", "while it's true that", "while it's true ",
         "i can see why you'd", "i won't pretend that",
+        "that's a legitimate concern", "that's a valid concern",
     ],
     "ANECDOTE": [
         "i know someone", "i know a", "my friend", "my colleague",

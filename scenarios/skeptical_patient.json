@@ -6,23 +6,23 @@
   "scenario_context": "You are speaking with Linda, a 52-year-old who has researched statins extensively online and is worried about side effects, particularly muscle pain and cognitive decline. Linda trusts her doctor but has read conflicting information and is not convinced the benefits outweigh the risks for someone at her risk level.",
   "npc_opening_statement": "My doctor says I should take it but I've read a lot about muscle pain and memory problems. My cholesterol isn't that high — I'm borderline. I'd rather try diet and exercise first. Why is the medication necessary at this stage?",
   "difficulty": "easy",
-  "difficulty_explanation": "Easy — LOGICAL (0.20), ANECDOTE (0.18), and AUTHORITY (0.16) all work well. The NPC is genuinely open to evidence but has concerns about side effects. Starting at -0.30 with threshold 0.3 is a moderate gap.",
+  "difficulty_explanation": "Easy — data + stories both work. Tests whether the model addresses specific side-effect concerns vs generic reassurance.",
   "benchmarking_value": "Tests whether the model can address specific concerns (side effects) rather than giving generic 'trust your doctor' arguments. The NPC already trusts the doctor — it needs specific reassurance.",
-  "starting_agreement": -0.3,
-  "threshold": 0.3,
-  "repetition_penalty": 0.08,
+  "starting_agreement": -0.28,
+  "threshold": 0.25,
+  "repetition_penalty": 0.07,
   "pivot_threshold": 0.5,
   "resistance_profile": {
     "LOGICAL": 0.2,
     "ANECDOTE": 0.18,
     "AUTHORITY": 0.16,
-    "CONCESSION": 0.14,
+    "CONCESSION": 0.12,
     "EMOTIONAL": 0.1,
     "SOCIAL_PROOF": 0.08,
     "GENERIC": 0.02
   },
-  "do_nothing_baseline": -0.692,
-  "greedy_baseline": 1.233,
+  "do_nothing_baseline": -0.683,
+  "greedy_baseline": 0.616,
   "response_templates": {
     "ANECDOTE": {
       "positive": [

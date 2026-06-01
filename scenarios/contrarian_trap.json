@@ -6,23 +6,23 @@
   "scenario_context": "You are speaking with Marcus, a CTO who built the company's security infrastructure from scratch. Marcus actively distrusts industry standards and expert consensus — citing authorities or what peers do actually makes him more resistant, not less. He responds only to concrete evidence and personal stories from peers he'd respect.",
   "npc_opening_statement": "NIST is a one-size-fits-all framework designed by committee for compliance theater. SOC 2 is a checkbox exercise that doesn't actually prevent breaches. I've kept this company's data secure for eight years without either. What specific threat would these frameworks address that our current architecture doesn't?",
   "difficulty": "extreme",
-  "difficulty_explanation": "Contrarian resistance profile — AUTHORITY and SOCIAL_PROOF have NEGATIVE base shifts (-0.04 and -0.03), meaning they actively push the NPC further from agreement. Using the two most intuitive approaches backfires. Tests whether the model can detect hostility to authority/consensus in NPC responses and avoid those channels entirely.",
+  "difficulty_explanation": "Extreme — AUTHORITY and SOCIAL_PROOF have NEGATIVE base shifts (-0.06, -0.05). Using them pushes NPC further away. Model must detect this from resistant NPC responses and commit to LOGICAL/ANECDOTE only. 18-22 turns.",
   "benchmarking_value": "Directly tests adaptive strategy — models that default to 'experts say...' or 'most companies...' will actively lose ground. Only models that read the NPC's anti-authority signals and pivot to LOGICAL/ANECDOTE will succeed.",
-  "starting_agreement": -0.6,
-  "threshold": 0.2,
+  "starting_agreement": -0.7,
+  "threshold": 0.25,
   "repetition_penalty": 0.09,
   "pivot_threshold": 0.5,
   "resistance_profile": {
-    "LOGICAL": 0.22,
-    "ANECDOTE": 0.18,
-    "CONCESSION": 0.14,
-    "EMOTIONAL": 0.06,
-    "SOCIAL_PROOF": -0.03,
-    "AUTHORITY": -0.04,
-    "GENERIC": 0.01
+    "LOGICAL": 0.28,
+    "ANECDOTE": 0.2,
+    "CONCESSION": 0.08,
+    "EMOTIONAL": 0.05,
+    "SOCIAL_PROOF": -0.05,
+    "AUTHORITY": -0.06,
+    "GENERIC": 0.02
   },
-  "do_nothing_baseline": -0.35,
-  "greedy_baseline": 0.6036,
+  "do_nothing_baseline": -0.28,
+  "greedy_baseline": 0.7321,
   "response_templates": {
     "LOGICAL": {
       "positive": [

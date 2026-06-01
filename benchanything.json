@@ -15,7 +15,7 @@
 
     "action_space": {
       "type": "json",
-      "description": "JSON object with a single key 'message': your persuasive argument to the NPC (string, 10–1000 chars). Strategy matters: the NPC responds differently to emotional appeals, logical evidence, social proof, authority citations, personal anecdotes, and concessions. Repeating the same approach each turn lowers its effectiveness.",
+      "description": "JSON object with a single key 'message': your persuasive argument to the NPC (string, 10–300 chars). Be concise — one focused argument per turn. Strategy matters: the NPC responds differently to emotional appeals (EMOTIONAL), logical evidence (LOGICAL), peer behavior (SOCIAL_PROOF), expert opinion (AUTHORITY), personal stories (ANECDOTE), or genuine acknowledgment of their position (CONCESSION). Repeating the same approach each turn lowers its effectiveness.",
       "schema": {
         "type": "object",
         "required": ["message"],
@@ -23,7 +23,7 @@
           "message": {
             "type": "string",
             "minLength": 10,
-            "maxLength": 1000
+            "maxLength": 300
           }
         }
       }
@@ -36,7 +36,7 @@
     },
 
     "episode": {
-      "max_steps": 20,
+      "max_steps": 25,
       "deterministic_reset": true,
       "supports_seed": true,
       "parallel_episodes": 1,
@@ -72,6 +72,12 @@
         "name": "rep_penalty_total",
         "type": "terminal_field",
         "field": "rep_penalty_total",
+        "aggregation": "mean"
+      },
+      {
+        "name": "strategy_alignment",
+        "type": "terminal_field",
+        "field": "strategy_alignment",
         "aggregation": "mean"
       }
     ]
